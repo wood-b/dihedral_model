@@ -1,6 +1,7 @@
 import numpy as np
 import math
-import utils
+from utils import utils
+from utils.stats import ArrayStats
 
 __author__ = "Brandon Wood"
 
@@ -30,14 +31,18 @@ class Polymer(object):
         self.c_ete = None
         self.corr = None
         self.c_corr = None
+        self.ete_stats = ArrayStats(self.monomer_num + 1)
+        self.corr_stats = ArrayStats(self.monomer_num)
         # position monomer tangent and links
         self.m = [self.monomer_len, 0, 0]
         self.l1 = [self.link_len * math.cos(self.link_angle),
                    -self.link_len * math.sin(self.link_angle), 0]
         self.l2 = [self.link_len * math.cos(self.link_angle),
                    self.link_len * math.sin(self.link_angle), 0]
+        # build all trans chain
+        self._build_chain()
 
-    def build_chain(self, chain_return=False):
+    def _build_chain(self):
         link_iter = 'l1'
         for pos in range(1, (2 * self.monomer_num), 1):
             if pos % 2 != 0:
@@ -50,10 +55,8 @@ class Polymer(object):
                 elif link_iter == 'l2':
                     self.chain[pos] = self.chain[pos - 1] + self.l2
                     link_iter = 'l1'
-        if chain_return:
-            return self.chain
 
-    def n_random_angle(self):
+    def _n_random_angle(self):
         random = np.random.uniform(0.0, 1.0, size=(self.monomer_num - 1))
         angle_map = self.n_prob_angle[:, 0].searchsorted(random)
         dihedral_set = []
@@ -70,8 +73,8 @@ class Polymer(object):
                         dihedral_set.append(self.n_prob_angle[0][1])
         return dihedral_set
 
-    def relax_neutral_chain(self, values=False):
-        dihedral_set = self.n_random_angle()
+    def rotate_chain(self):
+        dihedral_set = self._n_random_angle()
         self.relax_chain = np.array(self.chain, copy=True)
         ete = [0.0, self.monomer_len]
         pos_i = 1
@@ -90,22 +93,14 @@ class Polymer(object):
             self.relax_chain[0], self.relax_chain[1],
             self.relax_chain[i], self.relax_chain[i+1])
                                  for i in range(0, len(self.chain), 2)])
-        if values:
-            return self.relax_chain, self.end_to_end
 
-    def sample_neutral_chains(self):
-        ave_ete = np.zeros(self.monomer_num + 1)
-        ave_corr = np.zeros(self.monomer_num)
-        self.build_chain()
-        for chain_i in range(self.sample_num):
-            self.relax_neutral_chain()
-            ave_ete += self.end_to_end
-            ave_corr += self.corr
-        ave_ete /= self.sample_num
-        ave_corr /= self.sample_num
-        return ave_ete, ave_corr
+    def sample_chains(self):
+        for chain_i in range(1, self.sample_num + 1, 1):
+            self.rotate_chain()
+            self.ete_stats.update(float(chain_i), self.end_to_end)
+            self.corr_stats.update(float(chain_i), self.corr)
 
-    def c_random_angle(self, sites):
+    def _c_random_angle(self, sites):
         random = np.random.uniform(0.0, 1.0, size=sites)
         angle_map = self.c_prob_angle[:, 0].searchsorted(random)
         dihedral_set = []
@@ -134,10 +129,10 @@ class Polymer(object):
         return sorted(link_pos)
 
     def relax_charged_chain(self, electrons, values=False):
-        self.relax_neutral_chain()
+        self.rotate_chain()
         # electron affects dihedral angle of 3 links
         sites = int(math.ceil(electrons / 2.0)) * 3
-        dihedral_set = self.c_random_angle(sites)
+        dihedral_set = self._c_random_angle(sites)
         charged_chain = np.array(self.relax_chain, copy=True)
         pick_links = zip(self.pick_links(sites), dihedral_set)
         for link, angle in pick_links:
@@ -160,7 +155,6 @@ class Polymer(object):
     def sample_charged_chains(self, electrons):
         ave_ete = 0.0
         ave_corr = np.zeros(self.monomer_num)
-        self.build_chain()
         for chain_i in range(self.sample_num):
             self.relax_charged_chain(electrons)
             ave_ete += self.c_ete
