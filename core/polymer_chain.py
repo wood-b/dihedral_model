@@ -37,6 +37,8 @@ class Polymer(object):
                    self.link_len * math.sin(self.link_angle), 0]
         # build all trans chain
         self._build_chain()
+        # set of random dihedral angles
+        self.dihedral_set = []
 
     def _build_chain(self):
         link_iter = 'l1'
@@ -52,30 +54,28 @@ class Polymer(object):
                     self.chain[pos] = self.chain[pos - 1] + self.l2
                     link_iter = 'l1'
 
-    def _n_random_angle(self):
+    def _random_angle(self):
+        del self.dihedral_set[:]
         random = np.random.uniform(0.0, 1.0, size=(self.monomer_num - 1))
         angle_map = self.prob_angle[:, 0].searchsorted(random)
-        dihedral_set = []
         for prob_i in angle_map:
             rand = np.random.uniform(0.0, 1.0)
             if rand < 0.5:
-                dihedral_set.append(self.prob_angle[prob_i - 1][1])
+                self.dihedral_set.append(self.prob_angle[prob_i - 1][1])
                 continue
             else:
                 try:
-                    dihedral_set.append(self.prob_angle[prob_i][1])
+                    self.dihedral_set.append(self.prob_angle[prob_i][1])
                 except IndexError:
-                    # needs to be general
-                    if prob_i == 3600:
-                        dihedral_set.append(self.prob_angle[0][1])
-        return dihedral_set
+                    if prob_i == len(self.prob_angle):
+                        self.dihedral_set.append(self.prob_angle[0][1])
 
     def rotate_chain(self):
-        dihedral_set = self._n_random_angle()
+        self._random_angle()
         self.relax_chain = np.array(self.chain, copy=True)
         ete = [0.0, self.monomer_len]
         pos_i = 1
-        for angle in dihedral_set:
+        for angle in self.dihedral_set:
             uv = utils.unit_vector(self.relax_chain[pos_i], self.relax_chain[pos_i + 1])
             for pos_j in range(pos_i + 2, len(self.relax_chain), 1):
                 self.relax_chain[pos_j] = \
@@ -110,22 +110,23 @@ class RandomChargePolymer(Polymer):
         self.c_corr = None
         self.c_ete_stats = Stats()
         self.c_corr_stats = Stats()
+        # set of dihedral angles for charged polymer
+        self.c_dihedral_set = []
 
     def _c_random_angle(self, sites):
+        del self.c_dihedral_set[:]
         random = np.random.uniform(0.0, 1.0, size=sites)
         angle_map = self.c_prob_angle[:, 0].searchsorted(random)
-        dihedral_set = []
         for prob_i in angle_map:
             rand = np.random.uniform(0.0, 1.0)
             if rand < 0.5:
-                dihedral_set.append(self.c_prob_angle[prob_i - 1][1])
+                self.c_dihedral_set.append(self.c_prob_angle[prob_i - 1][1])
             else:
                 try:
-                    dihedral_set.append(self.c_prob_angle[prob_i][1])
+                    self.c_dihedral_set.append(self.c_prob_angle[prob_i][1])
                 except IndexError:
-                    if prob_i == 3600:
-                        dihedral_set.append(self.c_prob_angle[0][1])
-        return dihedral_set
+                    if prob_i == len(self.c_prob_angle):
+                        self.c_dihedral_set.append(self.c_prob_angle[0][1])
 
     def _pick_links(self, sites):
         link_pos = []
@@ -143,9 +144,9 @@ class RandomChargePolymer(Polymer):
         self.rotate_chain()
         # electron affects dihedral angle of 3 links
         sites = int(math.ceil(electrons / 2.0)) * 3
-        dihedral_set = self._c_random_angle(sites)
+        self._c_random_angle(sites)
         self.charged_chain = np.array(self.relax_chain, copy=True)
-        pick_links = zip(self._pick_links(sites), dihedral_set)
+        pick_links = zip(self._pick_links(sites), self.c_dihedral_set)
         for link, angle in pick_links:
             # idx is the bead or atom index on the chain
             idx = (link * 2) - 1
