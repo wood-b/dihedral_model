@@ -73,10 +73,10 @@ class TestPolymer(unittest.TestCase):
         std_corr = np.std(corr)
         # sample using polymer class
         self.polymer.sample_chains()
-        np.testing.assert_almost_equal(self.polymer.ete_stats.means[self.monomer_num], mean_ete, decimal=2)
-        np.testing.assert_almost_equal(self.polymer.ete_stats.stdevs[self.monomer_num], std_ete, decimal=2)
-        np.testing.assert_almost_equal(self.polymer.corr_stats.means[self.monomer_num - 1], mean_corr, decimal=2)
-        np.testing.assert_almost_equal(self.polymer.corr_stats.stdevs[self.monomer_num - 1], std_corr, decimal=2)
+        np.testing.assert_almost_equal(self.polymer.ete_stats.means[self.monomer_num], mean_ete, decimal=1)
+        np.testing.assert_almost_equal(self.polymer.ete_stats.stdevs[self.monomer_num], std_ete, decimal=1)
+        np.testing.assert_almost_equal(self.polymer.corr_stats.means[self.monomer_num - 1], mean_corr, decimal=1)
+        np.testing.assert_almost_equal(self.polymer.corr_stats.stdevs[self.monomer_num - 1], std_corr, decimal=1)
 
 
 if __name__ == '__main__':
