@@ -11,14 +11,15 @@ __author__ = "Brandon Wood"
 
 # calc and return unit vector of two pts, pts must numpy format
 def unit_vector(pt1, pt2):
-    line = pt1 - pt2
+    line = pt2 - pt1
     return line / math.sqrt((np.dot(line, line)))
 
 
-# rotate a point around an arbitray unit vector
+# rotate a point counterclockwise around an arbitrary unit vector
 # http://inside.mines.edu/fs_home/gmurray/ArbitraryAxisRotation/
+# angles range from -180 to 180 not 0 to 360
 def point_rotation(pt, angle_degree, unit_vec, origin=None):
-    angle = np.pi - (angle_degree * (np.pi / 180.0))
+    angle = np.pi + (angle_degree * (np.pi / 180.0))
     x, y, z = pt[0], pt[1], pt[2]
     u, v, w = unit_vec[0], unit_vec[1], unit_vec[2]
     if origin is not None:
@@ -40,12 +41,12 @@ def point_rotation(pt, angle_degree, unit_vec, origin=None):
 
 
 def eV_to_kJmol(energy):
-    kJ_mol = [(i * 96.48537559152172) for i in energy]
+    kJ_mol = [(i * 96.48533646) for i in energy]
     return kJ_mol
 
 
 def eV_to_kcalmol(energy):
-    kcal_mol = [(i * 23.06035) for i in energy]
+    kcal_mol = [(i * 23.06054887) for i in energy]
     return kcal_mol
 
 
@@ -74,12 +75,12 @@ def RB_potential(x, a, b, c, d, e, f):
 # Boltzmann distribution
 def boltz_dist(temp_K, energies):
     # kbT in eV/KS
-    kb_eV_K = 8.6173324 * 10 ** -5
+    kb_eV_K = 8.61733238 * 10 ** -5
     kbT = temp_K * kb_eV_K
     # normalization
-    boltz_factor = [np.exp(-energy / kbT) for energy in energies]
+    boltz_factor = np.array([np.exp(-energy / kbT) for energy in energies])
     normalize_val = sum(boltz_factor)
-    prob = [(np.exp(-energy / kbT) / normalize_val) for energy in energies]
+    prob = boltz_factor / normalize_val
     return prob
 
 

@@ -1,3 +1,5 @@
+import numpy as np
+
 __author__ = "Brandon Wood"
 
 """
@@ -28,16 +30,54 @@ class Stats(object):
             self.q_k += (x_k - prev_ak) * (x_k - self.a_k)
 
     @property
-    def get_mean(self):
+    def mean(self):
         return self.a_k
 
     @property
-    def get_variance(self):
+    def variance(self):
         if self.k == 1.0:
             return 0.0
         else:
             return self.q_k / (self.k - 1)
 
     @property
-    def get_stdev(self):
+    def stdev(self):
         return (self.q_k / (self.k - 1))**(1.0/2.0)
+
+
+class ArrayStats(object):
+    def __init__(self, array_len):
+        self.a_k = np.zeros(array_len)
+        self.q_k = np.zeros(array_len)
+        self.k = None
+
+    def update(self, k, x_array):
+        """
+        :param k: sample k where k (1..n) is a float
+        :param x_array: array of x_k values
+        :return: updated mean(a_k) and q_k
+        """
+        assert isinstance(k, float)
+        self.k = k
+        for i, x_k in enumerate(x_array):
+            prev_ak = self.a_k[i]
+            self.a_k[i] += (x_k - self.a_k[i]) / k
+            if k == 1.0:
+                self.q_k[i] = 0.0
+            else:
+                self.q_k[i] += (x_k - prev_ak) * (x_k - self.a_k[i])
+
+    @property
+    def means(self):
+        return self.a_k
+
+    @property
+    def variances(self):
+        if self.k == 1.0:
+            return 0.0
+        else:
+            return self.q_k / (self.k - 1)
+
+    @property
+    def stdevs(self):
+        return np.sqrt(self.q_k / (self.k - 1))
