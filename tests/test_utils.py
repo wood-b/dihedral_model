@@ -62,6 +62,27 @@ class TestUtilFunctions(unittest.TestCase):
         test_val = utils.correlation(pt1, pt2, pt3, pt4)
         np.testing.assert_almost_equal(test_val, 0.970142500145332)
 
+    def test_planarity(self):
+        # test case 1, all points in the xy plane
+        pt1 = np.array([0.0,  0.0,  0.0])
+        pt2 = np.array([1.48,  0.0,  0.0])
+        pt3 = np.array([2.90957022, -0.38305219,  0.0])
+        pt4 = pt2
+        pt5 = pt3
+        pt6 = np.array([4.38957022, -0.38305219,  0.0])
+        test_val = utils.planarity(pt1, pt2, pt3, pt4, pt5, pt6)
+        np.testing.assert_almost_equal(test_val, 1.0)
+        # test case 2, 45 degree angle between planes
+        pt6 = np.array([4.22032561, -1.0146817, -0.2708588])
+        test_val = utils.planarity(pt1, pt2, pt3, pt4, pt5, pt6)
+        ans = np.cos(np.pi/4.0)
+        np.testing.assert_almost_equal(test_val, ans)
+        # test case 3, 90 degree angle between planes
+        pt6 = np.array([4.29042902, -0.75305219, -0.38305219])
+        test_val = utils.planarity(pt1, pt2, pt3, pt4, pt5, pt6)
+        ans = np.cos(np.pi/2.0)
+        np.testing.assert_almost_equal(test_val, ans)
+
     def test_RB_potential(self):
         value = 3.281250000000001
         test_val = utils.RB_potential(120.0, 5.0, 4.0, 3.0, 5.0, 4.0, 3.0)
