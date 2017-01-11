@@ -1,4 +1,5 @@
 import numpy as np
+from scipy.optimize import curve_fit
 import math
 import json
 
@@ -62,6 +63,17 @@ def correlation(pt1, pt2, pt3, pt4):
             (math.sqrt(np.dot((pt2 - pt1), (pt2 - pt1)))
              * math.sqrt(np.dot((pt4 - pt3), (pt4 - pt3)))))
 
+# planarity function
+def planarity(pt1, pt2, pt3, pt4, pt5, pt6):
+    vec_1 = (pt2 - pt1)
+    vec_2 = (pt2 - pt3)
+    normal_1 = np.cross(vec_1, vec_2)
+    normal_1 /= np.sqrt(np.dot(normal_1, normal_1))
+    vec_3 = pt5 - pt4
+    vec_4 = pt5 - pt6
+    normal_2 = np.cross(vec_3, vec_4)
+    normal_2 /= np.sqrt(np.dot(normal_2, normal_2))
+    return np.dot(np.absolute(normal_1), np.absolute(normal_2))
 
 # Ryckaert_Bellemans dihedral potential function
 def RB_potential(x, a, b, c, d, e, f):
@@ -82,6 +94,41 @@ def boltz_dist(temp_K, energies):
     normalize_val = sum(boltz_factor)
     prob = boltz_factor / normalize_val
     return prob
+
+
+# https://terpconnect.umd.edu/~toh/models/ErrorPropagation.pdf
+# Error propagation for multiplication and division
+def error_m_d(x, p, sigma_p, q=1, sigma_q=1):
+    return x * np.sqrt((sigma_p / p) ** 2 * (sigma_q / q) ** 2)
+
+
+# Error propagation for natural log
+def error_nl(p, sigma_p):
+    return sigma_p / p
+
+
+def poly1d(x, a, b):
+    return a * x + b
+
+
+# Persistence length
+def pt_persist_length(x_vals, corr, std_corr):
+    ln_corr = np.log(corr)
+    std_ln_corr = error_nl(corr, std_corr)
+    popt, pcov = curve_fit(poly1d, x_vals, ln_corr, sigma=std_ln_corr, absolute_sigma=True)
+    # dimensionless persistence length
+    pt_np = -1.0 / popt[0]
+    # persistence length in nanometers
+    h = np.sqrt(2.548 ** 2 + 1.480 ** 2 - (2 * 2.548 * 1.480 * np.cos(165.0 * np.pi / 180.0))) / 10.0
+    lp = pt_np * h
+    # error in persistence length
+    perr = np.sqrt(np.diag(pcov))
+    # division step
+    np_std = error_m_d(pt_np, popt[0], perr[0])
+    #np_std = 1.0 / perr[0]
+    # multiplication
+    lp_std = np_std * h
+    return lp, lp_std
 
 
 def write_json(write_list, filename):
