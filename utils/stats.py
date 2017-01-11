@@ -33,6 +33,11 @@ class Stats(object):
     def mean(self):
         return self.a_k
 
+    # m2_k is the second moment at sample k
+    @property
+    def m2_k(self):
+        return self.q_k
+
     @property
     def variance(self):
         if self.k == 1.0:
@@ -70,6 +75,11 @@ class ArrayStats(object):
     @property
     def means(self):
         return self.a_k
+
+    # m2_k is the second moment at sample k
+    @property
+    def m2_k(self):
+        return self.q_k
 
     @property
     def variances(self):
