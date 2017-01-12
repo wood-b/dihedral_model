@@ -1,0 +1,3401 @@
+srun -N 1 --ntasks-per-node 16 --nodelist nid01044 /global/project/projectdirs/jcesr/qchem/qc44/cnl_qc441/dist/exe/qcprog.cori.exe .pt_dft_140.0.in.57617.qcin.1 /dev/shm/eg_qchem/qchem57617/
+Process 1 of 16 is on nid01044 - thread support 0
+Process 2 of 16 is on nid01044 - thread support 0
+Process 3 of 16 is on nid01044 - thread support 0
+Process 4 of 16 is on nid01044 - thread support 0
+Process 5 of 16 is on nid01044 - thread support 0
+Process 6 of 16 is on nid01044 - thread support 0
+Process 0 of 16 is on nid01044 - thread support 0
+initial socket setup ...start
+Process 15 of 16 is on nid01044 - thread support 0
+initial socket setup ...done 
+now start server 0 ... 
+nid01044 10.128.4
+Q-Chem Developer Version! Running on 10.128.4.*
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 4.4, Q-Chem, Inc., Pleasanton, CA (2016)
+
+ Y. Shao,  Z. Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  J. Deng,  X. Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  F.Rob,  
+ R. Z. Khaliullin,  T. Kus,  A. Landau,  J. Liu,  E. I. Proynov,  Y. M. Rhee,  
+ R. M. Richard,  M. A. Rohrdanz,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ B. Austin,  S. A. Baeppler,  G. J. O. Beran,  Y. A. Bernard,  E. Berquist,  
+ K. Brandhorst,  K. B. Bravaya,  S. T. Brown,  D. Casanova,  C.-M. Chang,  
+ Y. Chen,  S. H. Chien,  K. D. Closser,  M. P. Coons,  D. L. Crittenden,  
+ S. Dasgupta,  M. Diedenhofen,  R. A. DiStasio Jr.,  H. Do,  A. D. Dutoi,  
+ R. G. Edgar,  P.-T. Fang,  S. Fatehi,  Q. Feng,  L. Fusti-Molnar,  
+ A. Ghysels,  A. Golubeva-Zadorozhnaya,  J. Gomes,  A. Gunina,  
+ M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  E. G. Hohenstein,  
+ Z. C. Holden,  K. Hui,  T.-C. Jagau,  H. Ji,  B. Kaduk,  K. Khistyaev,  
+ Jaehoon Kim,  Jihan Kim,  R. A. King,  P. Klunzinger,  D. Kosenkov,  
+ T. Kowalczyk,  C. M. Krauter,  A. Kunitsa,  K. U. Lao,  A. Laurent,  
+ K. V. Lawler,  D. Lefrancois,  S. Lehtola,  S. V. Levchenko,  C. Y. Lin,  
+ Y.-S. Lin,  F. Liu,  E. Livshits,  R. C. Lochan,  A. Luenser,  P. Manohar,  
+ S. F. Manzer,  S.-P. Mao,  Y. Mao,  N. Mardirossian,  A. V. Marenich,  
+ L. A. Martinez-Martinez,  S. A. Maurer,  N. J. Mayhall,  J.-M. Mewes,  
+ A. F. Morrison,  K. Nanda,  C. M. Oana,  R. Olivares-Amaya,  D. P. O'Neill,  
+ J. A. Parkhill,  T. M. Perrine,  R. Peverati,  P. A. Pieniazek,  F. Plasser,  
+ A. Prociuk,  D. R. Rehn,  E. Rosta,  N. J. Russ,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  A. Sodt,  T. Stauch,  T. Stein,  
+ D. Stuck,  Y.-C. Su,  A. J. W. Thom,  T. Tsuchimochi,  L. Vogt,  O. Vydrov,  
+ T. Wang,  M. A. Watson,  J. Wenzel,  A. White,  C. F. Williams,  
+ V. Vanovschi,  S. Yeganeh,  S. R. Yost,  Z.-Q. You,  I. Y. Zhang,  X. Zhang,  
+ Y. Zhao,  B. R. Brooks,  G. K. L. Chan,  D. M. Chipman,  C. J. Cramer,  
+ W. A. Goddard III,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ H. F. Schaefer III,  M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  
+ A. Warshel,  X. Xu,  A. Aspuru-Guzik,  R. Baer,  A. T. Bell,  N. A. Besley,  
+ J.-D. Chai,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  S. R. Gwaltney,  
+ C.-P. Hsu,  Y. Jung,  J. Kong,  D. S. Lambrecht,  W. Liang,  C. Ochsenfeld,  
+ V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  T. Van Voorhis,  
+ J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  J. Baker,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ H. Dachsel,  R. J. Doerksen,  G. Hawkins,  A. Heyden,  S. Hirata,  
+ G. Kedziora,  F. J. Keil,  C. Kelley,  P. P. Korambath,  W. Kurlancheek,  
+ A. M. Lee,  M. S. Lee,  D. Liotard,  I. Lotan,  P. E. Maslen,  N. Nair,  
+ D. Neuhauser,  R. Olson,  B. Peters,  J. Ritchie,  N. E. Schultz,  
+ N. Shenvi,  A. C. Simmonett,  K. S. Thanthiriwatte,  Q. Wu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 4.4.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 5.200.1 (Boston Tea Smuggler).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Fri Sep  2 18:37:59 2016  
+
+Host: nid01043
+0
+
+     Scratch files written to /dev/shm/eg_qchem/qchem57617.0//
+ Parallel job on  16  processors
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$comment
+<SCF Fix Strategy>{
+    "current_method_id": 1, 
+    "methods": [
+        "increase_iter", 
+        "rca_diis", 
+        "gwh", 
+        "gdm", 
+        "rca", 
+        "core+rca", 
+        "fon"
+    ], 
+    "version": 2.0
+}</SCF Fix Strategy>
+$end
+
+
+$molecule
+ 0  1
+ S           1.82267924       -1.19997629        0.28714109
+ C           3.20006180       -0.17260711        0.06528466
+ C           2.82980603        1.10216298       -0.25610036
+ C           1.41909100        1.26345446       -0.34254814
+ C           0.71738150        0.10901545       -0.08456145
+ H           0.93627498        2.19419272       -0.61095402
+ C          -0.71741859       -0.10899254       -0.08455524
+ S          -1.80625393        1.09168454        0.58336482
+ C          -1.43062800       -1.18776723       -0.55280750
+ C          -3.19325504        0.12760085        0.19779900
+ C          -2.83740935       -1.05235764       -0.39083361
+ H          -3.55409938       -1.79789505       -0.70902101
+ H           4.19429620       -0.57452886        0.18632814
+ H           3.53860725        1.89960515       -0.43610218
+ H          -4.18189337        0.49270340        0.43015440
+ H          -0.95949572       -2.04163174       -1.02225028
+$end
+
+
+$rem
+         jobtype = opt
+        exchange = b3lyp
+           basis = 6-31++g**
+  max_scf_cycles = 200
+      mem_static = 100
+       mem_total = 1500
+   scf_algorithm = rca_diis
+       scf_guess = sad
+$end
+
+
+$opt
+CONSTRAINT
+tors 4 5 7 9 140.0
+ENDCONSTRAINT
+$end
+
+--------------------------------------------------------------
+ Atom   8: ( -1.8210406516,  1.1449733800,  0.4016940434)
+         ->( -1.8210408090,  1.1449734415,  0.4016939237)
+ Atom  10: ( -3.1978682972,  0.1385086778,  0.0963010517)
+         ->( -3.1978682963,  0.1385084923,  0.0963010614)
+ Atom  11: ( -2.8279619422, -1.0940713405, -0.3612274498)
+         ->( -2.8279617827, -1.0940715096, -0.3612272533)
+ Atom   9: ( -1.4182242767, -1.2377556538, -0.4861257982)
+         ->( -1.4182241388, -1.2377555130, -0.4861261671)
+ Atom   7: ( -0.7168795405, -0.1123764788, -0.1209957576)
+         ->( -0.7168794846, -0.1123763635, -0.1209957407)
+ Atom  16: ( -0.9362409258, -2.1330222212, -0.8570928766)
+         ->( -0.9362407136, -2.1330219097, -0.8570935388)
+ Atom  14: (  3.5365089128,  1.8724914695, -0.6117011435)
+         ->(  3.5365091703,  1.8724911677, -0.6117014974)
+ Atom  15: ( -4.1915502673,  0.5202433603,  0.2739789232)
+         ->( -4.1915503449,  0.5202429584,  0.2739789804)
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8210408090    -1.1449734415     0.4016939237
+    2      C       3.1978682963    -0.1385084923     0.0963010614
+    3      C       2.8279617827     1.0940715096    -0.3612272533
+    4      C       1.4182241388     1.2377555130    -0.4861261671
+    5      C       0.7168794846     0.1123763635    -0.1209957407
+    6      H       0.9362407136     2.1330219097    -0.8570935388
+    7      C      -0.7168794846    -0.1123763635    -0.1209957407
+    8      S      -1.8210408090     1.1449734415     0.4016939237
+    9      C      -1.4182241388    -1.2377555130    -0.4861261671
+   10      C      -3.1978682963     0.1385084923     0.0963010614
+   11      C      -2.8279617827    -1.0940715096    -0.3612272533
+   12      H      -3.5365091703    -1.8724911677    -0.6117014974
+   13      H       4.1915503449    -0.5202429584     0.2739789804
+   14      H       3.5365091703     1.8724911677    -0.6117014974
+   15      H      -4.1915503449     0.5202429584     0.2739789804
+   16      H      -0.9362407136    -2.1330219097    -0.8570935388
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   629.8090541055 hartrees
+ There are       43 alpha and       43 beta electrons
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
+
+ Total QAlloc Memory Limit   1500 MB
+ Mega-Array Size        98 MB
+ MEM_STATIC part       100 MB
+ A cutoff of  1.0D-12 yielded   2532 shell pairs
+ There are     24942 function pairs
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is            800000
+ size of driver memory is                593474
+ size of scratch memory is             15166112
+ max col of scratch BK array               1296
+ max len of scratch array in speh3          155
+ max len of scratch index in speh4           18
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                52
+ max L of basis functions is                  2
+ order of int derivative is                   0
+ number of shells is                         76
+ number of basis is                         234
+ number of cartesian basis is               234
+ number of contracted shell pairs          2532
+ number of primitive shell pairs           8265
+ maxK2 (contraction) of shell pair           36
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            268
+ max number of PS2 of shell pair           1524
+ mem total for path MDJ                   51992
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 1.03E-06
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =     0.0000000201 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ A restricted hybrid HF-DFT SCF calculation will be
+ performed using Relaxed Constraint Minimization + Pulay DIIS
+ Exchange:     0.2000 Hartree-Fock + 0.0800 Slater + 0.7200 B88
+ Correlation:  0.1900 VWN1RPA + 0.8100 LYP
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-08
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1107.2300668206      4.44E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.977273888465
+   Relative error      =    -0.0264257111 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.977273888465
+   Relative error      =    -0.0264257111 %
+    2   -1117.8906074466      2.60E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.972298351585
+   Relative error      =    -0.0322112191 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976554656297
+   Relative error      =    -0.0272620276 %
+Recomputing EXC -1117.971459 -1121.640564 -1117.890607 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.977089132965
+   Relative error      =    -0.0266405431 %
+    3   -1118.2239394472      2.31E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.972132820436
+   Relative error      =    -0.0324036972 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976222630197
+   Relative error      =    -0.0276481044 %
+    4   -1120.2464531888      1.01E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.977270098872
+   Relative error      =    -0.0264301176 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976301654688
+   Relative error      =    -0.0275562155 %
+Recomputing EXC -1120.215330 -1120.939802 -1120.246453 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244707808
+   Relative error      =    -0.0276224328 %
+    5   -1120.3395203881      7.76E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976505935605
+   Relative error      =    -0.0273186795 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976248994527
+   Relative error      =    -0.0276174482 %
+Recomputing EXC -1118.123388 -1120.460262 -1120.339520 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244779646
+   Relative error      =    -0.0276223492 %
+Recomputing EXC -1120.302443 -1120.341542 -1120.339520 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244708987
+   Relative error      =    -0.0276224314 %
+Recomputing EXC -1120.338899 -1120.339554 -1120.339520 
+    6   -1120.3388991913      7.76E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976505740786
+   Relative error      =    -0.0273189061 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976248992079
+   Relative error      =    -0.0276174511 %
+Recomputing EXC -1118.202611 -1120.459626 -1120.338899 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244783186
+   Relative error      =    -0.0276223451 %
+    7   -1120.3815615892      7.76E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976482116025
+   Relative error      =    -0.0273463767 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245433047
+   Relative error      =    -0.0276215895 %
+Recomputing EXC -1117.803548 -1120.401823 -1120.381562 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244784864
+   Relative error      =    -0.0276223432 %
+Recomputing EXC -1120.374887 -1120.381614 -1120.381562 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244783134
+   Relative error      =    -0.0276223452 %
+Recomputing EXC -1120.381544 -1120.381562 -1120.381562 
+    8   -1120.3815443057      7.76E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976482111997
+   Relative error      =    -0.0273463814 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245432906
+   Relative error      =    -0.0276215896 %
+Recomputing EXC -1117.884419 -1120.401806 -1120.381544 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244784919
+   Relative error      =    -0.0276223431 %
+    9   -1120.4557269524      7.77E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976519898371
+   Relative error      =    -0.0273024438 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976247334365
+   Relative error      =    -0.0276193786 %
+Recomputing EXC -1117.897533 -1120.524318 -1120.455727 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244806795
+   Relative error      =    -0.0276223177 %
+Recomputing EXC -1120.433752 -1120.456315 -1120.455727 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244785071
+   Relative error      =    -0.0276223429 %
+Recomputing EXC -1120.455539 -1120.455732 -1120.455727 
+   10   -1120.4555387102      7.77E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976519870372
+   Relative error      =    -0.0273024763 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976247334310
+   Relative error      =    -0.0276193787 %
+Recomputing EXC -1117.977847 -1120.524130 -1120.455539 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244807557
+   Relative error      =    -0.0276223168 %
+   11   -1120.5139497647      7.77E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976512523585
+   Relative error      =    -0.0273110191 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976249405158
+   Relative error      =    -0.0276169707 %
+Recomputing EXC -1118.031059 -1120.641155 -1120.513950 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244880210
+   Relative error      =    -0.0276222323 %
+Recomputing EXC -1120.474578 -1120.515960 -1120.513950 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244808735
+   Relative error      =    -0.0276223154 %
+Recomputing EXC -1120.513329 -1120.513981 -1120.513950 
+   12   -1120.5133290198      7.78E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976512460470
+   Relative error      =    -0.0273110925 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976249405510
+   Relative error      =    -0.0276169703 %
+Recomputing EXC -1118.110529 -1120.640543 -1120.513329 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244883578
+   Relative error      =    -0.0276222284 %
+   13   -1120.5538290058      7.79E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976504551300
+   Relative error      =    -0.0273202892 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976250134560
+   Relative error      =    -0.0276161226 %
+Recomputing EXC -1118.074217 -1120.704139 -1120.553829 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244980278
+   Relative error      =    -0.0276221160 %
+Recomputing EXC -1120.507889 -1120.556601 -1120.553829 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244885394
+   Relative error      =    -0.0276222263 %
+Recomputing EXC -1120.552984 -1120.553880 -1120.553829 
+   14   -1120.5529842599      7.79E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976504489311
+   Relative error      =    -0.0273203613 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976250135547
+   Relative error      =    -0.0276161215 %
+Recomputing EXC -1118.153408 -1120.703313 -1120.552984 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244984922
+   Relative error      =    -0.0276221106 %
+   15   -1120.5867889963      7.81E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976495921019
+   Relative error      =    -0.0273303244 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976249858661
+   Relative error      =    -0.0276164434 %
+Recomputing EXC -1118.047444 -1120.731968 -1120.586789 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245069892
+   Relative error      =    -0.0276220118 %
+Recomputing EXC -1120.542185 -1120.589327 -1120.586789 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244986370
+   Relative error      =    -0.0276221089 %
+Recomputing EXC -1120.586012 -1120.586833 -1120.586789 
+   16   -1120.5860118979      7.81E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976495878462
+   Relative error      =    -0.0273303739 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976249859777
+   Relative error      =    -0.0276164421 %
+Recomputing EXC -1118.126878 -1120.731213 -1120.586012 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245073972
+   Relative error      =    -0.0276220070 %
+   17   -1120.6213006710      7.83E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976486409070
+   Relative error      =    -0.0273413848 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976249067780
+   Relative error      =    -0.0276173630 %
+Recomputing EXC -1117.985397 -1120.745862 -1120.621301 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245132467
+   Relative error      =    -0.0276219390 %
+Recomputing EXC -1120.582486 -1120.623126 -1120.621301 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245074819
+   Relative error      =    -0.0276220060 %
+Recomputing EXC -1120.620734 -1120.621327 -1120.621301 
+   18   -1120.6207336398      7.83E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976486386565
+   Relative error      =    -0.0273414110 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976249068621
+   Relative error      =    -0.0276173621 %
+Recomputing EXC -1118.065293 -1120.745312 -1120.620734 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245134911
+   Relative error      =    -0.0276219362 %
+   19   -1120.6620896871      7.85E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976475540556
+   Relative error      =    -0.0273540226 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976248040043
+   Relative error      =    -0.0276185581 %
+Recomputing EXC -1117.906434 -1120.757732 -1120.662090 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245166812
+   Relative error      =    -0.0276218991 %
+Recomputing EXC -1120.631751 -1120.663138 -1120.662090 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245135231
+   Relative error      =    -0.0276219358 %
+Recomputing EXC -1120.661758 -1120.662101 -1120.662090 
+   20   -1120.6617579359      7.85E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976475531103
+   Relative error      =    -0.0273540336 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976248040514
+   Relative error      =    -0.0276185575 %
+Recomputing EXC -1117.986853 -1120.757410 -1120.661758 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245167917
+   Relative error      =    -0.0276218978 %
+   21   -1120.7119169958      7.87E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976462398278
+   Relative error      =    -0.0273693043 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976246843782
+   Relative error      =    -0.0276199491 %
+Recomputing EXC -1117.809545 -1120.770915 -1120.711917 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245178925
+   Relative error      =    -0.0276218850 %
+Recomputing EXC -1120.692814 -1120.712304 -1120.711917 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245168015
+   Relative error      =    -0.0276218977 %
+Recomputing EXC -1120.711792 -1120.711920 -1120.711917 
+   22   -1120.7117918464      7.87E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976462396341
+   Relative error      =    -0.0273693066 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976246843983
+   Relative error      =    -0.0276199489 %
+Recomputing EXC -1117.890463 -1120.770794 -1120.711792 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245179279
+   Relative error      =    -0.0276218846 %
+   23   -1120.7735580342      7.88E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976444664835
+   Relative error      =    -0.0273899246 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245395123
+   Relative error      =    -0.0276216336 %
+Recomputing EXC -1117.671502 -1120.781906 -1120.773558 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245179445
+   Relative error      =    -0.0276218844 %
+Recomputing EXC -1120.770786 -1120.773565 -1120.773558 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245179313
+   Relative error      =    -0.0276218845 %
+Recomputing EXC -1120.773556 -1120.773558 -1120.773558 
+   24   -1120.7735555402      7.88E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976444664657
+   Relative error      =    -0.0273899248 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245395196
+   Relative error      =    -0.0276216335 %
+Recomputing EXC -1117.752866 -1120.781904 -1120.773556 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976245179471
+   Relative error      =    -0.0276218843 %
+   25   -1120.8521222571      7.89E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.972655631024
+   Relative error      =    -0.0317957779 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976062458056
+   Relative error      =    -0.0278343511 %
+Recomputing EXC -1119.096249 -1121.240959 -1120.852122 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976235092497
+   Relative error      =    -0.0276336134 %
+Recomputing EXC -1120.756792 -1120.873524 -1120.852122 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976244620217
+   Relative error      =    -0.0276225346 %
+Recomputing EXC -1120.846842 -1120.853309 -1120.852122 
+   26   -1120.8468417936      7.88E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.972654998755
+   Relative error      =    -0.0317965131 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976080194519
+   Relative error      =    -0.0278137273 %
+Recomputing EXC -1119.039012 -1121.197047 -1120.846842 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976236446627
+   Relative error      =    -0.0276320388 %
+Recomputing EXC -1120.835179 -1120.864212 -1120.846842 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976243420823
+   Relative error      =    -0.0276239293 %
+   27   -1120.9146254597      7.88E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.972595158380
+   Relative error      =    -0.0318660949 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.973503036803
+   Relative error      =    -0.0308104223 %
+   28   -1197.1446536377      1.52E+00
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.955353868513
+   Relative error      =    -0.0519141064 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.968267441383
+   Relative error      =    -0.0368983240 %
+   29   -1315.6854023209      7.91E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.954378467642
+   Relative error      =    -0.0530482934 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965800062405
+   Relative error      =    -0.0397673693 %
+Recomputing EXC -1314.933144 -1380.241957 -1315.685402 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.967703733531
+   Relative error      =    -0.0375537982 %
+   30   -1318.0611636076      7.22E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953158953763
+   Relative error      =    -0.0544663328 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964958366590
+   Relative error      =    -0.0407460854 %
+Recomputing EXC -1321.871226 -1380.365847 -1318.061164 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.967046614494
+   Relative error      =    -0.0383178901 %
+   31   -1321.3800025843      6.58E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953404716306
+   Relative error      =    -0.0541805624 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964595808072
+   Relative error      =    -0.0411676650 %
+Recomputing EXC -1320.129371 -1375.478778 -1321.380003 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966495888033
+   Relative error      =    -0.0389582697 %
+   32   -1323.0042318530      6.05E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953671661633
+   Relative error      =    -0.0538701609 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964295794106
+   Relative error      =    -0.0415165185 %
+Recomputing EXC -1317.991381 -1370.597956 -1323.004232 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966029016065
+   Relative error      =    -0.0395011441 %
+Recomputing EXC -1323.481928 -1332.783896 -1323.004232 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966392485013
+   Relative error      =    -0.0390785058 %
+Recomputing EXC -1323.181625 -1325.151960 -1323.004232 
+   33   -1323.1816254038      5.95E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953730784932
+   Relative error      =    -0.0538014129 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964240116177
+   Relative error      =    -0.0415812603 %
+Recomputing EXC -1317.491644 -1369.584211 -1323.181625 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965941146380
+   Relative error      =    -0.0396033182 %
+Recomputing EXC -1323.405963 -1332.610916 -1323.181625 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966294210462
+   Relative error      =    -0.0391927785 %
+Recomputing EXC -1323.236537 -1325.219191 -1323.181625 
+   34   -1323.2365373146      5.85E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953776562732
+   Relative error      =    -0.0537481829 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964370487827
+   Relative error      =    -0.0414296653 %
+Recomputing EXC -1311.019061 -1364.840053 -1323.236537 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965930164625
+   Relative error      =    -0.0396160876 %
+Recomputing EXC -1322.083346 -1330.897382 -1323.236537 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966223054203
+   Relative error      =    -0.0392755184 %
+Recomputing EXC -1322.992584 -1324.725318 -1323.236537 
+   35   -1322.9925841237      5.78E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953831400026
+   Relative error      =    -0.0536844186 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964494670967
+   Relative error      =    -0.0412852663 %
+Recomputing EXC -1305.211593 -1360.538315 -1322.992584 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965926311476
+   Relative error      =    -0.0396205681 %
+Recomputing EXC -1320.897023 -1329.285044 -1322.992584 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966170660905
+   Relative error      =    -0.0393364408 %
+Recomputing EXC -1322.587888 -1324.098638 -1322.992584 
+   36   -1322.5878875562      5.73E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953894490557
+   Relative error      =    -0.0536110575 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964606403582
+   Relative error      =    -0.0411553447 %
+Recomputing EXC -1300.153098 -1356.752314 -1322.587888 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965925223205
+   Relative error      =    -0.0396218335 %
+Recomputing EXC -1319.868426 -1327.833721 -1322.587888 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966131200419
+   Relative error      =    -0.0393823251 %
+Recomputing EXC -1322.105267 -1323.428309 -1322.587888 
+   37   -1322.1052672155      5.68E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.953968645958
+   Relative error      =    -0.0535248303 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964703111107
+   Relative error      =    -0.0410428941 %
+Recomputing EXC -1295.867139 -1353.496761 -1322.105267 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965924519545
+   Relative error      =    -0.0396226517 %
+Recomputing EXC -1318.988930 -1326.559843 -1322.105267 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966100640866
+   Relative error      =    -0.0394178595 %
+Recomputing EXC -1321.591973 -1322.762017 -1322.105267 
+   38   -1321.5919731267      5.64E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.954080879653
+   Relative error      =    -0.0533943260 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964823341664
+   Relative error      =    -0.0409030911 %
+Recomputing EXC -1291.433506 -1349.975765 -1321.591973 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965932144587
+   Relative error      =    -0.0396137854 %
+Recomputing EXC -1318.189558 -1325.269093 -1321.591973 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966077991153
+   Relative error      =    -0.0394441963 %
+Recomputing EXC -1321.076265 -1322.085106 -1321.591973 
+   39   -1321.0762646909      5.61E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.954817726781
+   Relative error      =    -0.0525375270 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965236702367
+   Relative error      =    -0.0404224391 %
+Recomputing EXC -1282.013964 -1341.193058 -1321.076265 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965995054200
+   Relative error      =    -0.0395406347 %
+Recomputing EXC -1317.592974 -1323.028731 -1321.076265 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966069704590
+   Relative error      =    -0.0394538319 %
+Recomputing EXC -1320.659895 -1321.271074 -1321.076265 
+   40   -1320.6598945296      5.59E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.955871170292
+   Relative error      =    -0.0513125927 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965091419283
+   Relative error      =    -0.0405913729 %
+Recomputing EXC -1282.591780 -1346.188924 -1320.659895 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965960421802
+   Relative error      =    -0.0395809049 %
+Recomputing EXC -1316.702557 -1323.479754 -1320.659895 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966057402889
+   Relative error      =    -0.0394681362 %
+Recomputing EXC -1320.147336 -1320.977006 -1320.659895 
+   41   -1320.1473360554      5.58E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956064506124
+   Relative error      =    -0.0510877836 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965365568287
+   Relative error      =    -0.0402725950 %
+Recomputing EXC -1273.526431 -1338.739558 -1320.147336 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965999515839
+   Relative error      =    -0.0395354467 %
+Recomputing EXC -1316.423267 -1321.687925 -1320.147336 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966052546031
+   Relative error      =    -0.0394737837 %
+Recomputing EXC -1319.762537 -1320.276527 -1320.147336 
+   42   -1319.7625374007      5.57E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956203040587
+   Relative error      =    -0.0509266970 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.965447968976
+   Relative error      =    -0.0401767803 %
+Recomputing EXC -1270.987554 -1336.296582 -1319.762537 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966006944269
+   Relative error      =    -0.0395268090 %
+Recomputing EXC -1316.227346 -1320.998138 -1319.762537 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.966049103928
+   Relative error      =    -0.0394777861 %
+Recomputing EXC -1319.422121 -1319.855767 -1319.762537 
+   43   -1319.4221205530      5.56E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956702714564
+   Relative error      =    -0.0503456807 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956702714564
+   Relative error      =    -0.0503456807 %
+   44   -1597.2373880014      3.90E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964813978820
+   Relative error      =    -0.0409139781 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956797557311
+   Relative error      =    -0.0502353985 %
+Recomputing EXC -1591.704480 -1597.444544 -1597.237388 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956703833147
+   Relative error      =    -0.0503443801 %
+Recomputing EXC -1597.172150 -1597.239831 -1597.237388 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956702727852
+   Relative error      =    -0.0503456653 %
+Recomputing EXC -1597.236618 -1597.237417 -1597.237388 
+   45   -1597.2366184980      3.90E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.964813998890
+   Relative error      =    -0.0409139548 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956797571024
+   Relative error      =    -0.0502353825 %
+Recomputing EXC -1592.223638 -1597.443775 -1597.236618 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956703956886
+   Relative error      =    -0.0503442362 %
+   46   -1597.7031070190      3.90E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.963752428817
+   Relative error      =    -0.0421483386 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956766837078
+   Relative error      =    -0.0502711197 %
+Recomputing EXC -1592.325435 -1597.853508 -1597.703107 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956704518694
+   Relative error      =    -0.0503435829 %
+Recomputing EXC -1597.655066 -1597.704451 -1597.703107 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956703961939
+   Relative error      =    -0.0503442303 %
+Recomputing EXC -1597.702678 -1597.703119 -1597.703107 
+   47   -1597.7026778092      3.90E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.963752431417
+   Relative error      =    -0.0421483356 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956766841748
+   Relative error      =    -0.0502711142 %
+Recomputing EXC -1592.851541 -1597.853077 -1597.702678 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956704582327
+   Relative error      =    -0.0503435089 %
+   48   -1598.1877954903      3.90E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.960861827948
+   Relative error      =    -0.0455095024 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956733742030
+   Relative error      =    -0.0503096023 %
+Recomputing EXC -1592.965362 -1598.301253 -1598.187795 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956704786576
+   Relative error      =    -0.0503432714 %
+Recomputing EXC -1598.151212 -1598.188590 -1598.187795 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956704583701
+   Relative error      =    -0.0503435073 %
+Recomputing EXC -1598.187539 -1598.187801 -1598.187795 
+   49   -1598.1875392591      3.90E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.960861831557
+   Relative error      =    -0.0455094982 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956733743499
+   Relative error      =    -0.0503096006 %
+Recomputing EXC -1593.495536 -1598.300997 -1598.187539 
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.956704810394
+   Relative error      =    -0.0503432437 %
+   50   -1598.6851305926      3.90E-01 Done RCA. Switching to DIIS
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.960843572548
+   Relative error      =    -0.0455307296 %
+   51    -639.1556355776      3.32E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.981612212536
+   Relative error      =    -0.0213811482 %
+   52   -1015.0903336334      8.73E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.980052185911
+   Relative error      =    -0.0231951327 %
+   53   -1062.8285265746      3.20E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.976764365282
+   Relative error      =    -0.0270181799 %
+   54   -1087.8694594951      6.42E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.974525842347
+   Relative error      =    -0.0296211135 %
+   55   -1032.1817255790      9.13E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.982677231308
+   Relative error      =    -0.0201427543 %
+   56   -1154.2081369546      8.56E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.987800031762
+   Relative error      =    -0.0141860096 %
+   57   -1134.8240069766      1.25E+00
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.979892149633
+   Relative error      =    -0.0233812214 %
+   58   -1086.6933740521      9.07E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.990137230732
+   Relative error      =    -0.0114683364 %
+   59    -948.4323010368      4.40E+00
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.987818354204
+   Relative error      =    -0.0141647044 %
+   60   -1096.6669748886      3.54E-01
+   61    -644.0171115272      2.12E+00
+   62    -443.8762274130      3.66E+00
+   63   -1251.6807920356      4.91E-01
+   64   -1418.5135680239      2.18E+00
+   65   -1068.8574844669      1.62E-01
+   66   -1121.1886148360      1.31E-01
+   67   -1013.7910604741      2.65E-01
+   68    -983.4155420334      3.88E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.986939269409
+   Relative error      =    -0.0151868960 %
+   69   -1035.6946810046      1.99E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.991065030375
+   Relative error      =    -0.0103894996 %
+   70   -1011.6790323482      3.11E-01
+   71   -1213.2398675984      3.43E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.990374506910
+   Relative error      =    -0.0111924338 %
+   72   -1179.8369721425      2.27E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.988824417977
+   Relative error      =    -0.0129948628 %
+   73   -1045.7547352912      1.38E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.989065220677
+   Relative error      =    -0.0127148597 %
+   74   -1052.6828509136      1.31E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.989796558908
+   Relative error      =    -0.0118644664 %
+   75   -1034.6051691876      1.83E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.989436732524
+   Relative error      =    -0.0122828692 %
+   76   -1319.4002307306      6.23E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.989807724499
+   Relative error      =    -0.0118514831 %
+   77   -1343.7576883526      6.91E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.989642368473
+   Relative error      =    -0.0120437576 %
+   78   -1042.4480407001      1.59E-01
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.990425125750
+   Relative error      =    -0.0111335747 %
+   79   -1314.6360897881      6.00E-01
+   80    -995.3931067061      3.20E-01
+   81   -1041.0540533449      2.07E-01
+   82   -1003.0027017372      3.09E-01
+   83   -1044.3361039183      1.86E-01
+   84   -1070.9794784537      1.73E-01
+   85   -1227.6564821641      3.90E-01
+   86   -1053.4775579321      1.75E-01
+   87   -1080.9906869661      9.84E-02
+   88   -1031.5619278013      2.29E-01
+   89   -1022.1782957934      2.55E-01
+   90   -1043.8447184087      1.86E-01
+   91   -1046.1760341574      1.66E-01
+   92   -1028.8752518488      2.27E-01
+   93   -1026.6551317019      2.38E-01
+   94   -1032.6313420211      2.24E-01
+   95   -1022.3766528095      2.67E-01
+   96   -1023.2660965609      2.65E-01
+   97   -1011.1165626830      3.14E-01
+   98   -1031.4835918290      2.35E-01
+   99   -1038.8221820428      2.10E-01
+  100   -1038.0226716740      2.09E-01
+  101   -1027.2588535910      2.58E-01
+  102   -1008.2529132116      3.55E-01
+  103   -1060.7111644678      7.70E-02
+  104   -1207.0875475622      5.98E-01
+  105     598.6152254063      8.32E+00
+  106    3077.9756534557      2.17E+01
+  107   -1084.8890634242      1.19E-01
+  108   -1098.3770596931      9.19E-02
+  109   -1100.4615635352      1.15E-01
+  110   -1091.5284158232      8.32E-02
+  111   -1079.6623216087      1.09E-01
+  112   -1081.2592235014      9.93E-02
+  113   -1090.0591047431      4.87E-02
+  114   -1080.7135689073      8.99E-02
+  115   -1063.6771512829      1.69E-01
+  116   -1024.5455525451      3.15E-01
+  117   -1080.5640241962      7.30E-02
+  118   -1086.5659171482      5.09E-02
+  119   -1086.6620982659      4.99E-02
+  120   -1087.0052122803      4.89E-02
+  121   -1086.8472835279      5.10E-02
+  122   -1086.9396265088      5.16E-02
+  123   -1086.8802811286      4.98E-02
+  124   -1087.0635962334      5.10E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.981906632255
+   Relative error      =    -0.0210387997 %
+  125   -1087.4173255251      5.53E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.981798161212
+   Relative error      =    -0.0211649288 %
+  126   -1086.8404053615      5.53E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.982187299043
+   Relative error      =    -0.0207124430 %
+  127   -1086.5924190193      5.56E-02
+  128   -1087.5930979397      5.46E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.980150041024
+   Relative error      =    -0.0230813476 %
+  129   -1088.6367702420      5.22E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.980404040930
+   Relative error      =    -0.0227859989 %
+  130   -1088.4801343525      5.26E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.978491902764
+   Relative error      =    -0.0250094154 %
+  131   -1089.0857380757      5.25E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.990321303296
+   Relative error      =    -0.0112542985 %
+  132   -1091.2393168935      5.31E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.990141417001
+   Relative error      =    -0.0114634686 %
+  133   -1082.9305769213      5.78E-02
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.977940393025
+   Relative error      =    -0.0256507058 %
+  134   -1092.7205526958      2.49E-02
+  135   -1089.2808896855      3.74E-02
+  136   -1104.1096193483      9.69E-03
+  137   -1103.7949313281      1.21E-02
+  138   -1104.8109574155      1.85E-03
+  139   -1104.8242974204      1.38E-03
+  140   -1104.8392699190      3.38E-04
+  141   -1104.8401774618      1.11E-04
+  142   -1104.8402661495      2.33E-05
+  143   -1104.8402697638      4.22E-06
+  144   -1104.8402699130      1.48E-06
+  145   -1104.8402699157      5.72E-07
+  146   -1104.8402698959      1.87E-07
+  147   -1104.8402698702      2.54E-08
+  148   -1104.8402698621      7.35E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 85.82 s  wall 74.69 s
+ SCF   energy in the final basis set = -1104.8402698621
+ Total energy in the final basis set = -1104.8402698621
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-88.919 -88.919 -10.237 -10.237 -10.224 -10.224 -10.203 -10.203
+  1 B     1 A     2 A     2 B     3 B     3 A     4 B     4 A                  
+-10.202 -10.202  -7.979  -7.979  -5.943  -5.943  -5.939  -5.939
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.901  -0.879  -0.772  -0.748  -0.738  -0.706
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.604  -0.578  -0.555  -0.535  -0.526  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.409  -0.405  -0.399  -0.377  -0.375  -0.355  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.261  -0.261  -0.219
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.052  -0.010  -0.006  -0.003   0.007   0.010   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.036   0.039   0.044   0.045   0.055   0.059   0.062
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.079   0.091   0.094   0.102   0.103   0.106   0.108
+ 30 B    31 A    31 B    32 A    33 A    32 B    34 A    35 A                  
+  0.121   0.123   0.131   0.132   0.134   0.135   0.137   0.138
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.150   0.151   0.160   0.164   0.166   0.174   0.177   0.179
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.190   0.205   0.207   0.210   0.224   0.225   0.230
+ 43 A    42 B    43 B    44 A    44 B    45 B    45 A    46 A                  
+  0.236   0.246   0.261   0.267   0.274   0.277   0.283   0.289
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.318   0.326   0.341   0.355   0.358   0.379   0.390
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.434   0.457   0.466   0.517   0.524   0.536   0.540   0.569
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.582   0.602   0.615   0.628   0.652   0.658   0.669   0.680
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.698   0.700   0.721   0.727   0.735   0.743   0.759   0.772
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.786   0.813   0.814   0.832   0.837   0.871   0.918   0.944
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.954   0.961   0.965   0.968   0.989   1.000   1.013
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.018   1.032   1.055   1.067   1.087   1.096   1.115   1.117
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.149   1.179   1.193   1.220   1.248   1.275   1.318   1.346
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.351   1.363   1.380   1.463   1.466   1.505   1.539
+ 82 B    83 A    83 B    84 A    84 B    85 A    85 B    86 B                  
+  1.556   1.689   1.695   1.748   1.804   1.867   1.872   1.892
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.926   1.957   1.984   2.006   2.045   2.082   2.096
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.113   2.153   2.180   2.184   2.241   2.247   2.265   2.338
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.367   2.369   2.423   2.452   2.464   2.469   2.498   2.508
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.532   2.532   2.586   2.591   2.604   2.663   2.699   2.722
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.749   2.858   2.867   2.917   2.937   3.155   3.205   3.274
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.278   3.409   3.433   3.729   3.751   3.975   3.976   4.255
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.307   4.319   4.333   4.419   4.539   4.660   4.718
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-88.919 -88.919 -10.237 -10.237 -10.224 -10.224 -10.203 -10.203
+  1 B     1 A     2 A     2 B     3 B     3 A     4 B     4 A                  
+-10.202 -10.202  -7.979  -7.979  -5.943  -5.943  -5.939  -5.939
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.901  -0.879  -0.772  -0.748  -0.738  -0.706
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.604  -0.578  -0.555  -0.535  -0.526  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.409  -0.405  -0.399  -0.377  -0.375  -0.355  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.261  -0.261  -0.219
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.052  -0.010  -0.006  -0.003   0.007   0.010   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.036   0.039   0.044   0.045   0.055   0.059   0.062
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.079   0.091   0.094   0.102   0.103   0.106   0.108
+ 30 B    31 A    31 B    32 A    33 A    32 B    34 A    35 A                  
+  0.121   0.123   0.131   0.132   0.134   0.135   0.137   0.138
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.150   0.151   0.160   0.164   0.166   0.174   0.177   0.179
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.190   0.205   0.207   0.210   0.224   0.225   0.230
+ 43 A    42 B    43 B    44 A    44 B    45 B    45 A    46 A                  
+  0.236   0.246   0.261   0.267   0.274   0.277   0.283   0.289
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.318   0.326   0.341   0.355   0.358   0.379   0.390
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.434   0.457   0.466   0.517   0.524   0.536   0.540   0.569
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.582   0.602   0.615   0.628   0.652   0.658   0.669   0.680
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.698   0.700   0.721   0.727   0.735   0.743   0.759   0.772
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.786   0.813   0.814   0.832   0.837   0.871   0.918   0.944
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.954   0.961   0.965   0.968   0.989   1.000   1.013
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.018   1.032   1.055   1.067   1.087   1.096   1.115   1.117
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.149   1.179   1.193   1.220   1.248   1.275   1.318   1.346
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.351   1.363   1.380   1.463   1.466   1.505   1.539
+ 82 B    83 A    83 B    84 A    84 B    85 A    85 B    86 B                  
+  1.556   1.689   1.695   1.748   1.804   1.867   1.872   1.892
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.926   1.957   1.984   2.006   2.045   2.082   2.096
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.113   2.153   2.180   2.184   2.241   2.247   2.265   2.338
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.367   2.369   2.423   2.452   2.464   2.469   2.498   2.508
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.532   2.532   2.586   2.591   2.604   2.663   2.699   2.722
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.749   2.858   2.867   2.917   2.937   3.155   3.205   3.274
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.278   3.409   3.433   3.729   3.751   3.975   3.976   4.255
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.307   4.319   4.333   4.419   4.539   4.660   4.718
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                    -0.015922
+      2 C                    -0.033129
+      3 C                    -0.413109
+      4 C                     0.286138
+      5 C                    -0.259695
+      6 H                     0.133599
+      7 C                    -0.259695
+      8 S                    -0.015922
+      9 C                     0.286138
+     10 C                    -0.033129
+     11 C                    -0.413109
+     12 H                     0.114582
+     13 H                     0.187536
+     14 H                     0.114582
+     15 H                     0.187536
+     16 H                     0.133599
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y       0.0000      Z      -0.4010
+       Tot       0.4010
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1786     XY       1.5080     YY     -69.2881
+        XZ       0.0000     YZ      -0.0000     ZZ     -77.3994
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY      -0.0000    XYY       0.0000
+       YYY       0.0000    XXZ       3.9493    XYZ      -8.6301
+       YYZ      -5.3956    XZZ       0.0000    YZZ       0.0000
+       ZZZ       3.0737
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1882.3151   XXXY     -20.0620   XXYY    -418.5624
+      XYYY      13.2402   YYYY    -520.9708   XXXZ       0.0000
+      XXYZ       0.0000   XYYZ      -0.0000   YYYZ      -0.0000
+      XXZZ    -422.8534   XYZZ      -4.1447   YYZZ    -116.3447
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ    -166.3026
+ -----------------------------------------------------------------
+ Calculating analytic gradient of the SCF energy
+ Gradient of SCF Energy
+            1           2           3           4           5           6
+    1   0.0003213  -0.0003511  -0.0007973   0.0003649  -0.0012178   0.0009237
+    2   0.0015017   0.0034848  -0.0027487  -0.0025336   0.0018450  -0.0010678
+    3  -0.0000529  -0.0011462   0.0007495   0.0001910  -0.0004396   0.0004299
+            7           8           9          10          11          12
+    1   0.0012178  -0.0003213  -0.0003649   0.0003511   0.0007973   0.0009673
+    2  -0.0018450  -0.0015017   0.0025336  -0.0034848   0.0027487   0.0011019
+    3  -0.0004396  -0.0000529   0.0001910  -0.0011462   0.0007495   0.0004156
+           13          14          15          16
+    1  -0.0016449  -0.0009673   0.0016449  -0.0009237
+    2   0.0002858  -0.0011019  -0.0002858   0.0010678
+    3  -0.0001474   0.0004156  -0.0001474   0.0004299
+ Max gradient component =       3.485E-03
+ RMS gradient           =       1.349E-03
+ Gradient time:  CPU 2.03 s  wall 2.04 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   1
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8210408090   -1.1449734415    0.4016939237
+      2  C         3.1978682963   -0.1385084923    0.0963010614
+      3  C         2.8279617827    1.0940715096   -0.3612272533
+      4  C         1.4182241388    1.2377555130   -0.4861261671
+      5  C         0.7168794846    0.1123763635   -0.1209957407
+      6  H         0.9362407136    2.1330219097   -0.8570935388
+      7  C        -0.7168794846   -0.1123763635   -0.1209957407
+      8  S        -1.8210408090    1.1449734415    0.4016939237
+      9  C        -1.4182241388   -1.2377555130   -0.4861261671
+     10  C        -3.1978682963    0.1385084923    0.0963010614
+     11  C        -2.8279617827   -1.0940715096   -0.3612272533
+     12  H        -3.5365091703   -1.8724911677   -0.6117014974
+     13  H         4.1915503449   -0.5202429584    0.2739789804
+     14  H         3.5365091703    1.8724911677   -0.6117014974
+     15  H        -4.1915503449    0.5202429584    0.2739789804
+     16  H        -0.9362407136   -2.1330219097   -0.8570935388
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1104.840269862
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9      140.000      140.000
+
+ Attempting to Generate Delocalized Internal Coordinates
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.045000    0.045000    0.045000    0.045002    0.045004    0.045013
+     0.159937    0.159990    0.160000    0.221280    0.237833    0.249997
+     0.296078    0.314672    0.357149    0.357543    0.360899    0.380793
+     0.408411    0.470750    0.505998
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =  -0.00028870
+ Step Taken.  Stepsize is  0.034994
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.005720      0.000300      NO
+         Displacement       0.016988      0.001200      NO
+         Energy change     *********      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.075844
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8260259409    -1.1486901557     0.3980805873
+    2      C       3.2046285052    -0.1419803783     0.0908154494
+    3      C       2.8336290186     1.0975297778    -0.3612574473
+    4      C       1.4200175420     1.2429436092    -0.4802839570
+    5      C       0.7191069400     0.1133178014    -0.1138559248
+    6      H       0.9336545410     2.1400603986    -0.8472779378
+    7      C      -0.7191069400    -0.1133178014    -0.1138559248
+    8      S      -1.8260259409     1.1486901557     0.3980805873
+    9      C      -1.4200175420    -1.2429436092    -0.4802839570
+   10      C      -3.2046285052     0.1419803783     0.0908154494
+   11      C      -2.8336290186    -1.0975297778    -0.3612574473
+   12      H      -3.5433649987    -1.8775435911    -0.6131386201
+   13      H       4.2015760494    -0.5250783074     0.2617476186
+   14      H       3.5433649987     1.8775435911    -0.6131386201
+   15      H      -4.2015760494     0.5250783074     0.2617476186
+   16      H      -0.9336545410    -2.1400603986    -0.8472779378
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   628.5223758590 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-11
+ Nucleus-field energy     =     0.0000000203 hartrees
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
+ A cutoff of  1.0D-12 yielded   2530 shell pairs
+ There are     24906 function pairs
+ Smallest overlap matrix eigenvalue = 1.06E-06
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted hybrid HF-DFT SCF calculation will be
+ performed using Relaxed Constraint Minimization + Pulay DIIS
+ Exchange:     0.2000 Hartree-Fock + 0.0800 Slater + 0.7200 B88
+ Correlation:  0.1900 VWN1RPA + 0.8100 LYP
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.974375623670
+   Relative error      =    -0.0297957864 %
+ Inaccurate integrated density:
+   Number of electrons =    86
+   Numerical integral  =    85.974375623670
+   Relative error      =    -0.0297957864 %
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1104.8187449027      3.32E-04 Done RCA. Switching to DIIS
+    2   -1104.8403380208      9.32E-05
+    3   -1104.8401371437      1.86E-04
+    4   -1104.8404109105      2.96E-05
+    5   -1104.8404169026      6.47E-06
+    6   -1104.8404171820      2.80E-06
+    7   -1104.8404172439      9.22E-07
+    8   -1104.8404172495      2.53E-07
+    9   -1104.8404172500      4.73E-08
+   10   -1104.8404172500      2.23E-08
+   11   -1104.8404172500      3.05E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 6.30 s  wall 5.53 s
+ SCF   energy in the final basis set = -1104.8404172500
+ Total energy in the final basis set = -1104.8404172500
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 B     4 A                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.899  -0.878  -0.771  -0.747  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.398  -0.377  -0.374  -0.356  -0.346  -0.273
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.261  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.052  -0.010  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.044   0.045   0.055   0.058   0.062
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.079   0.091   0.094   0.102   0.102   0.106   0.108
+ 30 B    31 A    31 B    32 A    33 A    32 B    34 A    35 A                  
+  0.121   0.122   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.151   0.160   0.163   0.166   0.174   0.177   0.179
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.190   0.205   0.207   0.209   0.224   0.224   0.230
+ 43 A    42 B    43 B    44 A    44 B    45 B    45 A    46 A                  
+  0.236   0.246   0.260   0.267   0.272   0.276   0.281   0.288
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.312   0.317   0.325   0.340   0.354   0.357   0.378   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.516   0.523   0.536   0.539   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.601   0.614   0.627   0.651   0.657   0.668   0.679
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.696   0.699   0.720   0.727   0.733   0.743   0.759   0.771
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.813   0.813   0.832   0.836   0.869   0.917   0.943
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.955   0.961   0.963   0.967   0.988   1.000   1.013
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.017   1.030   1.054   1.066   1.086   1.095   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.178   1.192   1.219   1.247   1.272   1.317   1.345
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.351   1.362   1.379   1.462   1.465   1.501   1.536
+ 82 B    83 A    83 B    84 A    84 B    85 A    85 B    86 B                  
+  1.555   1.687   1.694   1.746   1.800   1.865   1.869   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.918   1.921   1.951   1.981   2.005   2.040   2.078   2.093
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.111   2.151   2.176   2.182   2.236   2.244   2.260   2.332
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.367   2.421   2.446   2.459   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.529   2.581   2.585   2.599   2.658   2.693   2.716
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.860   2.909   2.931   3.147   3.196   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.402   3.426   3.720   3.742   3.974   3.974   4.252
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.318   4.330   4.417   4.537   4.656   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 B     4 A                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.899  -0.878  -0.771  -0.747  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.398  -0.377  -0.374  -0.356  -0.346  -0.273
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.261  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.052  -0.010  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.044   0.045   0.055   0.058   0.062
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.079   0.091   0.094   0.102   0.102   0.106   0.108
+ 30 B    31 A    31 B    32 A    33 A    32 B    34 A    35 A                  
+  0.121   0.122   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.151   0.160   0.163   0.166   0.174   0.177   0.179
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.190   0.205   0.207   0.209   0.224   0.224   0.230
+ 43 A    42 B    43 B    44 A    44 B    45 B    45 A    46 A                  
+  0.236   0.246   0.260   0.267   0.272   0.276   0.281   0.288
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.312   0.317   0.325   0.340   0.354   0.357   0.378   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.516   0.523   0.536   0.539   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.601   0.614   0.627   0.651   0.657   0.668   0.679
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.696   0.699   0.720   0.727   0.733   0.743   0.759   0.771
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.813   0.813   0.832   0.836   0.869   0.917   0.943
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.955   0.961   0.963   0.967   0.988   1.000   1.013
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.017   1.030   1.054   1.066   1.086   1.095   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.178   1.192   1.219   1.247   1.272   1.317   1.345
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.351   1.362   1.379   1.462   1.465   1.501   1.536
+ 82 B    83 A    83 B    84 A    84 B    85 A    85 B    86 B                  
+  1.555   1.687   1.694   1.746   1.800   1.865   1.869   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.918   1.921   1.951   1.981   2.005   2.040   2.078   2.093
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.111   2.151   2.176   2.182   2.236   2.244   2.260   2.332
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.367   2.421   2.446   2.459   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.529   2.581   2.585   2.599   2.658   2.693   2.716
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.860   2.909   2.931   3.147   3.196   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.402   3.426   3.720   3.742   3.974   3.974   4.252
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.318   4.330   4.417   4.537   4.656   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                    -0.017286
+      2 C                    -0.034973
+      3 C                    -0.410050
+      4 C                     0.278894
+      5 C                    -0.253637
+      6 H                     0.133957
+      7 C                    -0.253637
+      8 S                    -0.017286
+      9 C                     0.278894
+     10 C                    -0.034973
+     11 C                    -0.410050
+     12 H                     0.115100
+     13 H                     0.187995
+     14 H                     0.115100
+     15 H                     0.187995
+     16 H                     0.133957
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z      -0.4097
+       Tot       0.4097
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1597     XY       1.4673     YY     -69.2559
+        XZ       0.0000     YZ      -0.0000     ZZ     -77.5228
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY       0.0000    XYY      -0.0000
+       YYY      -0.0000    XXZ       3.6397    XYZ      -8.6392
+       YYZ      -5.4068    XZZ       0.0000    YZZ       0.0000
+       ZZZ       3.2035
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1889.5670   XXXY     -20.2771   XXYY    -420.2870
+      XYYY      13.6241   YYYY    -523.7874   XXXZ       0.0000
+      XXYZ      -0.0000   XYYZ       0.0000   YYYZ      -0.0000
+      XXZZ    -425.2649   XYZZ      -4.0179   YYZZ    -116.9225
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ    -165.4170
+ -----------------------------------------------------------------
+ Calculating analytic gradient of the SCF energy
+ Gradient of SCF Energy
+            1           2           3           4           5           6
+    1   0.0001399   0.0002224   0.0001079  -0.0000704  -0.0003592   0.0000361
+    2  -0.0000896   0.0001078   0.0000415  -0.0002983   0.0003840   0.0001295
+    3   0.0003671   0.0000898  -0.0000328  -0.0007844   0.0004312  -0.0000975
+            7           8           9          10          11          12
+    1   0.0003592  -0.0001399   0.0000704  -0.0002224  -0.0001079  -0.0000560
+    2  -0.0003840   0.0000896   0.0002983  -0.0001078  -0.0000415  -0.0001166
+    3   0.0004312   0.0003671  -0.0007844   0.0000898  -0.0000328  -0.0000200
+           13          14          15          16
+    1   0.0000331   0.0000560  -0.0000331  -0.0000361
+    2  -0.0001758   0.0001166   0.0001758  -0.0001295
+    3   0.0000466  -0.0000200   0.0000466  -0.0000975
+ Max gradient component =       7.844E-04
+ RMS gradient           =       2.497E-04
+ Gradient time:  CPU 2.07 s  wall 1.99 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   2
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8260259409   -1.1486901557    0.3980805873
+      2  C         3.2046285052   -0.1419803783    0.0908154494
+      3  C         2.8336290186    1.0975297778   -0.3612574473
+      4  C         1.4200175420    1.2429436092   -0.4802839570
+      5  C         0.7191069400    0.1133178014   -0.1138559248
+      6  H         0.9336545410    2.1400603986   -0.8472779378
+      7  C        -0.7191069400   -0.1133178014   -0.1138559248
+      8  S        -1.8260259409    1.1486901557    0.3980805873
+      9  C        -1.4200175420   -1.2429436092   -0.4802839570
+     10  C        -3.2046285052    0.1419803783    0.0908154494
+     11  C        -2.8336290186   -1.0975297778   -0.3612574473
+     12  H        -3.5433649987   -1.8775435911   -0.6131386201
+     13  H         4.2015760494   -0.5250783074    0.2617476186
+     14  H         3.5433649987    1.8775435911   -0.6131386201
+     15  H        -4.2015760494    0.5250783074    0.2617476186
+     16  H        -0.9336545410   -2.1400603986   -0.8472779378
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1104.840417250
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9      140.000      140.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.039212    0.045000    0.045001    0.045004    0.045013    0.045028
+     0.157717    0.159971    0.160034    0.221294    0.236383    0.249829
+     0.297499    0.315407    0.357322    0.359138    0.363899    0.384239
+     0.426848    0.471214    0.542792
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =  -0.00001872
+ Step Taken.  Stepsize is  0.020225
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000825      0.000300      NO
+         Displacement       0.013129      0.001200      NO
+         Energy change     -0.000147      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.052177
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8266786814    -1.1508890276     0.3948026526
+    2      C       3.2043598034    -0.1438039148     0.0850287405
+    3      C       2.8324311004     1.0975854719    -0.3614113067
+    4      C       1.4186121217     1.2440482622    -0.4744693854
+    5      C       0.7190613049     0.1136841322    -0.1078588412
+    6      H       0.9303822886     2.1417640169    -0.8373503044
+    7      C      -0.7190613049    -0.1136841322    -0.1078588412
+    8      S      -1.8266786814     1.1508890276     0.3948026526
+    9      C      -1.4186121217    -1.2440482622    -0.4744693854
+   10      C      -3.2043598034     0.1438039148     0.0850287405
+   11      C      -2.8324311004    -1.0975854719    -0.3614113067
+   12      H      -3.5418111864    -1.8776087058    -0.6140769813
+   13      H       4.2022583280    -0.5269844907     0.2501651941
+   14      H       3.5418111864     1.8776087058    -0.6140769813
+   15      H      -4.2022583280     0.5269844907     0.2501651941
+   16      H      -0.9303822886    -2.1417640169    -0.8373503044
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   628.5857966563 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-11
+ Nucleus-field energy     =     0.0000000203 hartrees
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
+ A cutoff of  1.0D-12 yielded   2530 shell pairs
+ There are     24906 function pairs
+ Smallest overlap matrix eigenvalue = 1.05E-06
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted hybrid HF-DFT SCF calculation will be
+ performed using Relaxed Constraint Minimization + Pulay DIIS
+ Exchange:     0.2000 Hartree-Fock + 0.0800 Slater + 0.7200 B88
+ Correlation:  0.1900 VWN1RPA + 0.8100 LYP
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1104.8403651473      1.87E-04 Done RCA. Switching to DIIS
+    2   -1104.8404302058      1.55E-05
+    3   -1104.8404261999      2.90E-05
+    4   -1104.8404327529      4.40E-06
+    5   -1104.8404328438      2.80E-06
+    6   -1104.8404328996      8.93E-07
+    7   -1104.8404329052      2.20E-07
+    8   -1104.8404329056      4.55E-08
+    9   -1104.8404329056      1.47E-08
+   10   -1104.8404329056      3.25E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 5.71 s  wall 5.02 s
+ SCF   energy in the final basis set = -1104.8404329056
+ Total energy in the final basis set = -1104.8404329056
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 B     4 A                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.398  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.052  -0.010  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.055   0.058   0.062
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.102   0.102   0.106   0.108
+ 30 B    31 A    31 B    32 A    33 A    32 B    34 A    35 A                  
+  0.121   0.122   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.151   0.161   0.163   0.166   0.174   0.177   0.179
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.190   0.205   0.207   0.209   0.224   0.224   0.230
+ 43 A    42 B    43 B    44 A    44 B    45 B    45 A    46 A                  
+  0.236   0.246   0.260   0.267   0.272   0.276   0.281   0.288
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.312   0.316   0.324   0.340   0.354   0.357   0.378   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.516   0.523   0.536   0.539   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.601   0.614   0.626   0.652   0.657   0.668   0.679
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.695   0.699   0.720   0.727   0.733   0.743   0.759   0.771
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.813   0.813   0.832   0.836   0.869   0.917   0.943
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.955   0.961   0.963   0.967   0.988   1.000   1.013
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.017   1.030   1.054   1.066   1.087   1.095   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.193   1.219   1.247   1.271   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.352   1.362   1.380   1.462   1.464   1.500   1.535
+ 82 B    83 A    83 B    84 A    84 B    85 A    85 B    86 B                  
+  1.557   1.687   1.693   1.745   1.800   1.865   1.869   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.919   1.921   1.951   1.981   2.005   2.041   2.078   2.093
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.112   2.151   2.176   2.182   2.236   2.244   2.259   2.332
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.367   2.421   2.446   2.458   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.529   2.581   2.585   2.599   2.658   2.693   2.716
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.860   2.909   2.931   3.147   3.196   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.402   3.426   3.720   3.742   3.974   3.975   4.252
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.318   4.330   4.417   4.537   4.656   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 B     4 A                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.398  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.052  -0.010  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.055   0.058   0.062
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.102   0.102   0.106   0.108
+ 30 B    31 A    31 B    32 A    33 A    32 B    34 A    35 A                  
+  0.121   0.122   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.151   0.161   0.163   0.166   0.174   0.177   0.179
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.190   0.205   0.207   0.209   0.224   0.224   0.230
+ 43 A    42 B    43 B    44 A    44 B    45 B    45 A    46 A                  
+  0.236   0.246   0.260   0.267   0.272   0.276   0.281   0.288
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.312   0.316   0.324   0.340   0.354   0.357   0.378   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.516   0.523   0.536   0.539   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.601   0.614   0.626   0.652   0.657   0.668   0.679
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.695   0.699   0.720   0.727   0.733   0.743   0.759   0.771
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.813   0.813   0.832   0.836   0.869   0.917   0.943
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.955   0.961   0.963   0.967   0.988   1.000   1.013
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.017   1.030   1.054   1.066   1.087   1.095   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.193   1.219   1.247   1.271   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.352   1.362   1.380   1.462   1.464   1.500   1.535
+ 82 B    83 A    83 B    84 A    84 B    85 A    85 B    86 B                  
+  1.557   1.687   1.693   1.745   1.800   1.865   1.869   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.919   1.921   1.951   1.981   2.005   2.041   2.078   2.093
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.112   2.151   2.176   2.182   2.236   2.244   2.259   2.332
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.367   2.421   2.446   2.458   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.529   2.581   2.585   2.599   2.658   2.693   2.716
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.860   2.909   2.931   3.147   3.196   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.402   3.426   3.720   3.742   3.974   3.975   4.252
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.318   4.330   4.417   4.537   4.656   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                    -0.018091
+      2 C                    -0.035324
+      3 C                    -0.409803
+      4 C                     0.278357
+      5 C                    -0.251719
+      6 H                     0.133731
+      7 C                    -0.251719
+      8 S                    -0.018091
+      9 C                     0.278357
+     10 C                    -0.035324
+     11 C                    -0.409803
+     12 H                     0.115037
+     13 H                     0.187811
+     14 H                     0.115037
+     15 H                     0.187811
+     16 H                     0.133731
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y       0.0000      Z      -0.4174
+       Tot       0.4174
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1693     XY       1.4473     YY     -69.2344
+        XZ      -0.0000     YZ       0.0000     ZZ     -77.5478
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY      -0.0000    XYY      -0.0000
+       YYY       0.0000    XXZ       3.3514    XYZ      -8.5638
+       YYZ      -5.3557    XZZ      -0.0000    YZZ      -0.0000
+       ZZZ       3.2902
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1888.9748   XXXY     -19.9795   XXYY    -420.2714
+      XYYY      14.1832   YYYY    -524.6545   XXXZ      -0.0000
+      XXYZ      -0.0000   XYYZ      -0.0000   YYYZ       0.0000
+      XXZZ    -425.2547   XYZZ      -3.7250   YYZZ    -117.0651
+      XZZZ      -0.0000   YZZZ       0.0000   ZZZZ    -164.2885
+ -----------------------------------------------------------------
+ Calculating analytic gradient of the SCF energy
+ Gradient of SCF Energy
+            1           2           3           4           5           6
+    1   0.0000217   0.0000105   0.0000650  -0.0000185  -0.0000370  -0.0000236
+    2  -0.0001470  -0.0000661   0.0001656  -0.0002684   0.0005014   0.0000772
+    3   0.0002954   0.0001317  -0.0000220  -0.0009143   0.0006246  -0.0000791
+            7           8           9          10          11          12
+    1   0.0000370  -0.0000217   0.0000185  -0.0000105  -0.0000650  -0.0000396
+    2  -0.0005014   0.0001470   0.0002684   0.0000661  -0.0001656  -0.0000909
+    3   0.0006246   0.0002954  -0.0009143   0.0001317  -0.0000220  -0.0000316
+           13          14          15          16
+    1   0.0000766   0.0000396  -0.0000766   0.0000236
+    2  -0.0000907   0.0000909   0.0000907  -0.0000772
+    3  -0.0000047  -0.0000316  -0.0000047  -0.0000791
+ Max gradient component =       9.143E-04
+ RMS gradient           =       2.702E-04
+ Gradient time:  CPU 2.07 s  wall 2.03 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   3
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8266786814   -1.1508890276    0.3948026526
+      2  C         3.2043598034   -0.1438039148    0.0850287405
+      3  C         2.8324311004    1.0975854719   -0.3614113067
+      4  C         1.4186121217    1.2440482622   -0.4744693854
+      5  C         0.7190613049    0.1136841322   -0.1078588412
+      6  H         0.9303822886    2.1417640169   -0.8373503044
+      7  C        -0.7190613049   -0.1136841322   -0.1078588412
+      8  S        -1.8266786814    1.1508890276    0.3948026526
+      9  C        -1.4186121217   -1.2440482622   -0.4744693854
+     10  C        -3.2043598034    0.1438039148    0.0850287405
+     11  C        -2.8324311004   -1.0975854719   -0.3614113067
+     12  H        -3.5418111864   -1.8776087058   -0.6140769813
+     13  H         4.2022583280   -0.5269844907    0.2501651941
+     14  H         3.5418111864    1.8776087058   -0.6140769813
+     15  H        -4.2022583280    0.5269844907    0.2501651941
+     16  H        -0.9303822886   -2.1417640169   -0.8373503044
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1104.840432906
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9      140.000      140.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.011368    0.045001    0.045001    0.045005    0.045014    0.045446
+     0.159286    0.159966    0.162095    0.221753    0.249590    0.264902
+     0.298450    0.315464    0.357304    0.358757    0.362605    0.383413
+     0.424671    0.478590    0.525438
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =  -0.00003520
+ Step Taken.  Stepsize is  0.054705
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000448      0.000300      NO
+         Displacement       0.035370      0.001200      NO
+         Energy change     -0.000016      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.139225
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8298254289    -1.1554138101     0.3853415735
+    2      C       3.2054562879    -0.1479641087     0.0690272371
+    3      C       2.8302628423     1.0975857427    -0.3622432829
+    4      C       1.4157013384     1.2468314381    -0.4586356949
+    5      C       0.7188159719     0.1149031041    -0.0918492152
+    6      H       0.9238432886     2.1468877063    -0.8100364818
+    7      C      -0.7188159719    -0.1149031041    -0.0918492152
+    8      S      -1.8298254289     1.1554138101     0.3853415735
+    9      C      -1.4157013384    -1.2468314381    -0.4586356949
+   10      C      -3.2054562879     0.1479641087     0.0690272371
+   11      C      -2.8302628423    -1.0975857427    -0.3622432829
+   12      H      -3.5383895778    -1.8779722905    -0.6165615177
+   13      H       4.2051566349    -0.5319930609     0.2197871504
+   14      H       3.5383895778     1.8779722905    -0.6165615177
+   15      H      -4.2051566349     0.5319930609     0.2197871504
+   16      H      -0.9238432886    -2.1468877063    -0.8100364818
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   628.6910717045 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-11
+ Nucleus-field energy     =     0.0000000204 hartrees
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
+ A cutoff of  1.0D-12 yielded   2530 shell pairs
+ There are     24906 function pairs
+ Smallest overlap matrix eigenvalue = 1.03E-06
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted hybrid HF-DFT SCF calculation will be
+ performed using Relaxed Constraint Minimization + Pulay DIIS
+ Exchange:     0.2000 Hartree-Fock + 0.0800 Slater + 0.7200 B88
+ Correlation:  0.1900 VWN1RPA + 0.8100 LYP
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1104.8399390762      5.10E-04 Done RCA. Switching to DIIS
+    2   -1104.8404309335      4.26E-05
+    3   -1104.8403966733      8.28E-05
+    4   -1104.8404500517      1.07E-05
+    5   -1104.8404504469      8.12E-06
+    6   -1104.8404509138      1.85E-06
+    7   -1104.8404509377      6.00E-07
+    8   -1104.8404509402      8.50E-08
+    9   -1104.8404509403      3.15E-08
+   10   -1104.8404509402      8.16E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 5.76 s  wall 5.06 s
+ SCF   energy in the final basis set = -1104.8404509402
+ Total energy in the final basis set = -1104.8404509402
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.010   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.177   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.207   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.625   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.813   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.956   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.114
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.247   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.362   1.382   1.463   1.464   1.498   1.533
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.560   1.686   1.693   1.744   1.798   1.867   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.922   1.949   1.980   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.333
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.366   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.402   3.426   3.720   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.416   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.010   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.177   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.207   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.625   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.813   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.956   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.114
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.247   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.362   1.382   1.463   1.464   1.498   1.533
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.560   1.686   1.693   1.744   1.798   1.867   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.922   1.949   1.980   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.333
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.366   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.402   3.426   3.720   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.416   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                    -0.020883
+      2 C                    -0.034543
+      3 C                    -0.409046
+      4 C                     0.275531
+      5 C                    -0.246591
+      6 H                     0.133011
+      7 C                    -0.246591
+      8 S                    -0.020883
+      9 C                     0.275531
+     10 C                    -0.034543
+     11 C                    -0.409046
+     12 H                     0.114896
+     13 H                     0.187625
+     14 H                     0.114896
+     15 H                     0.187625
+     16 H                     0.133011
+  ----------------------------------------
+  Sum of atomic charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y       0.0000      Z      -0.4366
+       Tot       0.4366
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1491     XY       1.4049     YY     -69.1972
+        XZ      -0.0000     YZ       0.0000     ZZ     -77.6160
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY       0.0000    XYY      -0.0000
+       YYY       0.0000    XXZ       2.6502    XYZ      -8.3478
+       YYZ      -5.1993    XZZ      -0.0000    YZZ       0.0000
+       ZZZ       3.5981
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1888.3632   XXXY     -19.4855   XXYY    -420.5523
+      XYYY      15.5708   YYYY    -526.5847   XXXZ      -0.0000
+      XXYZ       0.0000   XYYZ      -0.0000   YYYZ      -0.0000
+      XXZZ    -425.5214   XYZZ      -3.0111   YYZZ    -117.3941
+      XZZZ      -0.0000   YZZZ       0.0000   ZZZZ    -161.2903
+ -----------------------------------------------------------------
+ Calculating analytic gradient of the SCF energy
+ Gradient of SCF Energy
+            1           2           3           4           5           6
+    1  -0.0000915  -0.0000636   0.0000757   0.0000455   0.0001538  -0.0000851
+    2   0.0001979  -0.0001971   0.0000439  -0.0003607   0.0007766  -0.0000827
+    3  -0.0000683   0.0001419   0.0000664  -0.0011621   0.0011339  -0.0000038
+            7           8           9          10          11          12
+    1  -0.0001538   0.0000915  -0.0000455   0.0000636  -0.0000757  -0.0000172
+    2  -0.0007766  -0.0001979   0.0003607   0.0001971  -0.0000439   0.0000559
+    3   0.0011339  -0.0000683  -0.0011621   0.0001419   0.0000664  -0.0000146
+           13          14          15          16
+    1   0.0000741   0.0000172  -0.0000741   0.0000851
+    2   0.0000997  -0.0000559  -0.0000997   0.0000827
+    3  -0.0000934  -0.0000146  -0.0000934  -0.0000038
+ Max gradient component =       1.162E-03
+ RMS gradient           =       3.854E-04
+ Gradient time:  CPU 2.01 s  wall 2.00 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   4
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8298254289   -1.1554138101    0.3853415735
+      2  C         3.2054562879   -0.1479641087    0.0690272371
+      3  C         2.8302628423    1.0975857427   -0.3622432829
+      4  C         1.4157013384    1.2468314381   -0.4586356949
+      5  C         0.7188159719    0.1149031041   -0.0918492152
+      6  H         0.9238432886    2.1468877063   -0.8100364818
+      7  C        -0.7188159719   -0.1149031041   -0.0918492152
+      8  S        -1.8298254289    1.1554138101    0.3853415735
+      9  C        -1.4157013384   -1.2468314381   -0.4586356949
+     10  C        -3.2054562879    0.1479641087    0.0690272371
+     11  C        -2.8302628423   -1.0975857427   -0.3622432829
+     12  H        -3.5383895778   -1.8779722905   -0.6165615177
+     13  H         4.2051566349   -0.5319930609    0.2197871504
+     14  H         3.5383895778    1.8779722905   -0.6165615177
+     15  H        -4.2051566349    0.5319930609    0.2197871504
+     16  H        -0.9238432886   -2.1468877063   -0.8100364818
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1104.840450940
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9      140.000      140.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.010496    0.045001    0.045003    0.045008    0.045029    0.045689
+     0.159934    0.160251    0.167400    0.221940    0.250231    0.265197
+     0.301691    0.315904    0.357324    0.359324    0.362971    0.382839
+     0.423305    0.478741    0.526813
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =  -0.00000170
+ Step Taken.  Stepsize is  0.005571
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000230      0.000300     YES
+         Displacement       0.003351      0.001200      NO
+         Energy change     -0.000018      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.010469
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8299714885    -1.1559034777     0.3845682946
+    2      C       3.2052964474    -0.1481714334     0.0675877828
+    3      C       2.8299210887     1.0976765096    -0.3626024664
+    4      C       1.4154259751     1.2471778724    -0.4575862388
+    5      C       0.7186479993     0.1150867103    -0.0908251617
+    6      H       0.9239919702     2.1479298801    -0.8078919687
+    7      C      -0.7186479993    -0.1150867103    -0.0908251617
+    8      S      -1.8299714885     1.1559034777     0.3845682946
+    9      C      -1.4154259751    -1.2471778724    -0.4575862388
+   10      C      -3.2052964474     0.1481714334     0.0675877828
+   11      C      -2.8299210887    -1.0976765096    -0.3626024664
+   12      H      -3.5377504846    -1.8784601821    -0.6166482526
+   13      H       4.2047333545    -0.5328364437     0.2182277789
+   14      H       3.5377504846     1.8784601821    -0.6166482526
+   15      H      -4.2047333545     0.5328364437     0.2182277789
+   16      H      -0.9239919702    -2.1479298801    -0.8078919687
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   628.6920067507 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-11
+ Nucleus-field energy     =     0.0000000204 hartrees
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
+ A cutoff of  1.0D-12 yielded   2530 shell pairs
+ There are     24906 function pairs
+ Smallest overlap matrix eigenvalue = 1.03E-06
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted hybrid HF-DFT SCF calculation will be
+ performed using Relaxed Constraint Minimization + Pulay DIIS
+ Exchange:     0.2000 Hartree-Fock + 0.0800 Slater + 0.7200 B88
+ Correlation:  0.1900 VWN1RPA + 0.8100 LYP
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1104.8400958396      4.67E-05 Done RCA. Switching to DIIS
+    2   -1104.8404519328      3.91E-06
+    3   -1104.8404515774      8.05E-06
+    4   -1104.8404520826      1.05E-06
+    5   -1104.8404520899      3.17E-07
+    6   -1104.8404520904      1.66E-07
+    7   -1104.8404520906      4.75E-08
+    8   -1104.8404520906      1.33E-08
+    9   -1104.8404520906      3.33E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 5.11 s  wall 4.49 s
+ SCF   energy in the final basis set = -1104.8404520906
+ Total energy in the final basis set = -1104.8404520906
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.010   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.177   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.208   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.625   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.814   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.957   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.248   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.362   1.382   1.463   1.464   1.498   1.532
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.561   1.685   1.693   1.744   1.798   1.866   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.922   1.949   1.980   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.333
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.403   3.426   3.721   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.416   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.010   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.177   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.208   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.625   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.814   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.957   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.248   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.362   1.382   1.463   1.464   1.498   1.532
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.561   1.685   1.693   1.744   1.798   1.866   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.922   1.949   1.980   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.333
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.403   3.426   3.721   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.416   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                    -0.020950
+      2 C                    -0.034791
+      3 C                    -0.408746
+      4 C                     0.275000
+      5 C                    -0.245978
+      6 H                     0.132940
+      7 C                    -0.245978
+      8 S                    -0.020950
+      9 C                     0.275000
+     10 C                    -0.034791
+     11 C                    -0.408745
+     12 H                     0.114881
+     13 H                     0.187644
+     14 H                     0.114881
+     15 H                     0.187644
+     16 H                     0.132940
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y       0.0000      Z      -0.4355
+       Tot       0.4355
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1585     XY       1.4044     YY     -69.1843
+        XZ      -0.0000     YZ       0.0000     ZZ     -77.6217
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY       0.0000    XYY      -0.0000
+       YYY       0.0000    XXZ       2.6474    XYZ      -8.3385
+       YYZ      -5.1761    XZZ      -0.0000    YZZ      -0.0000
+       ZZZ       3.6556
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1888.4803   XXXY     -19.4780   XXYY    -420.4852
+      XYYY      15.7145   YYYY    -526.7749   XXXZ      -0.0000
+      XXYZ       0.0000   XYYZ      -0.0000   YYYZ       0.0000
+      XXZZ    -425.4845   XYZZ      -2.9644   YYZZ    -117.4416
+      XZZZ      -0.0000   YZZZ       0.0000   ZZZZ    -161.0920
+ -----------------------------------------------------------------
+ Calculating analytic gradient of the SCF energy
+ Gradient of SCF Energy
+            1           2           3           4           5           6
+    1  -0.0000446  -0.0000843  -0.0000206   0.0001068   0.0000014  -0.0000316
+    2   0.0000469  -0.0001017   0.0000482  -0.0003549   0.0008142  -0.0000267
+    3  -0.0000191   0.0000842   0.0000154  -0.0011789   0.0011690  -0.0000047
+            7           8           9          10          11          12
+    1  -0.0000014   0.0000446  -0.0001068   0.0000843   0.0000206  -0.0000103
+    2  -0.0008142  -0.0000469   0.0003549   0.0001017  -0.0000482   0.0000210
+    3   0.0011690  -0.0000191  -0.0011789   0.0000842   0.0000154  -0.0000113
+           13          14          15          16
+    1   0.0000183   0.0000103  -0.0000183   0.0000316
+    2   0.0000473  -0.0000210  -0.0000473   0.0000267
+    3  -0.0000546  -0.0000113  -0.0000546  -0.0000047
+ Max gradient component =       1.179E-03
+ RMS gradient           =       3.871E-04
+ Gradient time:  CPU 1.99 s  wall 2.01 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   5
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8299714885   -1.1559034777    0.3845682946
+      2  C         3.2052964474   -0.1481714334    0.0675877828
+      3  C         2.8299210887    1.0976765096   -0.3626024664
+      4  C         1.4154259751    1.2471778724   -0.4575862388
+      5  C         0.7186479993    0.1150867103   -0.0908251617
+      6  H         0.9239919702    2.1479298801   -0.8078919687
+      7  C        -0.7186479993   -0.1150867103   -0.0908251617
+      8  S        -1.8299714885    1.1559034777    0.3845682946
+      9  C        -1.4154259751   -1.2471778724   -0.4575862388
+     10  C        -3.2052964474    0.1481714334    0.0675877828
+     11  C        -2.8299210887   -1.0976765096   -0.3626024664
+     12  H        -3.5377504846   -1.8784601821   -0.6166482526
+     13  H         4.2047333545   -0.5328364437    0.2182277789
+     14  H         3.5377504846    1.8784601821   -0.6166482526
+     15  H        -4.2047333545    0.5328364437    0.2182277789
+     16  H        -0.9239919702   -2.1479298801   -0.8078919687
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1104.840452091
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9      140.000      140.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.009908    0.037918    0.045001    0.045010    0.045023    0.045224
+     0.121753    0.160282    0.160588    0.221792    0.246840    0.281149
+     0.290983    0.315709    0.357334    0.360135    0.362620    0.382950
+     0.466455    0.476677    0.534071
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =   0.00000000
+ Step Taken.  Stepsize is  0.004280
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000106      0.000300     YES
+         Displacement       0.002160      0.001200      NO
+         Energy change     -0.000001      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.005930
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8303274768    -1.1560318862     0.3839213118
+    2      C       3.2056369771    -0.1482232260     0.0666644425
+    3      C       2.8300006546     1.0977228304    -0.3628536985
+    4      C       1.4154343062     1.2473045388    -0.4570980642
+    5      C       0.7185565138     0.1152492097    -0.0904314805
+    6      H       0.9244070291     2.1485748688    -0.8066750548
+    7      C      -0.7185565138    -0.1152492097    -0.0904314805
+    8      S      -1.8303274768     1.1560318862     0.3839213118
+    9      C      -1.4154343062    -1.2473045388    -0.4570980642
+   10      C      -3.2056369771     0.1482232260     0.0666644425
+   11      C      -2.8300006546    -1.0977228304    -0.3628536985
+   12      H      -3.5375246054    -1.8789343808    -0.6164745501
+   13      H       4.2048234255    -0.5333728020     0.2177768621
+   14      H       3.5375246054     1.8789343808    -0.6164745501
+   15      H      -4.2048234255     0.5333728020     0.2177768621
+   16      H      -0.9244070291    -2.1485748688    -0.8066750548
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   628.6669149977 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-11
+ Nucleus-field energy     =     0.0000000204 hartrees
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
+ A cutoff of  1.0D-12 yielded   2530 shell pairs
+ There are     24906 function pairs
+ Smallest overlap matrix eigenvalue = 1.03E-06
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted hybrid HF-DFT SCF calculation will be
+ performed using Relaxed Constraint Minimization + Pulay DIIS
+ Exchange:     0.2000 Hartree-Fock + 0.0800 Slater + 0.7200 B88
+ Correlation:  0.1900 VWN1RPA + 0.8100 LYP
+ Using SG-1 standard quadrature grid
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1104.8400655714      2.78E-05 Done RCA. Switching to DIIS
+    2   -1104.8404523808      3.03E-06
+    3   -1104.8404523336      4.06E-06
+    4   -1104.8404524547      1.31E-06
+    5   -1104.8404524666      3.31E-07
+    6   -1104.8404524672      1.38E-07
+    7   -1104.8404524674      2.32E-08
+    8   -1104.8404524674      4.08E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 4.61 s  wall 4.05 s
+ SCF   energy in the final basis set = -1104.8404524674
+ Total energy in the final basis set = -1104.8404524674
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.178   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.208   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.624   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.814   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.957   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.248   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.361   1.382   1.463   1.464   1.498   1.532
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.561   1.685   1.694   1.744   1.799   1.866   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.921   1.950   1.979   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.334
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.403   3.426   3.721   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.417   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.178   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.208   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.624   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.814   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.957   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.248   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.361   1.382   1.463   1.464   1.498   1.532
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.561   1.685   1.694   1.744   1.799   1.866   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.921   1.950   1.979   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.334
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.403   3.426   3.721   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.417   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                    -0.021086
+      2 C                    -0.034739
+      3 C                    -0.408542
+      4 C                     0.274357
+      5 C                    -0.245466
+      6 H                     0.132886
+      7 C                    -0.245466
+      8 S                    -0.021086
+      9 C                     0.274357
+     10 C                    -0.034739
+     11 C                    -0.408542
+     12 H                     0.114878
+     13 H                     0.187712
+     14 H                     0.114878
+     15 H                     0.187712
+     16 H                     0.132886
+  ----------------------------------------
+  Sum of atomic charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z      -0.4338
+       Tot       0.4338
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1559     XY       1.4071     YY     -69.1799
+        XZ       0.0000     YZ      -0.0000     ZZ     -77.6266
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY       0.0000    XYY       0.0000
+       YYY      -0.0000    XXZ       2.6825    XYZ      -8.3312
+       YYZ      -5.1526    XZZ       0.0000    YZZ       0.0000
+       ZZZ       3.7186
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1888.8215   XXXY     -19.5096   XXYY    -420.5152
+      XYYY      15.8072   YYYY    -526.8406   XXXZ       0.0000
+      XXYZ      -0.0000   XYYZ       0.0000   YYYZ      -0.0000
+      XXZZ    -425.5497   XYZZ      -2.9467   YYZZ    -117.4640
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ    -160.9695
+ -----------------------------------------------------------------
+ Calculating analytic gradient of the SCF energy
+ Gradient of SCF Energy
+            1           2           3           4           5           6
+    1   0.0000089  -0.0000047  -0.0000253   0.0000856  -0.0001662   0.0000060
+    2   0.0000140  -0.0000103   0.0000072  -0.0004103   0.0008916   0.0000010
+    3  -0.0000057   0.0000220  -0.0000077  -0.0011756   0.0011761   0.0000012
+            7           8           9          10          11          12
+    1   0.0001662  -0.0000089  -0.0000856   0.0000047   0.0000253  -0.0000042
+    2  -0.0008916  -0.0000140   0.0004103   0.0000103  -0.0000072   0.0000044
+    3   0.0011761  -0.0000057  -0.0011756   0.0000220  -0.0000077   0.0000001
+           13          14          15          16
+    1  -0.0000013   0.0000042   0.0000013  -0.0000060
+    2  -0.0000060  -0.0000044   0.0000060  -0.0000010
+    3  -0.0000103   0.0000001  -0.0000103   0.0000012
+ Max gradient component =       1.176E-03
+ RMS gradient           =       3.961E-04
+ Gradient time:  CPU 1.99 s  wall 2.00 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   6
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8303274768   -1.1560318862    0.3839213118
+      2  C         3.2056369771   -0.1482232260    0.0666644425
+      3  C         2.8300006546    1.0977228304   -0.3628536985
+      4  C         1.4154343062    1.2473045388   -0.4570980642
+      5  C         0.7185565138    0.1152492097   -0.0904314805
+      6  H         0.9244070291    2.1485748688   -0.8066750548
+      7  C        -0.7185565138   -0.1152492097   -0.0904314805
+      8  S        -1.8303274768    1.1560318862    0.3839213118
+      9  C        -1.4154343062   -1.2473045388   -0.4570980642
+     10  C        -3.2056369771    0.1482232260    0.0666644425
+     11  C        -2.8300006546   -1.0977228304   -0.3628536985
+     12  H        -3.5375246054   -1.8789343808   -0.6164745501
+     13  H         4.2048234255   -0.5333728020    0.2177768621
+     14  H         3.5375246054    1.8789343808   -0.6164745501
+     15  H        -4.2048234255    0.5333728020    0.2177768621
+     16  H        -0.9244070291   -2.1485748688   -0.8066750548
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1104.840452467
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9      140.000      140.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.010044    0.034606    0.045004    0.045014    0.045041    0.045333
+     0.125259    0.160290    0.161181    0.221605    0.245418    0.282690
+     0.291843    0.316990    0.357342    0.360134    0.362644    0.383576
+     0.461505    0.477677    0.532160
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =   0.00000000
+ Step Taken.  Stepsize is  0.000504
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000029      0.000300     YES
+         Displacement       0.000213      0.001200     YES
+         Energy change     -0.000000      0.000001     YES
+
+ Final energy is   -1104.84045246741     
+
+
+ ******************************
+ **  OPTIMIZATION CONVERGED  **
+ ******************************
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8303274768   -1.1560318862    0.3839213118
+      2  C         3.2056369771   -0.1482232260    0.0666644425
+      3  C         2.8300006546    1.0977228304   -0.3628536985
+      4  C         1.4154343062    1.2473045388   -0.4570980642
+      5  C         0.7185565138    0.1152492097   -0.0904314805
+      6  H         0.9244070291    2.1485748688   -0.8066750548
+      7  C        -0.7185565138   -0.1152492097   -0.0904314805
+      8  S        -1.8303274768    1.1560318862    0.3839213118
+      9  C        -1.4154343062   -1.2473045388   -0.4570980642
+     10  C        -3.2056369771    0.1482232260    0.0666644425
+     11  C        -2.8300006546   -1.0977228304   -0.3628536985
+     12  H        -3.5375246054   -1.8789343808   -0.6164745501
+     13  H         4.2048234255   -0.5333728020    0.2177768621
+     14  H         3.5375246054    1.8789343808   -0.6164745501
+     15  H        -4.2048234255    0.5333728020    0.2177768621
+     16  H        -0.9244070291   -2.1485748688   -0.8066750548
+
+Z-matrix Print:
+$molecule
+0 1
+S 
+C  1 1.734303
+H  2 1.081457 1 120.010770
+C  2 1.370390 1 111.610767 3 179.856702 0
+H  4 1.084069 2 123.340780 1 179.924848 0
+C  4 1.425572 2 112.837113 1 0.746355 0
+H  6 1.084251 4 123.911427 2 178.065883 0
+C  6 1.378997 4 113.436594 2 -0.376141 0
+C  8 1.455480 6 128.974964 4 178.310065 0
+C  9 1.378997 8 128.974964 6 -139.999983 0
+H  10 1.084251 9 122.632826 8 -0.154614 0
+C  10 1.425572 9 113.436594 8 178.310065 0
+H  12 1.084069 10 123.816649 9 -179.550091 0
+C  12 1.370390 10 112.837113 9 -0.376141 0
+H  14 1.081457 12 128.378279 10 -179.411933 0
+S  14 1.734303 12 111.610767 10 0.746355 0
+$end
+
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.178   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.208   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.624   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.814   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.957   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.248   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.361   1.382   1.463   1.464   1.498   1.532
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.561   1.685   1.694   1.744   1.799   1.866   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.921   1.950   1.979   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.334
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.403   3.426   3.721   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.417   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-88.920 -88.920 -10.238 -10.238 -10.225 -10.225 -10.204 -10.204
+  1 B     1 A     2 A     2 B     3 B     3 A     4 A     4 B                  
+-10.203 -10.203  -7.979  -7.979  -5.943  -5.943  -5.940  -5.940
+  5 B     5 A     6 B     6 A     7 A     7 B     8 B     8 A                  
+ -5.936  -5.936  -0.900  -0.878  -0.771  -0.748  -0.738  -0.705
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.603  -0.578  -0.554  -0.534  -0.525  -0.478  -0.419  -0.418
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 B    16 A                  
+ -0.408  -0.405  -0.399  -0.377  -0.374  -0.356  -0.346  -0.274
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.262  -0.261  -0.218
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+ -0.053  -0.009  -0.006  -0.003   0.007   0.009   0.017   0.022
+ 23 A    22 B    24 A    23 B    25 A    24 B    25 B    26 A                  
+  0.030   0.035   0.038   0.045   0.046   0.054   0.058   0.061
+ 27 A    28 A    26 B    27 B    29 A    30 A    28 B    29 B                  
+  0.071   0.080   0.091   0.094   0.101   0.102   0.106   0.109
+ 30 B    31 A    31 B    32 A    32 B    33 A    34 A    35 A                  
+  0.120   0.123   0.130   0.132   0.134   0.135   0.137   0.137
+ 33 B    34 B    36 A    37 A    35 B    36 B    38 A    37 B                  
+  0.149   0.152   0.161   0.163   0.165   0.173   0.178   0.178
+ 39 A    38 B    40 A    41 A    39 B    40 B    41 B    42 A                  
+  0.186   0.191   0.206   0.208   0.209   0.224   0.224   0.229
+ 43 A    42 B    43 B    44 A    44 B    45 A    45 B    46 A                  
+  0.236   0.248   0.259   0.268   0.270   0.276   0.282   0.287
+ 46 B    47 A    47 B    48 A    48 B    49 A    49 B    50 A                  
+  0.313   0.316   0.324   0.341   0.355   0.357   0.377   0.388
+ 50 B    51 A    51 B    52 A    52 B    53 A    53 B    54 A                  
+  0.433   0.455   0.466   0.517   0.522   0.538   0.540   0.567
+ 54 B    55 B    55 A    56 A    56 B    57 A    57 B    58 B                  
+  0.581   0.602   0.614   0.624   0.652   0.656   0.668   0.678
+ 58 A    59 A    59 B    60 A    60 B    61 B    61 A    62 A                  
+  0.692   0.699   0.720   0.727   0.732   0.743   0.758   0.773
+ 62 B    63 A    63 B    64 A    64 B    65 B    65 A    66 A                  
+  0.785   0.814   0.815   0.832   0.837   0.869   0.917   0.942
+ 66 B    67 A    67 B    68 B    68 A    69 A    69 B    70 A                  
+  0.948   0.957   0.961   0.962   0.967   0.989   1.000   1.014
+ 70 B    71 B    71 A    72 A    72 B    73 A    73 B    74 B                  
+  1.019   1.030   1.052   1.065   1.088   1.096   1.114   1.115
+ 75 B    74 A    75 A    76 A    77 A    76 B    78 A    77 B                  
+  1.148   1.177   1.195   1.218   1.248   1.270   1.317   1.344
+ 78 B    79 A    80 A    79 B    81 A    80 B    81 B    82 A                  
+  1.349   1.353   1.361   1.382   1.463   1.464   1.498   1.532
+ 82 B    83 A    83 B    84 A    85 A    84 B    85 B    86 B                  
+  1.561   1.685   1.694   1.744   1.799   1.866   1.868   1.888
+ 86 A    87 A    87 B    88 A    89 A    88 B    90 A    89 B                  
+  1.921   1.921   1.950   1.979   2.005   2.041   2.078   2.094
+ 90 B    91 A    92 A    91 B    93 A    92 B    94 A    93 B                  
+  2.114   2.152   2.175   2.184   2.236   2.243   2.257   2.334
+ 94 B    95 A    96 A    95 B    96 B    97 A    97 B    98 A                  
+  2.365   2.368   2.421   2.447   2.457   2.466   2.494   2.505
+ 98 B    99 A    99 B   100 A   100 B   101 A   101 B   102 A                  
+  2.528   2.530   2.582   2.586   2.600   2.658   2.693   2.717
+103 A   102 B   103 B   104 A   104 B   105 A   106 A   105 B                  
+  2.744   2.851   2.859   2.910   2.931   3.147   3.197   3.269
+106 B   107 A   107 B   108 A   108 B   109 B   109 A   110 B                  
+  3.272   3.403   3.426   3.721   3.742   3.974   3.975   4.251
+110 A   111 A   111 B   112 A   112 B   113 B   113 A   114 A                  
+  4.305   4.317   4.329   4.417   4.537   4.657   4.712
+115 A   114 B   115 B   116 A   116 B   117 A   117 B                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                    -0.021086
+      2 C                    -0.034739
+      3 C                    -0.408542
+      4 C                     0.274357
+      5 C                    -0.245466
+      6 H                     0.132886
+      7 C                    -0.245466
+      8 S                    -0.021086
+      9 C                     0.274357
+     10 C                    -0.034739
+     11 C                    -0.408542
+     12 H                     0.114878
+     13 H                     0.187712
+     14 H                     0.114878
+     15 H                     0.187712
+     16 H                     0.132886
+  ----------------------------------------
+  Sum of atomic charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z      -0.4338
+       Tot       0.4338
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1559     XY       1.4071     YY     -69.1799
+        XZ       0.0000     YZ      -0.0000     ZZ     -77.6266
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY       0.0000    XYY       0.0000
+       YYY      -0.0000    XXZ       2.6825    XYZ      -8.3312
+       YYZ      -5.1526    XZZ       0.0000    YZZ       0.0000
+       ZZZ       3.7186
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1888.8215   XXXY     -19.5096   XXYY    -420.5152
+      XYYY      15.8072   YYYY    -526.8406   XXXZ       0.0000
+      XXYZ      -0.0000   XYYZ       0.0000   YYYZ      -0.0000
+      XXZZ    -425.5497   XYZZ      -2.9467   YYZZ    -117.4640
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ    -160.9695
+ -----------------------------------------------------------------
+Archival summary:
+1\1\nid01044\OPT\ProcedureUnspecified\BasisUnspecified\286\FriSep218:39:512016FriSep218:39:512016\0\\#,OPT,ProcedureUnspecified,BasisUnspecified,\\0,1\S\C,1,1.7343\H,2,1.08146,1,120.011\C,2,1.37039,1,111.611,3,179.857,0\H,4,1.08407,2,123.341,1,179.925,0\C,4,1.42557,2,112.837,1,0.746355,0\H,6,1.08425,4,123.911,2,178.066,0\C,6,1.379,4,113.437,2,-0.376141,0\C,8,1.45548,6,128.975,4,178.31,0\C,9,1.379,8,128.975,6,-140,0\H,10,1.08425,9,122.633,8,-0.154614,0\C,10,1.42557,9,113.437,8,178.31,0\H,12,1.08407,10,123.817,9,-179.55,0\C,12,1.37039,10,112.837,9,-0.376141,0\H,14,1.08146,12,128.378,10,-179.412,0\S,14,1.7343,12,111.611,10,0.746355,0\\\@
+
+ Total job time:  111.90s(wall), 126.34s(cpu) 
+ Fri Sep  2 18:39:51 2016
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
+0 sent ACK to 0 
+now end server 0 ... 

@@ -1,0 +1,1229 @@
+srun -N 1 --ntasks-per-node 16 --nodelist nid01048 /global/project/projectdirs/jcesr/qchem/qc44/cnl_qc441/dist/exe/qcprog.cori.exe .pt_charged_dft_100.0.in.31896.qcin.1 /dev/shm/eg_qchem/qchem31896/
+Process 1 of 16 is on nid01048 - thread support 0
+Process 2 of 16 is on nid01048 - thread support 0
+Process 3 of 16 is on nid01048 - thread support 0
+Process 5 of 16 is on nid01048 - thread support 0
+Process 6 of 16 is on nid01048 - thread support 0
+Process 0 of 16 is on nid01048 - thread support 0
+Process 4 of 16 is on nid01048 - thread support 0
+Process 15 of 16 is on nid01048 - thread support 0
+initial socket setup ...start
+initial socket setup ...done 
+now start server 0 ... 
+nid01048 10.128.4
+Q-Chem Developer Version! Running on 10.128.4.*
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 4.4, Q-Chem, Inc., Pleasanton, CA (2016)
+
+ Y. Shao,  Z. Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  J. Deng,  X. Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  F.Rob,  
+ R. Z. Khaliullin,  T. Kus,  A. Landau,  J. Liu,  E. I. Proynov,  Y. M. Rhee,  
+ R. M. Richard,  M. A. Rohrdanz,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ B. Austin,  S. A. Baeppler,  G. J. O. Beran,  Y. A. Bernard,  E. Berquist,  
+ K. Brandhorst,  K. B. Bravaya,  S. T. Brown,  D. Casanova,  C.-M. Chang,  
+ Y. Chen,  S. H. Chien,  K. D. Closser,  M. P. Coons,  D. L. Crittenden,  
+ S. Dasgupta,  M. Diedenhofen,  R. A. DiStasio Jr.,  H. Do,  A. D. Dutoi,  
+ R. G. Edgar,  P.-T. Fang,  S. Fatehi,  Q. Feng,  L. Fusti-Molnar,  
+ A. Ghysels,  A. Golubeva-Zadorozhnaya,  J. Gomes,  A. Gunina,  
+ M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  E. G. Hohenstein,  
+ Z. C. Holden,  K. Hui,  T.-C. Jagau,  H. Ji,  B. Kaduk,  K. Khistyaev,  
+ Jaehoon Kim,  Jihan Kim,  R. A. King,  P. Klunzinger,  D. Kosenkov,  
+ T. Kowalczyk,  C. M. Krauter,  A. Kunitsa,  K. U. Lao,  A. Laurent,  
+ K. V. Lawler,  D. Lefrancois,  S. Lehtola,  S. V. Levchenko,  C. Y. Lin,  
+ Y.-S. Lin,  F. Liu,  E. Livshits,  R. C. Lochan,  A. Luenser,  P. Manohar,  
+ S. F. Manzer,  S.-P. Mao,  Y. Mao,  N. Mardirossian,  A. V. Marenich,  
+ L. A. Martinez-Martinez,  S. A. Maurer,  N. J. Mayhall,  J.-M. Mewes,  
+ A. F. Morrison,  K. Nanda,  C. M. Oana,  R. Olivares-Amaya,  D. P. O'Neill,  
+ J. A. Parkhill,  T. M. Perrine,  R. Peverati,  P. A. Pieniazek,  F. Plasser,  
+ A. Prociuk,  D. R. Rehn,  E. Rosta,  N. J. Russ,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  A. Sodt,  T. Stauch,  T. Stein,  
+ D. Stuck,  Y.-C. Su,  A. J. W. Thom,  T. Tsuchimochi,  L. Vogt,  O. Vydrov,  
+ T. Wang,  M. A. Watson,  J. Wenzel,  A. White,  C. F. Williams,  
+ V. Vanovschi,  S. Yeganeh,  S. R. Yost,  Z.-Q. You,  I. Y. Zhang,  X. Zhang,  
+ Y. Zhao,  B. R. Brooks,  G. K. L. Chan,  D. M. Chipman,  C. J. Cramer,  
+ W. A. Goddard III,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ H. F. Schaefer III,  M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  
+ A. Warshel,  X. Xu,  A. Aspuru-Guzik,  R. Baer,  A. T. Bell,  N. A. Besley,  
+ J.-D. Chai,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  S. R. Gwaltney,  
+ C.-P. Hsu,  Y. Jung,  J. Kong,  D. S. Lambrecht,  W. Liang,  C. Ochsenfeld,  
+ V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  T. Van Voorhis,  
+ J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  J. Baker,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ H. Dachsel,  R. J. Doerksen,  G. Hawkins,  A. Heyden,  S. Hirata,  
+ G. Kedziora,  F. J. Keil,  C. Kelley,  P. P. Korambath,  W. Kurlancheek,  
+ A. M. Lee,  M. S. Lee,  D. Liotard,  I. Lotan,  P. E. Maslen,  N. Nair,  
+ D. Neuhauser,  R. Olson,  B. Peters,  J. Ritchie,  N. E. Schultz,  
+ N. Shenvi,  A. C. Simmonett,  K. S. Thanthiriwatte,  Q. Wu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 4.4.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 5.200.1 (Boston Tea Smuggler).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Wed Sep  7 00:19:06 2016  
+
+Host: nid01047
+0
+
+     Scratch files written to /dev/shm/eg_qchem/qchem31896.0//
+ Parallel job on  16  processors
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$comment
+<SCF Fix Strategy>{
+    "current_method_id": 3, 
+    "methods": [
+        "increase_iter", 
+        "rca_diis", 
+        "gwh", 
+        "gdm", 
+        "rca", 
+        "core+rca", 
+        "fon"
+    ], 
+    "version": 2.0
+}</SCF Fix Strategy>
+$end
+
+
+$molecule
+ -1  2
+ S           1.83794975       -1.27576249       -0.14871336
+ C           3.23937819       -0.19806434       -0.14823333
+ C           2.83626844        1.12431397       -0.14890172
+ C           1.43724334        1.31134696       -0.14931220
+ C           0.69606563        0.10654716       -0.14908151
+ H           0.95807640        2.28459073       -0.14860036
+ C          -0.69610330       -0.10652413       -0.14907621
+ S          -1.64560246        0.01881449        1.36664837
+ C          -1.57211982       -0.43033789       -1.21144466
+ C          -3.15358199       -0.36271884        0.52649051
+ C          -2.92153259       -0.56745317       -0.82088445
+ H          -3.71817641       -0.81400288       -1.51897851
+ H           4.24016475       -0.60708034       -0.14954918
+ H           3.54430111        1.94981573       -0.14910914
+ H          -4.08512298       -0.40612734        1.07349751
+ H          -1.22212042       -0.55964960       -2.23006323
+$end
+
+
+$rem
+         jobtype = opt
+        exchange = b3lyp
+           basis = 6-31++g**
+  max_scf_cycles = 200
+      mem_static = 100
+       mem_total = 1500
+   scf_algorithm = gdm
+       scf_guess = sad
+$end
+
+
+$opt
+CONSTRAINT
+tors 4 5 7 9 100.0
+ENDCONSTRAINT
+$end
+
+--------------------------------------------------------------
+ Atom   8: ( -1.7525512905,  0.9774511245,  0.7513826661)
+         ->( -1.7525512836,  0.9774510916,  0.7513827093)
+ Atom  10: ( -3.2120705640,  0.1437998643,  0.2034189434)
+         ->( -3.2120705879,  0.1438000121,  0.2034187658)
+ Atom  11: ( -2.8904000160, -0.8729634075, -0.6762985456)
+         ->( -2.8904000135, -0.8729634425, -0.6762984792)
+ Atom   9: ( -1.5092796903, -1.0131827738, -0.9314414013)
+         ->( -1.5092796834, -1.0131827942, -0.9314413911)
+ Atom   7: ( -0.6991876752, -0.0837855539, -0.2380016037)
+         ->( -0.6991876818, -0.0837855213, -0.2380016555)
+ Atom  16: ( -1.0908234216, -1.7618077520, -1.5957153529)
+         ->( -1.0908234083, -1.7618077233, -1.5957154011)
+ Atom  14: (  3.6447059143,  1.5102393182, -1.1320018113)
+         ->(  3.6447059120,  1.5102391796, -1.1320020212)
+ Atom  15: ( -4.1836307970,  0.4570489056,  0.5595303355)
+         ->( -4.1836307923,  0.4570487904,  0.5595304484)
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.7525512836    -0.9774510916     0.7513827093
+    2      C       3.2120705879    -0.1438000121     0.2034187658
+    3      C       2.8904000135     0.8729634425    -0.6762984792
+    4      C       1.5092796834     1.0131827942    -0.9314413911
+    5      C       0.6991876818     0.0837855213    -0.2380016555
+    6      H       1.0908234083     1.7618077233    -1.5957154011
+    7      C      -0.6991876818    -0.0837855213    -0.2380016555
+    8      S      -1.7525512836     0.9774510916     0.7513827093
+    9      C      -1.5092796834    -1.0131827942    -0.9314413911
+   10      C      -3.2120705879     0.1438000121     0.2034187658
+   11      C      -2.8904000135    -0.8729634425    -0.6762984792
+   12      H      -3.6447059120    -1.5102391796    -1.1320020212
+   13      H       4.1836307923    -0.4570487904     0.5595304484
+   14      H       3.6447059120     1.5102391796    -1.1320020212
+   15      H      -4.1836307923     0.4570487904     0.5595304484
+   16      H      -1.0908234083    -1.7618077233    -1.5957154011
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   622.9239694476 hartrees
+ There are       44 alpha and       43 beta electrons
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
+
+ Total QAlloc Memory Limit   1500 MB
+ Mega-Array Size        98 MB
+ MEM_STATIC part       100 MB
+ A cutoff of  1.0D-12 yielded   2524 shell pairs
+ There are     24866 function pairs
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is            800000
+ size of driver memory is                593474
+ size of scratch memory is             15166112
+ max col of scratch BK array               1296
+ max len of scratch array in speh3          155
+ max len of scratch index in speh4           18
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                52
+ max L of basis functions is                  2
+ order of int derivative is                   0
+ number of shells is                         76
+ number of basis is                         234
+ number of cartesian basis is               234
+ number of contracted shell pairs          2524
+ number of primitive shell pairs           8196
+ maxK2 (contraction) of shell pair           36
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair            266
+ max number of PS2 of shell pair           1536
+ mem total for path MDJ                   51992
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 9.36E-07
+ Linear dependence detected in AO basis
+ Number of orthogonalized atomic orbitals = 233
+ Maximum deviation from orthogonality = 2.739E-11
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e-01
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =     0.0000000149 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ An unrestricted hybrid HF-DFT SCF calculation will be
+ performed using Pulay DIIS + Geometric Direct Minimization
+ Exchange:     0.2000 Hartree-Fock + 0.0800 Slater + 0.7200 B88
+ Correlation:  0.1900 VWN1RPA + 0.8100 LYP
+ Using SG-1 standard quadrature grid
+ SCF converges when RMS gradient is below 1.0E-08
+ Inaccurate integrated density:
+   Number of electrons =    87
+   Numerical integral  =    86.000071984462
+   Relative error      =    -1.1493425466 %
+ ---------------------------------------
+  Cycle       Energy        RMS Gradient
+ ---------------------------------------
+    1   -1106.9958817901      4.29E-02 Done DIIS. Switching to GDM
+    2   -1040.7367061605      2.31E+00 Descent step
+    3   -1046.9531325213      2.00E+00 Descent step
+    4   -1045.8740143456      3.74E+00 Line search: overstep
+    5   -1046.6681027764      3.50E+00 Line search: overstep
+    6   -1046.8601433784      3.42E+00 Line search: overstep
+    7   -1046.9204606321      3.39E+00 Line search: overstep
+    8   -1046.9413398095      3.38E+00 Line search: overstep
+    9   -1046.9488335316      3.37E+00 Line search: overstep
+   10   -1046.9515605744      3.37E+00 Line search: overstep
+   11   -1046.9525577080      3.37E+00 Line search: overstep
+   12   -1046.9529217870      3.37E+00 Line search: overstep
+   13   -1046.9530538368      3.37E+00 Line search: overstep
+   14   -1046.9531043422      3.37E+00 Line search: overstep
+   15   -1046.9531235532      3.37E+00 Line search: overstep
+   16   -1046.9531124100      3.37E+00 Line search: overstep
+   17   -1046.9531175494      3.37E+00 Line search: overstep
+   18   -1046.9531176867      3.37E+00 Line search: overstep
+   19   -1046.9531178994      3.37E+00 Line search: overstep
+   20   -1046.9531169967      3.37E+00 Line search: overstep
+   21   -1046.9531177290      3.37E+00 Line search: overstep
+   22   -1046.9531174594      3.37E+00 Line search: overstep
+   23   -1046.9531169268      3.37E+00 Line search: overstep
+   24   -1046.9531160857      3.37E+00 Line search: overstep
+   25   -1046.9531175623      3.37E+00 Line search: overstep
+   26   -1046.9531170945      3.37E+00 Line search: overstep
+   27   -1046.9531171459      3.37E+00 Line search: overstep
+   28   -1046.9531167190      3.37E+00 Line search: overstep
+   29   -1046.9531168459      3.37E+00 Line search: overstep
+   30   -1046.9531170355      3.37E+00 Line search: overstep
+   31   -1046.9531102339      3.37E+00 Line search: overstep
+   32   -1046.9531115610      3.37E+00 Line search: overstep
+   33   -1046.9531093602      3.37E+00 Line search: overstep
+   34   -1046.9531102937      3.37E+00 Line search: overstep
+   35   -1046.9531094929      3.37E+00 Line search: overstep
+   36   -1046.9531094547      3.37E+00 Line search: overstep
+   37   -1046.9531109037      3.37E+00 Line search: overstep
+   38   -1046.9531104439      3.37E+00 Line search: overstep
+   39   -1046.9531101513      3.37E+00 Line search: overstep
+   40   -1046.9531110416      3.37E+00 Line search: overstep
+   41   -1046.9531101930      3.37E+00 Line search: overstep
+   42   -1046.9531091170      3.37E+00 Line search: overstep
+   43   -1046.9531091928      3.37E+00 Line search: overstep
+   44   -1046.9531115857      3.37E+00 Line search: overstep
+   45   -1046.9531098978      3.37E+00 Line search: overstep
+   46   -1046.9531034133      3.37E+00 Line search: overstep
+   47   -1046.9531040808      3.37E+00 Line search: overstep
+   48   -1046.9531032611      3.37E+00 Line search: overstep
+   49   -1046.9531032854      3.37E+00 Line search: overstep
+   50   -1046.9531035986      3.37E+00 Line search: overstep
+   51   -1046.9531038564      3.37E+00 Line search: overstep
+   52   -1046.9531036300      3.37E+00 Line search: overstep
+   53   -1046.9531022635      3.37E+00 Line search: overstep
+   54   -1046.9531033381      3.37E+00 Line search: overstep
+   55   -1046.9531043225      3.37E+00 Line search: overstep
+   56   -1046.9531038488      3.37E+00 Line search: overstep
+   57   -1046.9531036253      3.37E+00 Line search: overstep
+   58   -1046.9531016327      3.37E+00 Line search: overstep
+   59   -1046.9531042996      3.37E+00 Line search: overstep
+   60   -1046.9531029441      3.37E+00 Line search: overstep
+   61   -1046.9531073653      3.37E+00 Line search: overstep
+   62   -1046.9531086315      3.37E+00 Line search: overstep
+   63   -1046.9531063718      3.37E+00 Line search: overstep
+   64   -1046.9531084366      3.37E+00 Line search: overstep
+   65   -1046.9531060398      3.37E+00 Line search: overstep
+   66   -1046.9531077132      3.37E+00 Line search: overstep
+   67   -1046.9531088576      3.37E+00 Line search: overstep
+   68   -1046.9531061312      3.37E+00 Line search: overstep
+   69   -1046.9531075032      3.37E+00 Line search: overstep
+   70   -1046.9531068107      3.37E+00 Line search: overstep
+   71   -1046.9531080531      3.37E+00 Line search: overstep
+   72   -1046.9531070951      3.37E+00 Line search: overstep
+   73   -1046.9531097635      3.37E+00 Line search: overstep
+   74   -1046.9531064451      3.37E+00 Line search: overstep
+   75   -1046.9531084927      3.37E+00 Line search: overstep
+   76   -1046.9531091322      3.37E+00 Line search: overstep
+   77   -1046.9531060282      3.37E+00 Line search: overstep
+   78   -1046.9531057761      3.37E+00 Line search: overstep
+   79   -1046.9531083173      3.37E+00 Line search: overstep
+   80   -1046.9531078685      3.37E+00 Line search: overstep
+   81   -1046.9531066322      3.37E+00 Line search: overstep
+   82   -1046.9531076429      3.37E+00 Line search: overstep
+   83   -1046.9531089130      3.37E+00 Line search: overstep
+   84   -1046.9531085133      3.37E+00 Line search: overstep
+   85   -1046.9531088434      3.37E+00 Line search: overstep
+   86   -1046.9531062120      3.37E+00 Line search: overstep
+   87   -1046.9531081143      3.37E+00 Line search: overstep
+   88   -1046.9531077191      3.37E+00 Line search: overstep
+   89   -1046.9531075268      3.37E+00 Line search: overstep
+   90   -1046.9531092713      3.37E+00 Line search: overstep
+   91   -1046.9531094898      3.37E+00 Line search: overstep
+   92   -1046.9531075010      3.37E+00 Line search: overstep
+   93   -1046.9531090806      3.37E+00 Line search: overstep
+   94   -1046.9531087031      3.37E+00 Line search: overstep
+   95   -1046.9531086808      3.37E+00 Line search: overstep
+   96   -1046.9531087895      3.37E+00 Line search: overstep
+   97   -1046.9531078091      3.37E+00 Line search: overstep
+   98   -1046.9531086334      3.37E+00 Line search: overstep
+   99   -1046.9531080669      3.37E+00 Line search: overstep
+  100   -1046.9531106495      3.37E+00 Line search: overstep
+  101   -1046.9531097402      3.37E+00 Line search: overstep
+  102   -1046.9531094122      3.37E+00 Line search: overstep
+  103   -1046.9531100788      3.37E+00 Line search: overstep
+  104   -1046.9531095113      3.37E+00 Line search: overstep
+  105   -1046.9531087247      3.37E+00 Line search: overstep
+  106   -1046.9530966640      3.37E+00 Line search: overstep
+  107   -1046.9530959986      3.37E+00 Line search: overstep
+  108   -1046.9530959878      3.37E+00 Line search: overstep
+  109   -1046.9530969109      3.37E+00 Line search: overstep
+  110   -1046.9530955892      3.37E+00 Line search: overstep
+  111   -1046.9530968690      3.37E+00 Line search: overstep
+  112   -1046.9530966424      3.37E+00 Line search: overstep
+  113   -1046.9530977130      3.37E+00 Line search: overstep
+  114   -1046.9530950227      3.37E+00 Line search: overstep
+  115   -1046.9530962528      3.37E+00 Line search: overstep
+  116   -1046.9530986231      3.37E+00 Line search: overstep
+  117   -1046.9530941936      3.37E+00 Line search: overstep
+  118   -1046.9530975221      3.37E+00 Line search: overstep
+  119   -1046.9530972720      3.37E+00 Line search: overstep
+  120   -1046.9530967909      3.37E+00 Line search: overstep
+  121   -1046.9530964978      3.37E+00 Line search: overstep
+  122   -1046.9530953399      3.37E+00 Line search: overstep
+  123   -1046.9530967114      3.37E+00 Line search: overstep
+  124   -1046.9530971087      3.37E+00 Line search: overstep
+  125   -1046.9530954480      3.37E+00 Line search: overstep
+  126   -1046.9530971019      3.37E+00 Line search: overstep
+  127   -1046.9530984695      3.37E+00 Line search: overstep
+  128   -1046.9530966280      3.37E+00 Line search: overstep
+  129   -1046.9530964745      3.37E+00 Line search: overstep
+  130   -1046.9530967332      3.37E+00 Line search: overstep
+  131   -1046.9530960989      3.37E+00 Line search: overstep
+  132   -1046.9530971901      3.37E+00 Line search: overstep
+  133   -1046.9530973399      3.37E+00 Line search: overstep
+  134   -1046.9530982401      3.37E+00 Line search: overstep
+  135   -1046.9530965835      3.37E+00 Line search: overstep
+  136   -1046.9531073614      3.37E+00 Line search: overstep
+  137   -1046.9531076918      3.37E+00 Line search: overstep
+  138   -1046.9531054909      3.37E+00 Line search: overstep
+  139   -1046.9531066756      3.37E+00 Line search: overstep
+  140   -1046.9531073311      3.37E+00 Line search: overstep
+  141   -1046.9531068878      3.37E+00 Line search: overstep
+  142   -1046.9531080033      3.37E+00 Line search: overstep
+  143   -1046.9531076423      3.37E+00 Line search: overstep
+  144   -1046.9531064668      3.37E+00 Line search: overstep
+  145   -1046.9531063878      3.37E+00 Line search: overstep
+  146   -1046.9531075981      3.37E+00 Line search: overstep
+  147   -1046.9531089630      3.37E+00 Line search: overstep
+  148   -1046.9531084635      3.37E+00 Line search: overstep
+  149   -1046.9531091209      3.37E+00 Line search: overstep
+  150   -1046.9531075218      3.37E+00 Line search: overstep
+  151   -1046.9531072547      3.37E+00 Line search: overstep
+  152   -1046.9531064610      3.37E+00 Line search: overstep
+  153   -1046.9531064948      3.37E+00 Line search: overstep
+  154   -1046.9531059933      3.37E+00 Line search: overstep
+  155   -1046.9531065306      3.37E+00 Line search: overstep
+  156   -1046.9531081273      3.37E+00 Line search: overstep
+  157   -1046.9531078534      3.37E+00 Line search: overstep
+  158   -1046.9531073106      3.37E+00 Line search: overstep
+  159   -1046.9531082041      3.37E+00 Line search: overstep
+  160   -1046.9531055767      3.37E+00 Line search: overstep
+  161   -1046.9531065111      3.37E+00 Line search: overstep
+  162   -1046.9531073164      3.37E+00 Line search: overstep
+  163   -1046.9531049224      3.37E+00 Line search: overstep
+  164   -1046.9531072105      3.37E+00 Line search: overstep
+  165               -nan           NAN Convergence criterion met
+ ---------------------------------------
+ <S^2> = nan
+ SCF time:  CPU 38.85 s  wall 32.84 s
+ SCF   energy in the final basis set = -nan
+ Total energy in the final basis set = -nan
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ Warning : Irrep of orbital(   1) could not be determined
+ Warning : Irrep of orbital(   2) could not be determined
+ Warning : Irrep of orbital(   3) could not be determined
+ Warning : Irrep of orbital(   4) could not be determined
+ Warning : Irrep of orbital(   5) could not be determined
+ Warning : Irrep of orbital(   6) could not be determined
+ Warning : Irrep of orbital(   7) could not be determined
+ Warning : Irrep of orbital(   8) could not be determined
+ Warning : Irrep of orbital(   9) could not be determined
+ Warning : Irrep of orbital(  10) could not be determined
+ Warning : Irrep of orbital(  11) could not be determined
+ Warning : Irrep of orbital(  12) could not be determined
+ Warning : Irrep of orbital(  13) could not be determined
+ Warning : Irrep of orbital(  14) could not be determined
+ Warning : Irrep of orbital(  15) could not be determined
+ Warning : Irrep of orbital(  16) could not be determined
+ Warning : Irrep of orbital(  17) could not be determined
+ Warning : Irrep of orbital(  18) could not be determined
+ Warning : Irrep of orbital(  19) could not be determined
+ Warning : Irrep of orbital(  20) could not be determined
+ Warning : Irrep of orbital(  21) could not be determined
+ Warning : Irrep of orbital(  22) could not be determined
+ Warning : Irrep of orbital(  23) could not be determined
+ Warning : Irrep of orbital(  24) could not be determined
+ Warning : Irrep of orbital(  25) could not be determined
+ Warning : Irrep of orbital(  26) could not be determined
+ Warning : Irrep of orbital(  27) could not be determined
+ Warning : Irrep of orbital(  28) could not be determined
+ Warning : Irrep of orbital(  29) could not be determined
+ Warning : Irrep of orbital(  30) could not be determined
+ Warning : Irrep of orbital(  31) could not be determined
+ Warning : Irrep of orbital(  32) could not be determined
+ Warning : Irrep of orbital(  33) could not be determined
+ Warning : Irrep of orbital(  34) could not be determined
+ Warning : Irrep of orbital(  35) could not be determined
+ Warning : Irrep of orbital(  36) could not be determined
+ Warning : Irrep of orbital(  37) could not be determined
+ Warning : Irrep of orbital(  38) could not be determined
+ Warning : Irrep of orbital(  39) could not be determined
+ Warning : Irrep of orbital(  40) could not be determined
+ Warning : Irrep of orbital(  41) could not be determined
+ Warning : Irrep of orbital(  42) could not be determined
+ Warning : Irrep of orbital(  43) could not be determined
+ Warning : Irrep of orbital(  44) could not be determined
+ Warning : Irrep of orbital(  45) could not be determined
+ Warning : Irrep of orbital(  46) could not be determined
+ Warning : Irrep of orbital(  47) could not be determined
+ Warning : Irrep of orbital(  48) could not be determined
+ Warning : Irrep of orbital(  49) could not be determined
+ Warning : Irrep of orbital(  50) could not be determined
+ Warning : Irrep of orbital(  51) could not be determined
+ Warning : Irrep of orbital(  52) could not be determined
+ Warning : Irrep of orbital(  53) could not be determined
+ Warning : Irrep of orbital(  54) could not be determined
+ Warning : Irrep of orbital(  55) could not be determined
+ Warning : Irrep of orbital(  56) could not be determined
+ Warning : Irrep of orbital(  57) could not be determined
+ Warning : Irrep of orbital(  58) could not be determined
+ Warning : Irrep of orbital(  59) could not be determined
+ Warning : Irrep of orbital(  60) could not be determined
+ Warning : Irrep of orbital(  61) could not be determined
+ Warning : Irrep of orbital(  62) could not be determined
+ Warning : Irrep of orbital(  63) could not be determined
+ Warning : Irrep of orbital(  64) could not be determined
+ Warning : Irrep of orbital(  65) could not be determined
+ Warning : Irrep of orbital(  66) could not be determined
+ Warning : Irrep of orbital(  67) could not be determined
+ Warning : Irrep of orbital(  68) could not be determined
+ Warning : Irrep of orbital(  69) could not be determined
+ Warning : Irrep of orbital(  70) could not be determined
+ Warning : Irrep of orbital(  71) could not be determined
+ Warning : Irrep of orbital(  72) could not be determined
+ Warning : Irrep of orbital(  73) could not be determined
+ Warning : Irrep of orbital(  74) could not be determined
+ Warning : Irrep of orbital(  75) could not be determined
+ Warning : Irrep of orbital(  76) could not be determined
+ Warning : Irrep of orbital(  77) could not be determined
+ Warning : Irrep of orbital(  78) could not be determined
+ Warning : Irrep of orbital(  79) could not be determined
+ Warning : Irrep of orbital(  80) could not be determined
+ Warning : Irrep of orbital(  81) could not be determined
+ Warning : Irrep of orbital(  82) could not be determined
+ Warning : Irrep of orbital(  83) could not be determined
+ Warning : Irrep of orbital(  84) could not be determined
+ Warning : Irrep of orbital(  85) could not be determined
+ Warning : Irrep of orbital(  86) could not be determined
+ Warning : Irrep of orbital(  87) could not be determined
+ Warning : Irrep of orbital(  88) could not be determined
+ Warning : Irrep of orbital(  89) could not be determined
+ Warning : Irrep of orbital(  90) could not be determined
+ Warning : Irrep of orbital(  91) could not be determined
+ Warning : Irrep of orbital(  92) could not be determined
+ Warning : Irrep of orbital(  93) could not be determined
+ Warning : Irrep of orbital(  94) could not be determined
+ Warning : Irrep of orbital(  95) could not be determined
+ Warning : Irrep of orbital(  96) could not be determined
+ Warning : Irrep of orbital(  97) could not be determined
+ Warning : Irrep of orbital(  98) could not be determined
+ Warning : Irrep of orbital(  99) could not be determined
+ Warning : Irrep of orbital( 100) could not be determined
+ Warning : Irrep of orbital( 101) could not be determined
+ Warning : Irrep of orbital( 102) could not be determined
+ Warning : Irrep of orbital( 103) could not be determined
+ Warning : Irrep of orbital( 104) could not be determined
+ Warning : Irrep of orbital( 105) could not be determined
+ Warning : Irrep of orbital( 106) could not be determined
+ Warning : Irrep of orbital( 107) could not be determined
+ Warning : Irrep of orbital( 108) could not be determined
+ Warning : Irrep of orbital( 109) could not be determined
+ Warning : Irrep of orbital( 110) could not be determined
+ Warning : Irrep of orbital( 111) could not be determined
+ Warning : Irrep of orbital( 112) could not be determined
+ Warning : Irrep of orbital( 113) could not be determined
+ Warning : Irrep of orbital( 114) could not be determined
+ Warning : Irrep of orbital( 115) could not be determined
+ Warning : Irrep of orbital( 116) could not be determined
+ Warning : Irrep of orbital( 117) could not be determined
+ Warning : Irrep of orbital( 118) could not be determined
+ Warning : Irrep of orbital( 119) could not be determined
+ Warning : Irrep of orbital( 120) could not be determined
+ Warning : Irrep of orbital( 121) could not be determined
+ Warning : Irrep of orbital( 122) could not be determined
+ Warning : Irrep of orbital( 123) could not be determined
+ Warning : Irrep of orbital( 124) could not be determined
+ Warning : Irrep of orbital( 125) could not be determined
+ Warning : Irrep of orbital( 126) could not be determined
+ Warning : Irrep of orbital( 127) could not be determined
+ Warning : Irrep of orbital( 128) could not be determined
+ Warning : Irrep of orbital( 129) could not be determined
+ Warning : Irrep of orbital( 130) could not be determined
+ Warning : Irrep of orbital( 131) could not be determined
+ Warning : Irrep of orbital( 132) could not be determined
+ Warning : Irrep of orbital( 133) could not be determined
+ Warning : Irrep of orbital( 134) could not be determined
+ Warning : Irrep of orbital( 135) could not be determined
+ Warning : Irrep of orbital( 136) could not be determined
+ Warning : Irrep of orbital( 137) could not be determined
+ Warning : Irrep of orbital( 138) could not be determined
+ Warning : Irrep of orbital( 139) could not be determined
+ Warning : Irrep of orbital( 140) could not be determined
+ Warning : Irrep of orbital( 141) could not be determined
+ Warning : Irrep of orbital( 142) could not be determined
+ Warning : Irrep of orbital( 143) could not be determined
+ Warning : Irrep of orbital( 144) could not be determined
+ Warning : Irrep of orbital( 145) could not be determined
+ Warning : Irrep of orbital( 146) could not be determined
+ Warning : Irrep of orbital( 147) could not be determined
+ Warning : Irrep of orbital( 148) could not be determined
+ Warning : Irrep of orbital( 149) could not be determined
+ Warning : Irrep of orbital( 150) could not be determined
+ Warning : Irrep of orbital( 151) could not be determined
+ Warning : Irrep of orbital( 152) could not be determined
+ Warning : Irrep of orbital( 153) could not be determined
+ Warning : Irrep of orbital( 154) could not be determined
+ Warning : Irrep of orbital( 155) could not be determined
+ Warning : Irrep of orbital( 156) could not be determined
+ Warning : Irrep of orbital( 157) could not be determined
+ Warning : Irrep of orbital( 158) could not be determined
+ Warning : Irrep of orbital( 159) could not be determined
+ Warning : Irrep of orbital( 160) could not be determined
+ Warning : Irrep of orbital( 161) could not be determined
+ Warning : Irrep of orbital( 162) could not be determined
+ Warning : Irrep of orbital( 163) could not be determined
+ Warning : Irrep of orbital( 164) could not be determined
+ Warning : Irrep of orbital( 165) could not be determined
+ Warning : Irrep of orbital( 166) could not be determined
+ Warning : Irrep of orbital( 167) could not be determined
+ Warning : Irrep of orbital( 168) could not be determined
+ Warning : Irrep of orbital( 169) could not be determined
+ Warning : Irrep of orbital( 170) could not be determined
+ Warning : Irrep of orbital( 171) could not be determined
+ Warning : Irrep of orbital( 172) could not be determined
+ Warning : Irrep of orbital( 173) could not be determined
+ Warning : Irrep of orbital( 174) could not be determined
+ Warning : Irrep of orbital( 175) could not be determined
+ Warning : Irrep of orbital( 176) could not be determined
+ Warning : Irrep of orbital( 177) could not be determined
+ Warning : Irrep of orbital( 178) could not be determined
+ Warning : Irrep of orbital( 179) could not be determined
+ Warning : Irrep of orbital( 180) could not be determined
+ Warning : Irrep of orbital( 181) could not be determined
+ Warning : Irrep of orbital( 182) could not be determined
+ Warning : Irrep of orbital( 183) could not be determined
+ Warning : Irrep of orbital( 184) could not be determined
+ Warning : Irrep of orbital( 185) could not be determined
+ Warning : Irrep of orbital( 186) could not be determined
+ Warning : Irrep of orbital( 187) could not be determined
+ Warning : Irrep of orbital( 188) could not be determined
+ Warning : Irrep of orbital( 189) could not be determined
+ Warning : Irrep of orbital( 190) could not be determined
+ Warning : Irrep of orbital( 191) could not be determined
+ Warning : Irrep of orbital( 192) could not be determined
+ Warning : Irrep of orbital( 193) could not be determined
+ Warning : Irrep of orbital( 194) could not be determined
+ Warning : Irrep of orbital( 195) could not be determined
+ Warning : Irrep of orbital( 196) could not be determined
+ Warning : Irrep of orbital( 197) could not be determined
+ Warning : Irrep of orbital( 198) could not be determined
+ Warning : Irrep of orbital( 199) could not be determined
+ Warning : Irrep of orbital( 200) could not be determined
+ Warning : Irrep of orbital( 201) could not be determined
+ Warning : Irrep of orbital( 202) could not be determined
+ Warning : Irrep of orbital( 203) could not be determined
+ Warning : Irrep of orbital( 204) could not be determined
+ Warning : Irrep of orbital( 205) could not be determined
+ Warning : Irrep of orbital( 206) could not be determined
+ Warning : Irrep of orbital( 207) could not be determined
+ Warning : Irrep of orbital( 208) could not be determined
+ Warning : Irrep of orbital( 209) could not be determined
+ Warning : Irrep of orbital( 210) could not be determined
+ Warning : Irrep of orbital( 211) could not be determined
+ Warning : Irrep of orbital( 212) could not be determined
+ Warning : Irrep of orbital( 213) could not be determined
+ Warning : Irrep of orbital( 214) could not be determined
+ Warning : Irrep of orbital( 215) could not be determined
+ Warning : Irrep of orbital( 216) could not be determined
+ Warning : Irrep of orbital( 217) could not be determined
+ Warning : Irrep of orbital( 218) could not be determined
+ Warning : Irrep of orbital( 219) could not be determined
+ Warning : Irrep of orbital( 220) could not be determined
+ Warning : Irrep of orbital( 221) could not be determined
+ Warning : Irrep of orbital( 222) could not be determined
+ Warning : Irrep of orbital( 223) could not be determined
+ Warning : Irrep of orbital( 224) could not be determined
+ Warning : Irrep of orbital( 225) could not be determined
+ Warning : Irrep of orbital( 226) could not be determined
+ Warning : Irrep of orbital( 227) could not be determined
+ Warning : Irrep of orbital( 228) could not be determined
+ Warning : Irrep of orbital( 229) could not be determined
+ Warning : Irrep of orbital( 230) could not be determined
+ Warning : Irrep of orbital( 231) could not be determined
+ Warning : Irrep of orbital( 232) could not be determined
+ Warning : Irrep of orbital( 233) could not be determined
+ 
+ Alpha MOs, Unrestricted
+ -- Occupied --                  
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx                                                
+ -- Virtual --                   
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                                        
+ Warning : Irrep of orbital(   1) could not be determined
+ Warning : Irrep of orbital(   2) could not be determined
+ Warning : Irrep of orbital(   3) could not be determined
+ Warning : Irrep of orbital(   4) could not be determined
+ Warning : Irrep of orbital(   5) could not be determined
+ Warning : Irrep of orbital(   6) could not be determined
+ Warning : Irrep of orbital(   7) could not be determined
+ Warning : Irrep of orbital(   8) could not be determined
+ Warning : Irrep of orbital(   9) could not be determined
+ Warning : Irrep of orbital(  10) could not be determined
+ Warning : Irrep of orbital(  11) could not be determined
+ Warning : Irrep of orbital(  12) could not be determined
+ Warning : Irrep of orbital(  13) could not be determined
+ Warning : Irrep of orbital(  14) could not be determined
+ Warning : Irrep of orbital(  15) could not be determined
+ Warning : Irrep of orbital(  16) could not be determined
+ Warning : Irrep of orbital(  17) could not be determined
+ Warning : Irrep of orbital(  18) could not be determined
+ Warning : Irrep of orbital(  19) could not be determined
+ Warning : Irrep of orbital(  20) could not be determined
+ Warning : Irrep of orbital(  21) could not be determined
+ Warning : Irrep of orbital(  22) could not be determined
+ Warning : Irrep of orbital(  23) could not be determined
+ Warning : Irrep of orbital(  24) could not be determined
+ Warning : Irrep of orbital(  25) could not be determined
+ Warning : Irrep of orbital(  26) could not be determined
+ Warning : Irrep of orbital(  27) could not be determined
+ Warning : Irrep of orbital(  28) could not be determined
+ Warning : Irrep of orbital(  29) could not be determined
+ Warning : Irrep of orbital(  30) could not be determined
+ Warning : Irrep of orbital(  31) could not be determined
+ Warning : Irrep of orbital(  32) could not be determined
+ Warning : Irrep of orbital(  33) could not be determined
+ Warning : Irrep of orbital(  34) could not be determined
+ Warning : Irrep of orbital(  35) could not be determined
+ Warning : Irrep of orbital(  36) could not be determined
+ Warning : Irrep of orbital(  37) could not be determined
+ Warning : Irrep of orbital(  38) could not be determined
+ Warning : Irrep of orbital(  39) could not be determined
+ Warning : Irrep of orbital(  40) could not be determined
+ Warning : Irrep of orbital(  41) could not be determined
+ Warning : Irrep of orbital(  42) could not be determined
+ Warning : Irrep of orbital(  43) could not be determined
+ Warning : Irrep of orbital(  44) could not be determined
+ Warning : Irrep of orbital(  45) could not be determined
+ Warning : Irrep of orbital(  46) could not be determined
+ Warning : Irrep of orbital(  47) could not be determined
+ Warning : Irrep of orbital(  48) could not be determined
+ Warning : Irrep of orbital(  49) could not be determined
+ Warning : Irrep of orbital(  50) could not be determined
+ Warning : Irrep of orbital(  51) could not be determined
+ Warning : Irrep of orbital(  52) could not be determined
+ Warning : Irrep of orbital(  53) could not be determined
+ Warning : Irrep of orbital(  54) could not be determined
+ Warning : Irrep of orbital(  55) could not be determined
+ Warning : Irrep of orbital(  56) could not be determined
+ Warning : Irrep of orbital(  57) could not be determined
+ Warning : Irrep of orbital(  58) could not be determined
+ Warning : Irrep of orbital(  59) could not be determined
+ Warning : Irrep of orbital(  60) could not be determined
+ Warning : Irrep of orbital(  61) could not be determined
+ Warning : Irrep of orbital(  62) could not be determined
+ Warning : Irrep of orbital(  63) could not be determined
+ Warning : Irrep of orbital(  64) could not be determined
+ Warning : Irrep of orbital(  65) could not be determined
+ Warning : Irrep of orbital(  66) could not be determined
+ Warning : Irrep of orbital(  67) could not be determined
+ Warning : Irrep of orbital(  68) could not be determined
+ Warning : Irrep of orbital(  69) could not be determined
+ Warning : Irrep of orbital(  70) could not be determined
+ Warning : Irrep of orbital(  71) could not be determined
+ Warning : Irrep of orbital(  72) could not be determined
+ Warning : Irrep of orbital(  73) could not be determined
+ Warning : Irrep of orbital(  74) could not be determined
+ Warning : Irrep of orbital(  75) could not be determined
+ Warning : Irrep of orbital(  76) could not be determined
+ Warning : Irrep of orbital(  77) could not be determined
+ Warning : Irrep of orbital(  78) could not be determined
+ Warning : Irrep of orbital(  79) could not be determined
+ Warning : Irrep of orbital(  80) could not be determined
+ Warning : Irrep of orbital(  81) could not be determined
+ Warning : Irrep of orbital(  82) could not be determined
+ Warning : Irrep of orbital(  83) could not be determined
+ Warning : Irrep of orbital(  84) could not be determined
+ Warning : Irrep of orbital(  85) could not be determined
+ Warning : Irrep of orbital(  86) could not be determined
+ Warning : Irrep of orbital(  87) could not be determined
+ Warning : Irrep of orbital(  88) could not be determined
+ Warning : Irrep of orbital(  89) could not be determined
+ Warning : Irrep of orbital(  90) could not be determined
+ Warning : Irrep of orbital(  91) could not be determined
+ Warning : Irrep of orbital(  92) could not be determined
+ Warning : Irrep of orbital(  93) could not be determined
+ Warning : Irrep of orbital(  94) could not be determined
+ Warning : Irrep of orbital(  95) could not be determined
+ Warning : Irrep of orbital(  96) could not be determined
+ Warning : Irrep of orbital(  97) could not be determined
+ Warning : Irrep of orbital(  98) could not be determined
+ Warning : Irrep of orbital(  99) could not be determined
+ Warning : Irrep of orbital( 100) could not be determined
+ Warning : Irrep of orbital( 101) could not be determined
+ Warning : Irrep of orbital( 102) could not be determined
+ Warning : Irrep of orbital( 103) could not be determined
+ Warning : Irrep of orbital( 104) could not be determined
+ Warning : Irrep of orbital( 105) could not be determined
+ Warning : Irrep of orbital( 106) could not be determined
+ Warning : Irrep of orbital( 107) could not be determined
+ Warning : Irrep of orbital( 108) could not be determined
+ Warning : Irrep of orbital( 109) could not be determined
+ Warning : Irrep of orbital( 110) could not be determined
+ Warning : Irrep of orbital( 111) could not be determined
+ Warning : Irrep of orbital( 112) could not be determined
+ Warning : Irrep of orbital( 113) could not be determined
+ Warning : Irrep of orbital( 114) could not be determined
+ Warning : Irrep of orbital( 115) could not be determined
+ Warning : Irrep of orbital( 116) could not be determined
+ Warning : Irrep of orbital( 117) could not be determined
+ Warning : Irrep of orbital( 118) could not be determined
+ Warning : Irrep of orbital( 119) could not be determined
+ Warning : Irrep of orbital( 120) could not be determined
+ Warning : Irrep of orbital( 121) could not be determined
+ Warning : Irrep of orbital( 122) could not be determined
+ Warning : Irrep of orbital( 123) could not be determined
+ Warning : Irrep of orbital( 124) could not be determined
+ Warning : Irrep of orbital( 125) could not be determined
+ Warning : Irrep of orbital( 126) could not be determined
+ Warning : Irrep of orbital( 127) could not be determined
+ Warning : Irrep of orbital( 128) could not be determined
+ Warning : Irrep of orbital( 129) could not be determined
+ Warning : Irrep of orbital( 130) could not be determined
+ Warning : Irrep of orbital( 131) could not be determined
+ Warning : Irrep of orbital( 132) could not be determined
+ Warning : Irrep of orbital( 133) could not be determined
+ Warning : Irrep of orbital( 134) could not be determined
+ Warning : Irrep of orbital( 135) could not be determined
+ Warning : Irrep of orbital( 136) could not be determined
+ Warning : Irrep of orbital( 137) could not be determined
+ Warning : Irrep of orbital( 138) could not be determined
+ Warning : Irrep of orbital( 139) could not be determined
+ Warning : Irrep of orbital( 140) could not be determined
+ Warning : Irrep of orbital( 141) could not be determined
+ Warning : Irrep of orbital( 142) could not be determined
+ Warning : Irrep of orbital( 143) could not be determined
+ Warning : Irrep of orbital( 144) could not be determined
+ Warning : Irrep of orbital( 145) could not be determined
+ Warning : Irrep of orbital( 146) could not be determined
+ Warning : Irrep of orbital( 147) could not be determined
+ Warning : Irrep of orbital( 148) could not be determined
+ Warning : Irrep of orbital( 149) could not be determined
+ Warning : Irrep of orbital( 150) could not be determined
+ Warning : Irrep of orbital( 151) could not be determined
+ Warning : Irrep of orbital( 152) could not be determined
+ Warning : Irrep of orbital( 153) could not be determined
+ Warning : Irrep of orbital( 154) could not be determined
+ Warning : Irrep of orbital( 155) could not be determined
+ Warning : Irrep of orbital( 156) could not be determined
+ Warning : Irrep of orbital( 157) could not be determined
+ Warning : Irrep of orbital( 158) could not be determined
+ Warning : Irrep of orbital( 159) could not be determined
+ Warning : Irrep of orbital( 160) could not be determined
+ Warning : Irrep of orbital( 161) could not be determined
+ Warning : Irrep of orbital( 162) could not be determined
+ Warning : Irrep of orbital( 163) could not be determined
+ Warning : Irrep of orbital( 164) could not be determined
+ Warning : Irrep of orbital( 165) could not be determined
+ Warning : Irrep of orbital( 166) could not be determined
+ Warning : Irrep of orbital( 167) could not be determined
+ Warning : Irrep of orbital( 168) could not be determined
+ Warning : Irrep of orbital( 169) could not be determined
+ Warning : Irrep of orbital( 170) could not be determined
+ Warning : Irrep of orbital( 171) could not be determined
+ Warning : Irrep of orbital( 172) could not be determined
+ Warning : Irrep of orbital( 173) could not be determined
+ Warning : Irrep of orbital( 174) could not be determined
+ Warning : Irrep of orbital( 175) could not be determined
+ Warning : Irrep of orbital( 176) could not be determined
+ Warning : Irrep of orbital( 177) could not be determined
+ Warning : Irrep of orbital( 178) could not be determined
+ Warning : Irrep of orbital( 179) could not be determined
+ Warning : Irrep of orbital( 180) could not be determined
+ Warning : Irrep of orbital( 181) could not be determined
+ Warning : Irrep of orbital( 182) could not be determined
+ Warning : Irrep of orbital( 183) could not be determined
+ Warning : Irrep of orbital( 184) could not be determined
+ Warning : Irrep of orbital( 185) could not be determined
+ Warning : Irrep of orbital( 186) could not be determined
+ Warning : Irrep of orbital( 187) could not be determined
+ Warning : Irrep of orbital( 188) could not be determined
+ Warning : Irrep of orbital( 189) could not be determined
+ Warning : Irrep of orbital( 190) could not be determined
+ Warning : Irrep of orbital( 191) could not be determined
+ Warning : Irrep of orbital( 192) could not be determined
+ Warning : Irrep of orbital( 193) could not be determined
+ Warning : Irrep of orbital( 194) could not be determined
+ Warning : Irrep of orbital( 195) could not be determined
+ Warning : Irrep of orbital( 196) could not be determined
+ Warning : Irrep of orbital( 197) could not be determined
+ Warning : Irrep of orbital( 198) could not be determined
+ Warning : Irrep of orbital( 199) could not be determined
+ Warning : Irrep of orbital( 200) could not be determined
+ Warning : Irrep of orbital( 201) could not be determined
+ Warning : Irrep of orbital( 202) could not be determined
+ Warning : Irrep of orbital( 203) could not be determined
+ Warning : Irrep of orbital( 204) could not be determined
+ Warning : Irrep of orbital( 205) could not be determined
+ Warning : Irrep of orbital( 206) could not be determined
+ Warning : Irrep of orbital( 207) could not be determined
+ Warning : Irrep of orbital( 208) could not be determined
+ Warning : Irrep of orbital( 209) could not be determined
+ Warning : Irrep of orbital( 210) could not be determined
+ Warning : Irrep of orbital( 211) could not be determined
+ Warning : Irrep of orbital( 212) could not be determined
+ Warning : Irrep of orbital( 213) could not be determined
+ Warning : Irrep of orbital( 214) could not be determined
+ Warning : Irrep of orbital( 215) could not be determined
+ Warning : Irrep of orbital( 216) could not be determined
+ Warning : Irrep of orbital( 217) could not be determined
+ Warning : Irrep of orbital( 218) could not be determined
+ Warning : Irrep of orbital( 219) could not be determined
+ Warning : Irrep of orbital( 220) could not be determined
+ Warning : Irrep of orbital( 221) could not be determined
+ Warning : Irrep of orbital( 222) could not be determined
+ Warning : Irrep of orbital( 223) could not be determined
+ Warning : Irrep of orbital( 224) could not be determined
+ Warning : Irrep of orbital( 225) could not be determined
+ Warning : Irrep of orbital( 226) could not be determined
+ Warning : Irrep of orbital( 227) could not be determined
+ Warning : Irrep of orbital( 228) could not be determined
+ Warning : Irrep of orbital( 229) could not be determined
+ Warning : Irrep of orbital( 230) could not be determined
+ Warning : Irrep of orbital( 231) could not be determined
+ Warning : Irrep of orbital( 232) could not be determined
+ Warning : Irrep of orbital( 233) could not be determined
+ 
+ Beta MOs, Unrestricted
+ -- Occupied --                  
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx                                                        
+ -- Virtual --                   
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                
+    NaN     NaN     NaN     NaN     NaN     NaN
+  0 xxx   0 xxx   0 xxx   0 xxx   0 xxx   0 xxx                                
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)    Spin (a.u.)
+  --------------------------------------------------------
+      1 S                          NaN            NaN
+      2 C                          NaN            NaN
+      3 C                          NaN            NaN
+      4 C                          NaN            NaN
+      5 C                          NaN            NaN
+      6 H                          NaN            NaN
+      7 C                          NaN            NaN
+      8 S                          NaN            NaN
+      9 C                          NaN            NaN
+     10 C                          NaN            NaN
+     11 C                          NaN            NaN
+     12 H                          NaN            NaN
+     13 H                          NaN            NaN
+     14 H                          NaN            NaN
+     15 H                          NaN            NaN
+     16 H                          NaN            NaN
+  --------------------------------------------------------
+  Sum of atomic charges =          NaN
+  Sum of spin   charges =          NaN
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                    NaN
+    Dipole Moment (Debye)
+         X          NaN      Y          NaN      Z          NaN
+       Tot          NaN
+    Quadrupole Moments (Debye-Ang)
+        XX          NaN     XY          NaN     YY          NaN
+        XZ          NaN     YZ          NaN     ZZ          NaN
+    Octopole Moments (Debye-Ang^2)
+       XXX          NaN    XXY          NaN    XYY          NaN
+       YYY          NaN    XXZ          NaN    XYZ          NaN
+       YYZ          NaN    XZZ          NaN    YZZ          NaN
+       ZZZ          NaN
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX          NaN   XXXY          NaN   XXYY          NaN
+      XYYY          NaN   YYYY          NaN   XXXZ          NaN
+      XXYZ          NaN   XYYZ          NaN   YYYZ          NaN
+      XXZZ          NaN   XYZZ          NaN   YYZZ          NaN
+      XZZZ          NaN   YZZZ          NaN   ZZZZ          NaN
+ -----------------------------------------------------------------
+ Calculating analytic gradient of the SCF energy
+ Inaccurate integrated density:
+   Number of electrons =    87
+   Numerical integral  =     0.000000000000
+   Relative error      =  -100.0000000000 %
+ Gradient of SCF Energy
+            1           2           3           4           5           6
+    1        -nan        -nan        -nan        -nan        -nan        -nan
+    2        -nan        -nan        -nan        -nan        -nan        -nan
+    3        -nan        -nan        -nan        -nan        -nan        -nan
+            7           8           9          10          11          12
+    1        -nan        -nan        -nan        -nan        -nan        -nan
+    2        -nan        -nan        -nan        -nan        -nan        -nan
+    3        -nan        -nan        -nan        -nan        -nan        -nan
+           13          14          15          16
+    1        -nan        -nan        -nan        -nan
+    2        -nan        -nan        -nan        -nan
+    3        -nan        -nan        -nan        -nan
+ Max gradient component =       0.000E+00
+ RMS gradient           =            -NAN
+ Gradient time:  CPU 0.28 s  wall 0.27 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   1
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.7525512836   -0.9774510916    0.7513827093
+      2  C         3.2120705879   -0.1438000121    0.2034187658
+      3  C         2.8904000135    0.8729634425   -0.6762984792
+      4  C         1.5092796834    1.0131827942   -0.9314413911
+      5  C         0.6991876818    0.0837855213   -0.2380016555
+      6  H         1.0908234083    1.7618077233   -1.5957154011
+      7  C        -0.6991876818   -0.0837855213   -0.2380016555
+      8  S        -1.7525512836    0.9774510916    0.7513827093
+      9  C        -1.5092796834   -1.0131827942   -0.9314413911
+     10  C        -3.2120705879    0.1438000121    0.2034187658
+     11  C        -2.8904000135   -0.8729634425   -0.6762984792
+     12  H        -3.6447059120   -1.5102391796   -1.1320020212
+     13  H         4.1836307923   -0.4570487904    0.5595304484
+     14  H         3.6447059120    1.5102391796   -1.1320020212
+     15  H        -4.1836307923    0.4570487904    0.5595304484
+     16  H        -1.0908234083   -1.7618077233   -1.5957154011
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is              NaN
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9      100.000      100.000
+
+ Attempting to Generate Delocalized Internal Coordinates
+
+  ***ERROR*** Wrong Number of Internal Coordinates
+              Should be:  22  Found:   0
+**WARNING** Problems with Internal Coordinates
+  Switching to Cartesian Coordinates
+
+   Using Lagrange Multiplier Algorithm
+
+
+ Translations and Rotations Projected Out of Hessian
+
+ 43 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+    -0.917756    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.917756
+
+ Minimum Search - Taking P-RFO Step
+ Searching for Lamda that Maximizes Along the Constraint modes Only
+ Value Taken    Lamda =          NaN
+ Searching for Lamda that Minimizes Along All other modes
+
+
+ *******************************************
+ ** UNABLE TO DETERMINE Lamda IN CONFormD **
+ *******************************************
+
+
+**WARNING** Problems with Lagrangian - Switching to Penalty functions
+
+   Using Penalty Function Algorithm
+
+
+ Translations and Rotations Projected Out of Hessian
+
+ 42 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.999997    0.999999    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000000    1.000000    1.000000
+     1.000000    1.000000    1.000000    1.000001    1.000001   18.600322
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+
+
+ ****************************************
+ ** UNABLE TO DETERMINE Lamda IN FormD **
+ ****************************************
+
+
+
+ Taking Simple Newton-Raphson Step
+ Step Taken.  Stepsize is       NaN
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient                NaN      0.000300      NO
+         Displacement            NaN      0.001200      NO
+         Energy change           NaN      0.000001      NO
+
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S                NaN              NaN              NaN
+    2      C                NaN              NaN              NaN
+    3      C                NaN              NaN              NaN
+    4      C                NaN              NaN              NaN
+    5      C                NaN              NaN              NaN
+    6      H                NaN              NaN              NaN
+    7      C                NaN              NaN              NaN
+    8      S                NaN              NaN              NaN
+    9      C                NaN              NaN              NaN
+   10      C                NaN              NaN              NaN
+   11      C                NaN              NaN              NaN
+   12      H                NaN              NaN              NaN
+   13      H                NaN              NaN              NaN
+   14      H                NaN              NaN              NaN
+   15      H                NaN              NaN              NaN
+   16      H                NaN              NaN              NaN
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =              NaN hartrees
+ There are       44 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-11
+ Requested basis set is 6-31++G(d,p)
+ There are 76 shells and 234 basis functions
