@@ -35,7 +35,7 @@ class Stats(object):
 
     # m2_k is the second moment at sample k
     @property
-    def m2_k(self):
+    def m2(self):
         return self.q_k
 
     @property
@@ -78,7 +78,7 @@ class ArrayStats(object):
 
     # m2_k is the second moment at sample k
     @property
-    def m2_k(self):
+    def m2(self):
         return self.q_k
 
     @property
