@@ -30,8 +30,8 @@ class Polymer(object):
         self.corr = None
         self.plane = None
         self.m_plane = None
-        self.plane_s = Stats()
-        self.m_plane_s = Stats()
+        self.plane_s_stats = Stats()
+        self.m_plane_s_stats = Stats()
         self.ete_stats = ArrayStats(self.monomer_num + 1)
         self.corr_stats = ArrayStats(self.monomer_num)
         self.plane_stats = ArrayStats(self.monomer_num - 1)
@@ -109,12 +109,12 @@ class Polymer(object):
             middle = (len(self.relax_chain) / 2) - 1
             if i == 0:
                 self.m_plane.append(utils.planarity(self.relax_chain[middle], self.relax_chain[middle + 1],
-                                               self.relax_chain[middle + 2], self.relax_chain[i],
-                                               self.relax_chain[i + 1], self.relax_chain[i + 2]))
+                                                    self.relax_chain[middle + 2], self.relax_chain[i],
+                                                    self.relax_chain[i + 1], self.relax_chain[i + 2]))
             if i % 2 != 0 and i != middle:
                 self.m_plane.append(utils.planarity(self.relax_chain[middle], self.relax_chain[middle + 1],
-                                               self.relax_chain[middle + 2], self.relax_chain[i],
-                                               self.relax_chain[i + 1], self.relax_chain[i + 2]))
+                                                    self.relax_chain[middle + 2], self.relax_chain[i],
+                                                    self.relax_chain[i + 1], self.relax_chain[i + 2]))
 
     def sample_chains(self):
         counter = 0.
@@ -126,10 +126,10 @@ class Polymer(object):
             self.plane_stats.update(float(chain_i), self.plane)
             for val in self.plane:
                 counter += 1.
-                self.plane_s.update(counter, val)
+                self.plane_s_stats.update(counter, val)
             for val in self.m_plane:
                 m_counter += 1.
-                self.m_plane_s.update(m_counter, val)
+                self.m_plane_s_stats.update(m_counter, val)
             self.dihedral_hist.update(self.dihedral_set)
             self.ete_hist.append(self.end_to_end[-1])
 
