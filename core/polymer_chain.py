@@ -2,6 +2,7 @@ import numpy as np
 import math
 from utils import utils
 from utils.stats import Stats, ArrayStats
+from utils.histogram import Histogram
 
 __author__ = "Brandon Wood"
 
@@ -28,9 +29,15 @@ class Polymer(object):
         self.end_to_end = None
         self.corr = None
         self.plane = None
+        self.m_plane = None
+        self.plane_s = Stats()
+        self.m_plane_s = Stats()
         self.ete_stats = ArrayStats(self.monomer_num + 1)
         self.corr_stats = ArrayStats(self.monomer_num)
-        self.plane_stats = ArrayStats((self.monomer_num * 2) - 3)
+        self.plane_stats = ArrayStats(self.monomer_num - 1)
+        self.m_plane_stats = ArrayStats(self.monomer_num - 1)
+        self.dihedral_hist = Histogram(-179.9, 180.0, 360)
+        self.ete_hist = []
         # position monomer tangent and links
         self.m = [self.monomer_len, 0, 0]
         self.l1 = [self.link_len * math.cos(self.link_angle),
@@ -91,16 +98,40 @@ class Polymer(object):
         self.corr = np.array([utils.correlation(self.relax_chain[0], self.relax_chain[1],
                                                 self.relax_chain[i], self.relax_chain[i+1])
                               for i in range(0, len(self.chain), 2)])
-        self.plane = np.array([utils.planarity(self.relax_chain[0], self.relax_chain[1], self.relax_chain[2],
-                                               self.relax_chain[i+1], self.relax_chain[i+2], self.relax_chain[i+3])
-                               for i in range(0, len(self.chain) - 3)])
+
+        self.plane = np.array([utils.planarity(self.relax_chain[0], self.relax_chain[1],
+                                               self.relax_chain[2], self.relax_chain[i+1],
+                                               self.relax_chain[i+2], self.relax_chain[i+3])
+                               for i in range(0, len(self.chain) - 3, 2)])
+
+        self.m_plane = []
+        for i in range(0, len(self.relax_chain) - 2):
+            middle = (len(self.relax_chain) / 2) - 1
+            if i == 0:
+                self.m_plane.append(utils.planarity(self.relax_chain[middle], self.relax_chain[middle + 1],
+                                               self.relax_chain[middle + 2], self.relax_chain[i],
+                                               self.relax_chain[i + 1], self.relax_chain[i + 2]))
+            if i % 2 != 0 and i != middle:
+                self.m_plane.append(utils.planarity(self.relax_chain[middle], self.relax_chain[middle + 1],
+                                               self.relax_chain[middle + 2], self.relax_chain[i],
+                                               self.relax_chain[i + 1], self.relax_chain[i + 2]))
 
     def sample_chains(self):
+        counter = 0.
+        m_counter = 0.
         for chain_i in range(1, self.sample_num + 1, 1):
             self.rotate_chain()
             self.ete_stats.update(float(chain_i), self.end_to_end)
             self.corr_stats.update(float(chain_i), self.corr)
             self.plane_stats.update(float(chain_i), self.plane)
+            for val in self.plane:
+                counter += 1.
+                self.plane_s.update(counter, val)
+            for val in self.m_plane:
+                m_counter += 1.
+                self.m_plane_s.update(m_counter, val)
+            self.dihedral_hist.update(self.dihedral_set)
+            self.ete_hist.append(self.end_to_end[-1])
 
 
 class RandomChargePolymer(Polymer):

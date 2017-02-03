@@ -73,7 +73,7 @@ def planarity(pt1, pt2, pt3, pt4, pt5, pt6):
     vec_4 = pt5 - pt6
     normal_2 = np.cross(vec_3, vec_4)
     normal_2 /= np.sqrt(np.dot(normal_2, normal_2))
-    return np.dot(np.absolute(normal_1), np.absolute(normal_2))
+    return (3. / 2.) * (np.dot(normal_1, normal_2) ** 2) - (1. / 2.)
 
 # Ryckaert_Bellemans dihedral potential function
 def RB_potential(x, a, b, c, d, e, f):
