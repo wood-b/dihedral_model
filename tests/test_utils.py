@@ -75,12 +75,12 @@ class TestUtilFunctions(unittest.TestCase):
         # test case 2, 45 degree angle between planes
         pt6 = np.array([4.22032561, -1.0146817, -0.2708588])
         test_val = utils.planarity(pt1, pt2, pt3, pt4, pt5, pt6)
-        ans = np.cos(np.pi/4.0)
+        ans = 0.25
         np.testing.assert_almost_equal(test_val, ans)
         # test case 3, 90 degree angle between planes
         pt6 = np.array([4.29042902, -0.75305219, -0.38305219])
         test_val = utils.planarity(pt1, pt2, pt3, pt4, pt5, pt6)
-        ans = np.cos(np.pi/2.0)
+        ans = - 0.5
         np.testing.assert_almost_equal(test_val, ans)
 
     def test_RB_potential(self):

@@ -20,6 +20,7 @@ def run_dhm():
     parser.add_argument('-la', action='store', type=float, default=15.0, help='link_angle')
     parser.add_argument('-sn', action='store', type=int, required=True, help='sample_number')
     parser.add_argument('-o', action='store', type=str, required=True, help='output filename')
+    parser.add_argument('-od', action='store', type=str, required=True, help='output directory')
 
     args = parser.parse_args()
 
@@ -43,12 +44,12 @@ def run_dhm():
     # write files
     for attr, value in poly.__dict__.iteritems():
         if attr.endswith('_stats'):
-            utils.write_json(value.means.tolist(), "../data/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
-                name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
-            utils.write_json(value.stdevs.tolist(), "../data/{name}_m{m}_t{t}_{s}_{d}_std.json".format(
-                name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
-            utils.write_json(value.m2.tolist(), "../data/{name}_m{m}_t{t}_{s}_{d}_m2.json".format(
-                name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            utils.write_json(value.mean.tolist(), "{dir}/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            utils.write_json(value.stdev.tolist(), "{dir}/{name}_m{m}_t{t}_{s}_{d}_std.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            utils.write_json(value.m2.tolist(), "{dir}/{name}_m{m}_t{t}_{s}_{d}_m2.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
 
 if __name__ == '__main__':
     run_dhm()

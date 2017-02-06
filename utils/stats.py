@@ -73,7 +73,7 @@ class ArrayStats(object):
                 self.q_k[i] += (x_k - prev_ak) * (x_k - self.a_k[i])
 
     @property
-    def means(self):
+    def mean(self):
         return self.a_k
 
     # m2_k is the second moment at sample k
@@ -82,12 +82,12 @@ class ArrayStats(object):
         return self.q_k
 
     @property
-    def variances(self):
+    def variance(self):
         if self.k == 1.0:
             return 0.0
         else:
             return self.q_k / (self.k - 1)
 
     @property
-    def stdevs(self):
+    def stdev(self):
         return np.sqrt(self.q_k / (self.k - 1))

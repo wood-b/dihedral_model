@@ -124,6 +124,7 @@ class Polymer(object):
             self.ete_stats.update(float(chain_i), self.end_to_end)
             self.corr_stats.update(float(chain_i), self.corr)
             self.plane_stats.update(float(chain_i), self.plane)
+            self.m_plane_stats.update(float(chain_i), self.m_plane)
             for val in self.plane:
                 counter += 1.
                 self.plane_s_stats.update(counter, val)
