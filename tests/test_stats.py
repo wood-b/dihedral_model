@@ -21,20 +21,19 @@ class TestStats(unittest.TestCase):
             list_vals.append(value)
             mean = np.mean(list_vals)
             var = np.var(list_vals)
-            test_stat.update(float(idx), value)
-            np.testing.assert_almost_equal(mean, test_stat.get_mean)
-        np.testing.assert_almost_equal(var, test_stat.get_variance, decimal=2)
-        np.testing.assert_almost_equal(self.sigma, test_stat.get_stdev, decimal=0)
+            test_stat.update(value)
+            np.testing.assert_almost_equal(mean, test_stat.mean)
+        np.testing.assert_almost_equal(var, test_stat.variance, decimal=2)
+        np.testing.assert_almost_equal(self.sigma, test_stat.stdev, decimal=0)
 
     def test_array_stats(self):
         array_stats = ArrayStats(self.array_len)
         for idx, x_array in enumerate(self.arrays, start=1):
-            array_stats.update(float(idx), x_array)
+            array_stats.update(x_array)
         mean = np.array([np.mean(i) for i in self.arrays.T])
         var = np.array([np.var(i) for i in self.arrays.T])
-        np.testing.assert_almost_equal(mean, array_stats.get_means, decimal=2)
-        np.testing.assert_almost_equal(var, array_stats.get_variances, decimal=0)
+        np.testing.assert_almost_equal(mean, array_stats.mean, decimal=2)
+        np.testing.assert_almost_equal(var, array_stats.variance, decimal=0)
 
 if __name__ == '__main__':
     unittest.main()
-
