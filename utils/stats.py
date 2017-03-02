@@ -47,7 +47,11 @@ class Stats(object):
 
     @property
     def stdev(self):
-        return (self.q_k / (self.k - 1))**(1.0/2.0)
+        return self.variance ** (1.0 / 2.0)
+
+    @property
+    def std_error(self):
+        return self.stdev / (self.k ** (1. / 2.))
 
 
 class ArrayStats(object):
@@ -91,3 +95,7 @@ class ArrayStats(object):
     @property
     def stdev(self):
         return np.sqrt(self.q_k / (self.k - 1))
+
+    @property
+    def std_error(self):
+        return self.stdev / (self.k ** (1. / 2.))
