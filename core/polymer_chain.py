@@ -3,6 +3,7 @@ import math
 from utils import utils
 from utils.stats import Stats, ArrayStats
 from utils.histogram import Histogram
+from numpy import linalg as la
 
 __author__ = "Brandon Wood"
 
@@ -28,14 +29,14 @@ class Polymer(object):
         self.sample_num = sample_num
         self.end_to_end = None
         self.corr = None
-        self.plane = None
-        self.m_plane = None
-        self.plane_s_stats = Stats()
-        self.m_plane_s_stats = Stats()
+        self.unit_normal = None
+        self.theta = None
+        self.director = None
+        self.director_matrix = None
+        self.s_order_param = Stats()
+        self.s_x_corr = [Stats() for i in range(self.monomer_num)]
         self.ete_stats = ArrayStats(self.monomer_num + 1)
         self.corr_stats = ArrayStats(self.monomer_num)
-        self.plane_stats = ArrayStats(self.monomer_num - 1)
-        self.m_plane_stats = ArrayStats(self.monomer_num - 1)
         self.dihedral_hist = Histogram(-179.9, 180.0, 360)
         self.ete_hist = []
         # position monomer tangent and links
@@ -99,38 +100,50 @@ class Polymer(object):
                                                 self.relax_chain[i], self.relax_chain[i+1])
                               for i in range(0, len(self.chain), 2)])
 
-        self.plane = np.array([utils.planarity(self.relax_chain[0], self.relax_chain[1],
-                                               self.relax_chain[2], self.relax_chain[i+1],
-                                               self.relax_chain[i+2], self.relax_chain[i+3])
-                               for i in range(0, len(self.chain) - 3, 2)])
-
-        self.m_plane = []
-        for i in range(0, len(self.relax_chain) - 2):
-            middle = (len(self.relax_chain) / 2) - 1
+    def _unit_normal_vectors(self, relax_chain=True):
+        chain = self.relax_chain
+        if relax_chain is False:
+            chain = self.chain
+        vec1 = []
+        vec2 = []
+        for i in range(len(chain) - 2):
             if i == 0:
-                self.m_plane.append(utils.planarity(self.relax_chain[middle], self.relax_chain[middle + 1],
-                                                    self.relax_chain[middle + 2], self.relax_chain[i],
-                                                    self.relax_chain[i + 1], self.relax_chain[i + 2]))
-            if i % 2 != 0 and i != middle:
-                self.m_plane.append(utils.planarity(self.relax_chain[middle], self.relax_chain[middle + 1],
-                                                    self.relax_chain[middle + 2], self.relax_chain[i],
-                                                    self.relax_chain[i + 1], self.relax_chain[i + 2]))
+                vec1.append(chain[i + 1] - chain[i])
+                vec2.append(chain[i + 2] - chain[i])
+            if i % 2 != 0:
+                vec1.append(chain[i + 1] - chain[i])
+                vec2.append(chain[i + 2] - chain[i])
+        normal = np.cross(vec2, vec1)
+        self.unit_normal = normal / la.norm(normal, axis=1)[0:, None]
+
+    def p2_order_param(self, unit_vectors=None):
+        if unit_vectors is None:
+            self._unit_normal_vectors()
+            unit_vectors = self.unit_normal
+        self.director_matrix = np.asmatrix((np.einsum('ij,ik->jk', (3 * unit_vectors), unit_vectors) *
+                                            (1. / (2. * len(unit_vectors)))) - (np.identity(3) * (1. / 2.)))
+        eigval, eigvect = la.eig(self.director_matrix)
+        self.director = np.asarray(eigvect[:, np.argmax(eigval)]).flatten()
+        for vec in unit_vectors:
+            s = ((3./2.) * (np.dot(self.director, vec) ** 2)) - (1./2.)
+            self.s_order_param.update(s)
+
+    def p2_auto_corr(self, relax_chain=True):
+        self._unit_normal_vectors(relax_chain)
+        array_1 = np.copy(self.unit_normal)
+        array_2 = np.copy(array_1)
+        for i in range(len(array_1)):
+            corr = ((np.einsum('ij,ij->i', array_1, array_2) ** 2) * (3. / 2.)) - (1. / 2.)
+            map(self.s_x_corr[i].update, corr)
+            array_1 = np.delete(array_1, -1, 0)
+            array_2 = np.delete(array_2, 0, 0)
 
     def sample_chains(self):
-        counter = 0.
-        m_counter = 0.
         for chain_i in range(1, self.sample_num + 1, 1):
             self.rotate_chain()
-            self.ete_stats.update(float(chain_i), self.end_to_end)
-            self.corr_stats.update(float(chain_i), self.corr)
-            self.plane_stats.update(float(chain_i), self.plane)
-            self.m_plane_stats.update(float(chain_i), self.m_plane)
-            for val in self.plane:
-                counter += 1.
-                self.plane_s_stats.update(counter, val)
-            for val in self.m_plane:
-                m_counter += 1.
-                self.m_plane_s_stats.update(m_counter, val)
+            self.p2_order_param()
+            self.ete_stats.update(self.end_to_end)
+            self.corr_stats.update(self.corr)
             self.dihedral_hist.update(self.dihedral_set)
             self.ete_hist.append(self.end_to_end[-1])
 
@@ -149,6 +162,7 @@ class RandomChargePolymer(Polymer):
         self.c_corr_stats = Stats()
         # set of dihedral angles for charged polymer
         self.c_dihedral_set = []
+        self.actual_percent_excited = None
 
     def _c_random_angle(self, sites):
         del self.c_dihedral_set[:]
@@ -165,25 +179,27 @@ class RandomChargePolymer(Polymer):
                     if prob_i == len(self.c_prob_angle):
                         self.c_dihedral_set.append(self.c_prob_angle[0][1])
 
-    def _pick_links(self, sites):
+    def _pick_links(self, sites, polaron_size):
         link_pos = []
         excluded = []
         while len(link_pos) < sites:
-            # electron can't be located 5 units from either chain end
-            # chain needs to be at least 10 units long
-            test_link = np.random.randint(5, (self.monomer_num - 4))
+            test_link = np.random.randint(int(math.ceil(polaron_size / 2.0)),
+                                          (self.monomer_num - int(math.ceil(polaron_size / 2.0))))
             if test_link not in excluded:
                 link_pos.append(test_link)
-                excluded.extend([test_link - 1, test_link, test_link + 1])
+                excluded.extend([test_link + i for i in range(int(math.ceil(-polaron_size / 2.)),
+                                                              int(math.ceil(polaron_size / 2.)), 1)])
         return sorted(link_pos)
 
-    def relax_charged_chain(self, electrons):
+    def relax_charged_chain(self, percent_excited, polaron_size):
         self.rotate_chain()
-        # electron affects dihedral angle of 3 links
-        sites = int(math.ceil(electrons / 2.0)) * 3
+        # percent_excited is the desired percentage of dihedral angles impacted by excitation
+        # polaron_size is number of sequential dihedral angles affected by an excitation
+        sites = int(math.floor(((percent_excited / 100.) * (self.monomer_num - 1)) / float(polaron_size)))
+        self.actual_percent_excited = sites * polaron_size
         self._c_random_angle(sites)
         self.charged_chain = np.array(self.relax_chain, copy=True)
-        pick_links = zip(self._pick_links(sites), self.c_dihedral_set)
+        pick_links = zip(self._pick_links(sites, polaron_size), self.c_dihedral_set)
         for link, angle in pick_links:
             # idx is the bead or atom index on the chain
             idx = (link * 2) - 1
