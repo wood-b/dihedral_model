@@ -52,6 +52,9 @@ def run_p2_auto_corr():
             var_list = [i.variance for i in value]
             utils.write_json(var_list, "{dir}/{name}_m{m}_t{t}_{s}_{d}_var.json".format(
                 dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            std_error_list = [i.std_error for i in value]
+            utils.write_json(std_error_list, "{dir}/{name}_m{m}_t{t}_{s}_{d}_std_error.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
 
 if __name__ == '__main__':
     run_p2_auto_corr()
