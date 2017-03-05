@@ -100,10 +100,7 @@ class Polymer(object):
                                                 self.relax_chain[i], self.relax_chain[i+1])
                               for i in range(0, len(self.chain), 2)])
 
-    def _unit_normal_vectors(self, relax_chain=True):
-        chain = self.relax_chain
-        if relax_chain is False:
-            chain = self.chain
+    def _unit_normal_vectors(self, chain):
         vec1 = []
         vec2 = []
         for i in range(len(chain) - 2):
@@ -116,9 +113,9 @@ class Polymer(object):
         normal = np.cross(vec2, vec1)
         self.unit_normal = normal / la.norm(normal, axis=1)[0:, None]
 
-    def p2_order_param(self, unit_vectors=None):
+    def p2_order_param(self, chain, unit_vectors=None):
         if unit_vectors is None:
-            self._unit_normal_vectors()
+            self._unit_normal_vectors(chain)
             unit_vectors = self.unit_normal
         self.director_matrix = np.asmatrix((np.einsum('ij,ik->jk', (3 * unit_vectors), unit_vectors) *
                                             (1. / (2. * len(unit_vectors)))) - (np.identity(3) * (1. / 2.)))
@@ -128,8 +125,8 @@ class Polymer(object):
             s = ((3./2.) * (np.dot(self.director, vec) ** 2)) - (1./2.)
             self.s_order_param.update(s)
 
-    def p2_auto_corr(self, relax_chain=True):
-        self._unit_normal_vectors(relax_chain)
+    def p2_auto_corr(self, chain):
+        self._unit_normal_vectors(chain)
         array_1 = np.copy(self.unit_normal)
         array_2 = np.copy(array_1)
         for i in range(len(array_1)):
@@ -141,7 +138,7 @@ class Polymer(object):
     def sample_chains(self):
         for chain_i in range(1, self.sample_num + 1, 1):
             self.rotate_chain()
-            self.p2_order_param()
+            self.p2_order_param(self.relax_chain)
             self.ete_stats.update(self.end_to_end)
             self.corr_stats.update(self.corr)
             self.dihedral_hist.update(self.dihedral_set)
@@ -180,44 +177,49 @@ class RandomChargePolymer(Polymer):
                         self.c_dihedral_set.append(self.c_prob_angle[0][1])
 
     def _pick_links(self, sites, polaron_size):
-        link_pos = []
-        excluded = []
-        while len(link_pos) < sites:
-            test_link = np.random.randint(int(math.ceil(polaron_size / 2.0)),
-                                          (self.monomer_num - int(math.ceil(polaron_size / 2.0))))
-            if test_link not in excluded:
-                link_pos.append(test_link)
-                excluded.extend([test_link + i for i in range(int(math.ceil(-polaron_size / 2.)),
-                                                              int(math.ceil(polaron_size / 2.)), 1)])
-        return sorted(link_pos)
+        # links are indexed from 1
+        neutral_spacing = np.random.uniform(size=(sites + 1)) * sites * 10
+        total_sites = self.monomer_num - 1
+        neutral_sites = total_sites - (sites * polaron_size)
+        num_neutral_sites = np.rint(neutral_spacing * (neutral_sites / sum(neutral_spacing)))
+        links = []
+        for i in range(len(num_neutral_sites) - 1):
+            if i == 0:
+                links.extend(np.arange(1, (polaron_size + 1)) + num_neutral_sites[i])
+            else:
+                links.extend(np.arange(1, (polaron_size + 1)) + (links[-1] + num_neutral_sites[i]))
+        return links
 
-    def relax_charged_chain(self, percent_excited, polaron_size):
+    def rotate_charged_chain(self, percent_excited, polaron_size):
         self.rotate_chain()
         # percent_excited is the desired percentage of dihedral angles impacted by excitation
         # polaron_size is number of sequential dihedral angles affected by an excitation
         sites = int(math.floor(((percent_excited / 100.) * (self.monomer_num - 1)) / float(polaron_size)))
-        self.actual_percent_excited = sites * polaron_size
-        self._c_random_angle(sites)
-        self.charged_chain = np.array(self.relax_chain, copy=True)
-        pick_links = zip(self._pick_links(sites, polaron_size), self.c_dihedral_set)
-        for link, angle in pick_links:
-            # idx is the bead or atom index on the chain
-            idx = (link * 2) - 1
-            uv = utils.unit_vector(self.charged_chain[idx], self.charged_chain[idx + 1])
-            for pos_j in range(idx + 2, len(self.charged_chain), 1):
-                self.charged_chain[pos_j] = utils.point_rotation(self.charged_chain[pos_j],
-                                                                 angle, uv, origin=self.charged_chain[idx])
+        if sites == 0:
+            print "percent excited is too low"
+        if sites != 0:
+            self.actual_percent_excited = sites * polaron_size
+            self._c_random_angle(sites)
+            self.charged_chain = np.array(self.relax_chain, copy=True)
+            pick_links = zip(self._pick_links(sites, polaron_size), self.c_dihedral_set)
+            for link, angle in pick_links:
+                # idx is the bead or atom index on the chain
+                idx = (int(link) * 2) - 1
+                uv = utils.unit_vector(self.charged_chain[idx], self.charged_chain[idx + 1])
+                for pos_j in range(idx + 2, len(self.charged_chain), 1):
+                    self.charged_chain[pos_j] = utils.point_rotation(self.charged_chain[pos_j],
+                                                                     angle, uv, origin=self.charged_chain[idx])
         # sampling
         self.c_end_to_end = (math.sqrt(np.dot(
-            self.charged_chain[len(self.charged_chain)-1] - self.charged_chain[0],
-            self.charged_chain[len(self.charged_chain)-1] - self.charged_chain[0])))
-        self.c_corr = np.array([utils.correlation(
+            self.charged_chain[-1] - self.charged_chain[0],
+            self.charged_chain[-1] - self.charged_chain[0])))
+        '''self.c_corr = np.array([utils.correlation(
             self.charged_chain[0], self.charged_chain[1],
             self.charged_chain[i], self.charged_chain[i+1])
-                                 for i in range(0, len(self.chain), 2)])
+                                 for i in range(0, len(self.chain), 2)])'''
 
-    def sample_charged_chains(self, electrons):
+    def sample_charged_chains(self, percent_excited, polaron_size):
         for chain_i in range(1, self.sample_num + 1, 1):
-            self.relax_charged_chain(electrons)
-            self.c_ete_stats.update(float(chain_i), self.c_end_to_end)
-            self.c_corr_stats.update(float(chain_i), self.c_corr)
+            self.rotate_charged_chain(percent_excited, polaron_size)
+            self.p2_order_param(self.charged_chain)
+            self.c_ete_stats.update(self.c_end_to_end)
