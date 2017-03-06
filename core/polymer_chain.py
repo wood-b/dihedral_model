@@ -179,11 +179,14 @@ class RandomChargePolymer(Polymer):
 
     def _pick_links(self, sites, polaron_size):
         # links are indexed from 1
-        neutral_spacing = np.random.uniform(size=(sites + 1)) * sites * 10
         total_sites = self.monomer_num - 1
         neutral_sites = total_sites - (sites * polaron_size)
-        num_neutral_sites = np.rint(neutral_spacing * (neutral_sites / sum(neutral_spacing)))
+        num_neutral_sites = []
+        while sum(num_neutral_sites) != neutral_sites:
+            neutral_spacing = np.random.uniform(size=(sites + 1)) * sites * 10
+            num_neutral_sites = np.rint(neutral_spacing * (neutral_sites / sum(neutral_spacing)))
         links = []
+        # places the charged links
         for i in range(len(num_neutral_sites) - 1):
             if i == 0:
                 links.extend(np.arange(1, (polaron_size + 1)) + num_neutral_sites[i])
