@@ -113,7 +113,7 @@ class Polymer(object):
         normal = np.cross(vec2, vec1)
         self.unit_normal = normal / la.norm(normal, axis=1)[0:, None]
 
-    def p2_order_param(self, chain, unit_vectors=None):
+    def p2_order_param(self, chain=None, unit_vectors=None):
         if unit_vectors is None:
             self._unit_normal_vectors(chain)
             unit_vectors = self.unit_normal
@@ -160,10 +160,11 @@ class RandomChargePolymer(Polymer):
         # set of dihedral angles for charged polymer
         self.c_dihedral_set = []
         self.actual_percent_excited = None
+        self.c_links = None
 
-    def _c_random_angle(self, sites):
-        del self.c_dihedral_set[:]
-        random = np.random.uniform(0.0, 1.0, size=sites)
+    def _c_random_angle(self, total_sites):
+        del self.c_dihedral_set[:]  # clear dihedral set each time _c_random_angle is called
+        random = np.random.uniform(0.0, 1.0, size=total_sites)
         angle_map = self.c_prob_angle[:, 0].searchsorted(random)
         for prob_i in angle_map:
             rand = np.random.uniform(0.0, 1.0)
@@ -188,23 +189,24 @@ class RandomChargePolymer(Polymer):
                 links.extend(np.arange(1, (polaron_size + 1)) + num_neutral_sites[i])
             else:
                 links.extend(np.arange(1, (polaron_size + 1)) + (links[-1] + num_neutral_sites[i]))
-        return links
+        self.c_links = links
 
     def rotate_charged_chain(self, percent_excited, polaron_size):
         self.rotate_chain()
         # percent_excited is the desired percentage of dihedral angles impacted by excitation
         # polaron_size is number of sequential dihedral angles affected by an excitation
-        sites = int(math.floor(((percent_excited / 100.) * (self.monomer_num - 1)) / float(polaron_size)))
+        sites = int(math.floor(((percent_excited / 100.) * (self.monomer_num - 1.)) / float(polaron_size)))
         if sites == 0:
             print "percent excited is too low"
         if sites != 0:
-            self.actual_percent_excited = sites * polaron_size
-            self._c_random_angle(sites)
+            self.actual_percent_excited = ((sites * polaron_size) / (self.monomer_num - 1.) * 100.)
+            self._c_random_angle(sites * polaron_size)
             self.charged_chain = np.array(self.relax_chain, copy=True)
-            pick_links = zip(self._pick_links(sites, polaron_size), self.c_dihedral_set)
+            self._pick_links(sites, polaron_size)
+            pick_links = zip(self.c_links, self.c_dihedral_set)
             for link, angle in pick_links:
                 # idx is the bead or atom index on the chain
-                idx = (int(link) * 2) - 1
+                idx = int((link * 2.) - 1.)
                 uv = utils.unit_vector(self.charged_chain[idx], self.charged_chain[idx + 1])
                 for pos_j in range(idx + 2, len(self.charged_chain), 1):
                     self.charged_chain[pos_j] = utils.point_rotation(self.charged_chain[pos_j],
