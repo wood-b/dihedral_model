@@ -51,7 +51,10 @@ class Stats(object):
 
     @property
     def std_error(self):
-        return self.stdev / (self.k ** (1. / 2.))
+        if self.k == 0:
+            return 0.0
+        else:
+            return self.stdev / (self.k ** (1. / 2.))
 
 
 class ArrayStats(object):

@@ -63,7 +63,8 @@ def correlation(pt1, pt2, pt3, pt4):
             (math.sqrt(np.dot((pt2 - pt1), (pt2 - pt1)))
              * math.sqrt(np.dot((pt4 - pt3), (pt4 - pt3)))))
 
-# planarity function
+
+# planarity function based on dot product
 def planarity(pt1, pt2, pt3, pt4, pt5, pt6):
     vec_1 = (pt2 - pt1)
     vec_2 = (pt2 - pt3)
@@ -73,7 +74,30 @@ def planarity(pt1, pt2, pt3, pt4, pt5, pt6):
     vec_4 = pt5 - pt6
     normal_2 = np.cross(vec_3, vec_4)
     normal_2 /= np.sqrt(np.dot(normal_2, normal_2))
-    return (3. / 2.) * (np.dot(normal_1, normal_2) ** 2) - (1. / 2.)
+    return np.dot(normal_1, normal_2)
+
+
+# p2 order parameter often used in liquid crystals
+def p2_unit_vec(pt1, pt2, pt3):
+    vec_1 = (pt2 - pt1)
+    vec_2 = (pt2 - pt3)
+    normal = np.cross(vec_1, vec_2)
+    normal /= np.sqrt(np.dot(normal, normal))
+    return
+
+
+def p2_ref(pt1, pt2, pt3):
+    vec_1 = (pt2 - pt1)
+    vec_2 = (pt2 - pt3)
+    normal = np.cross(vec_1, vec_2)
+    normal /= np.sqrt(np.dot(normal, normal))
+    return np.arccos(normal[2])
+
+
+def p2_order(ref, n_angle):
+    theta = n_angle - ref
+    return ((3./2.) * (np.cos(theta) ** 2)) - (1./2.)
+
 
 # Ryckaert_Bellemans dihedral potential function
 def RB_potential(x, a, b, c, d, e, f):
@@ -139,5 +163,4 @@ def write_json(write_list, filename):
 def read_json(filename):
     with open(filename, 'r') as f:
         read_list = json.load(f)
-    assert isinstance(read_list, list)
     return read_list
