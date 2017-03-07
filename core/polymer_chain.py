@@ -225,10 +225,6 @@ class RandomChargePolymer(Polymer):
         self.c_end_to_end = (math.sqrt(np.dot(
             self.charged_chain[-1] - self.charged_chain[0],
             self.charged_chain[-1] - self.charged_chain[0])))
-        '''self.c_corr = np.array([utils.correlation(
-            self.charged_chain[0], self.charged_chain[1],
-            self.charged_chain[i], self.charged_chain[i+1])
-                                 for i in range(0, len(self.chain), 2)])'''
 
     def sample_charged_chains(self, percent_excited, polaron_size):
         for chain_i in range(1, self.sample_num + 1, 1):
