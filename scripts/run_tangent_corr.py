@@ -56,13 +56,14 @@ def run_tangent_corr():
             poly.tangent_auto_corr(poly.relax_chain)
             poly.ete_stats.update(poly.end_to_end)
 
-    elif args.pe == 100:
+    if args.pe == 100:
         poly = Polymer(args.mn, args.ml, args.ll, args.la, c_prob_angle, args.sn)
         for chain_i in range(1, args.sn + 1, 1):
             poly.rotate_chain()
             poly.tangent_auto_corr(poly.relax_chain)
             poly.ete_stats.update(poly.end_to_end)
-    else:
+
+    if args.pe != 0 and args.pe != 100:
         poly = RandomChargePolymer(args.mn, args.ml, args.ll, args.la, prob_angle, c_prob_angle, args.sn)
         for chain_i in range(1, args.sn + 1, 1):
             poly.rotate_charged_chain(args.pe, args.es)

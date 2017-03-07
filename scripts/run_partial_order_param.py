@@ -52,29 +52,29 @@ def run_partial_order_param():
     if args.pe == 0:
         poly = Polymer(args.mn, args.ml, args.ll, args.la, prob_angle, args.sn)
         poly.sample_chains()
-    elif args.pe == 100:
+    if args.pe == 100:
         poly = Polymer(args.mn, args.ml, args.ll, args.la, c_prob_angle, args.sn)
         poly.sample_chains()
-    else:
+    if args.pe != 0 and args.pe != 100:
         poly = RandomChargePolymer(args.mn, args.ml, args.ll, args.la, prob_angle, c_prob_angle, args.sn)
         poly.sample_charged_chains(args.pe, args.es)
 
     # write files
     for attr, value in poly.__dict__.iteritems():
         if attr.startswith('c_ete_stats'):
-            utils.write_json(value.mean, "{dir}/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
-                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
-            utils.write_json(value.std_error, "{dir}/{name}_m{m}_t{t}_{s}_{d}_std_error.json".format(
-                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            utils.write_json(value.mean, "{dir}/{name}_m{m}_t{t}_{s}_pe{p}_{d}_mean.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, p=args.pe, d=attr))
+            utils.write_json(value.std_error, "{dir}/{name}_m{m}_t{t}_{s}_pe{p}_{d}_std_error.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, p=args.pe, d=attr))
         if attr.startswith('s_order_param'):
-            utils.write_json(value.mean, "{dir}/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
-                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
-            utils.write_json(value.variance, "{dir}/{name}_m{m}_t{t}_{s}_{d}_var.json".format(
-                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
-            utils.write_json(value.std_error, "{dir}/{name}_m{m}_t{t}_{s}_{d}_std_error.json".format(
-                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            utils.write_json(value.mean, "{dir}/{name}_m{m}_t{t}_{s}_pe{p}_{d}_mean.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, p=args.pe, d=attr))
+            utils.write_json(value.variance, "{dir}/{name}_m{m}_t{t}_{s}_pe{p}_{d}_var.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, p=args.pe, d=attr))
+            utils.write_json(value.std_error, "{dir}/{name}_m{m}_t{t}_{s}_pe{p}_{d}_std_error.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, p=args.pe, d=attr))
         if attr.startswith('actual_percent_excited'):
-            utils.write_json(value, "{dir}/{name}_m{m}_t{t}_{s}_{p}_{d}.json".format(
+            utils.write_json(value, "{dir}/{name}_m{m}_t{t}_{s}_pe{p}_{d}.json".format(
                 dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, p=args.pe, d=attr))
 
 if __name__ == '__main__':
