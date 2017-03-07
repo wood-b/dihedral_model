@@ -91,14 +91,17 @@ class ArrayStats(object):
     @property
     def variance(self):
         if self.k == 1.0:
-            return 0.0
+            return np.zeros(len(self.mean))
         else:
             return self.q_k / (self.k - 1)
 
     @property
     def stdev(self):
-        return np.sqrt(self.q_k / (self.k - 1))
+        return np.sqrt(self.variance)
 
     @property
     def std_error(self):
-        return self.stdev / (self.k ** (1. / 2.))
+        if self.k == 0:
+            return np.zeros(len(self.mean))
+        else:
+            return self.stdev / (self.k ** (1. / 2.))
