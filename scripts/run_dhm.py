@@ -50,8 +50,20 @@ def run_dhm():
                 dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
             utils.write_json(value.m2.tolist(), "{dir}/{name}_m{m}_t{t}_{s}_{d}_m2.json".format(
                 dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+        if attr.startswith('s_x_corr'):
+            mean_list = [i.mean for i in value]
+            utils.write_json(mean_list, "{dir}/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            var_list = [i.variance for i in value]
+            utils.write_json(var_list, "{dir}/{name}_m{m}_t{t}_{s}_{d}_var.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+        if attr.startswith('s_order_param'):
+            utils.write_json(value.mean, "{dir}/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+            utils.write_json(value.variance, "{dir}/{name}_m{m}_t{t}_{s}_{d}_var.json".format(
+                dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
+
 
 if __name__ == '__main__':
     run_dhm()
-
 
