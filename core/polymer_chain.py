@@ -36,7 +36,7 @@ class Polymer(object):
         self.s_order_param = Stats()
         self.s_x_corr = [Stats() for i in range(self.monomer_num)]
         self.ete_stats = ArrayStats(self.monomer_num + 1)
-        self.corr_stats = ArrayStats(self.monomer_num)
+        self.tangent_corr = [Stats() for i in range(self.monomer_num)]
         self.dihedral_hist = Histogram(-179.9, 180.0, 360)
         self.ete_hist = []
         # position monomer tangent and links
@@ -96,9 +96,17 @@ class Polymer(object):
                 self.relax_chain[pos_i] - self.relax_chain[0],
                 self.relax_chain[pos_i] - self.relax_chain[0])))
         self.end_to_end = np.array(ete)
-        self.corr = np.array([utils.correlation(self.relax_chain[0], self.relax_chain[1],
-                                                self.relax_chain[i], self.relax_chain[i+1])
-                              for i in range(0, len(self.chain), 2)])
+
+    def tangent_auto_corr(self, chain):
+        tangent_vecs = np.array([chain[i + 1] - chain[i] for i in range(0, len(chain), 2)])
+        tangent_uv = tangent_vecs / la.norm(tangent_vecs, axis=1)[0:, None]
+        array_1 = np.copy(tangent_uv)
+        array_2 = np.copy(array_1)
+        for i in range(len(array_1)):
+            corr = np.einsum('ij,ij->i', array_1, array_2)
+            map(self.tangent_corr[i].update, corr)
+            array_1 = np.delete(array_1, -1, 0)
+            array_2 = np.delete(array_2, 0, 0)
 
     def _unit_normal_vectors(self, chain):
         vec1 = []
@@ -140,7 +148,6 @@ class Polymer(object):
             self.rotate_chain()
             self.p2_order_param(self.relax_chain)
             self.ete_stats.update(self.end_to_end)
-            self.corr_stats.update(self.corr)
             self.dihedral_hist.update(self.dihedral_set)
             self.ete_hist.append(self.end_to_end[-1])
 

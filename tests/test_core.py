@@ -60,6 +60,12 @@ class TestPolymer(unittest.TestCase):
                 else:
                     np.testing.assert_almost_equal(self.polymer.dihedral_set[i], dh)
 
+    def test_tangent_auto_corr(self):
+        # check case where all tangent vectors are aligned
+        self.polymer.tangent_auto_corr(self.polymer.chain)
+        for stat in self.polymer.tangent_corr:
+            np.testing.assert_allclose(stat.mean, 1.0)
+
     def test_unit_normal_vectors(self):
         self.polymer._unit_normal_vectors(self.polymer.chain)
         np.testing.assert_array_equal(len(self.polymer.unit_normal), self.monomer_num)
@@ -135,7 +141,7 @@ class TestPolymer(unittest.TestCase):
             for i in range(len(self.polymer.unit_normal)):
                 for j in range(i, len(self.polymer.unit_normal), 1):
                     test_vals[loop][count] = ((3./2.) * (np.dot(self.polymer.unit_normal[j],
-                                                     self.polymer.unit_normal[j - i]) ** 2)) - (1./2.)
+                                                                self.polymer.unit_normal[j - i]) ** 2)) - (1./2.)
                     count += 1
         test_mean = np.array([np.mean(test_vals[:, [0, 1, 2, 3]]), np.mean(test_vals[:, [4, 5, 6]]),
                               np.mean(test_vals[:, [7, 8]]), np.mean(test_vals[:, 9])])
@@ -146,21 +152,15 @@ class TestPolymer(unittest.TestCase):
     def test_sample_chain(self):
         # sample by looping over rotate_chains
         end_to_end = []
-        corr = []
         for i in range(self.sample_num):
             self.polymer.rotate_chain()
             end_to_end.append(self.polymer.end_to_end[self.monomer_num])
-            corr.append(self.polymer.corr[self.monomer_num - 1])
         mean_ete = np.mean(end_to_end)
         std_ete = np.std(end_to_end)
-        mean_corr = np.mean(corr)
-        std_corr = np.std(corr)
         # sample using polymer class
         self.polymer.sample_chains()
         np.testing.assert_almost_equal(self.polymer.ete_stats.mean[self.monomer_num], mean_ete, decimal=1)
         np.testing.assert_almost_equal(self.polymer.ete_stats.stdev[self.monomer_num], std_ete, decimal=1)
-        np.testing.assert_almost_equal(self.polymer.corr_stats.mean[self.monomer_num - 1], mean_corr, decimal=1)
-        np.testing.assert_almost_equal(self.polymer.corr_stats.stdev[self.monomer_num - 1], std_corr, decimal=1)
 
 
 class TestRandomChargedPolymer(unittest.TestCase):
