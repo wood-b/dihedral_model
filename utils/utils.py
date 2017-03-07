@@ -135,7 +135,7 @@ def poly1d(x, a, b):
     return a * x + b
 
 
-# Persistence length
+# Persistence length ln fit
 def pt_persist_length(x_vals, corr, std_corr):
     ln_corr = np.log(corr)
     std_ln_corr = error_nl(corr, std_corr)
@@ -153,6 +153,21 @@ def pt_persist_length(x_vals, corr, std_corr):
     # multiplication
     lp_std = np_std * h
     return lp, lp_std
+
+
+def exp_decay(x, a):
+    return np.exp(-x / a)
+
+
+def pt_persist_len_expfit(x_vals, corr, std_error):
+    popt, pcov = curve_fit(exp_decay, x_vals, corr,
+                           sigma=std_error, absolute_sigma=True)
+    pt_np = popt[0]
+    h = np.sqrt(2.548 ** 2 + 1.480 ** 2 - (2 * 2.548 * 1.480 * np.cos(165.0 * np.pi / 180.0))) / 10.0
+    lp = pt_np * h
+    # error
+    new_std_error = np.sqrt(np.diag(pcov[0])).flatten() * h
+    return lp, new_std_error
 
 
 def write_json(write_list, filename):
