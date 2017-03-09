@@ -1,0 +1,2614 @@
+srun -N 1 --ntasks-per-node 1 --cpus-per-task 64 --cpu_bind=cores --nodelist nid01249 /global/project/projectdirs/jcesr/qchem/qc44/cnl_qc441/dist/exe/qcprog.cori.haswell.exe .pt_mp2_180.0.in.29548.qcin.1 /dev/shm/eg_qchem/qchem29548/
+Process 0 of 1 is on nid01249 - thread support 0
+initial socket setup ...start
+initial socket setup ...done 
+now start server 0 ... 
+nid01249 10.128.4
+Q-Chem Developer Version! Running on 10.128.4.*
+                  Welcome to Q-Chem
+     A Quantum Leap Into The Future Of Chemistry
+
+
+ Q-Chem 4.4, Q-Chem, Inc., Pleasanton, CA (2016)
+
+ Y. Shao,  Z. Gan,  E. Epifanovsky,  A. T. B. Gilbert,  M. Wormit,  
+ J. Kussmann,  A. W. Lange,  A. Behn,  J. Deng,  X. Feng,  D. Ghosh,  
+ M. Goldey,  P. R. Horn,  L. D. Jacobson,  I. Kaliman,  F.Rob,  
+ R. Z. Khaliullin,  T. Kus,  A. Landau,  J. Liu,  E. I. Proynov,  Y. M. Rhee,  
+ R. M. Richard,  M. A. Rohrdanz,  R. P. Steele,  E. J. Sundstrom,  
+ H. L. Woodcock III,  P. M. Zimmerman,  D. Zuev,  B. Albrecht,  E. Alguire,  
+ B. Austin,  S. A. Baeppler,  G. J. O. Beran,  Y. A. Bernard,  E. Berquist,  
+ K. Brandhorst,  K. B. Bravaya,  S. T. Brown,  D. Casanova,  C.-M. Chang,  
+ Y. Chen,  S. H. Chien,  K. D. Closser,  M. P. Coons,  D. L. Crittenden,  
+ S. Dasgupta,  M. Diedenhofen,  R. A. DiStasio Jr.,  H. Do,  A. D. Dutoi,  
+ R. G. Edgar,  P.-T. Fang,  S. Fatehi,  Q. Feng,  L. Fusti-Molnar,  
+ A. Ghysels,  A. Golubeva-Zadorozhnaya,  J. Gomes,  A. Gunina,  
+ M. W. D. Hanson-Heine,  P. H. P. Harbach,  A. W. Hauser,  E. G. Hohenstein,  
+ Z. C. Holden,  K. Hui,  T.-C. Jagau,  H. Ji,  B. Kaduk,  K. Khistyaev,  
+ Jaehoon Kim,  Jihan Kim,  R. A. King,  P. Klunzinger,  D. Kosenkov,  
+ T. Kowalczyk,  C. M. Krauter,  A. Kunitsa,  K. U. Lao,  A. Laurent,  
+ K. V. Lawler,  D. Lefrancois,  S. Lehtola,  S. V. Levchenko,  C. Y. Lin,  
+ Y.-S. Lin,  F. Liu,  E. Livshits,  R. C. Lochan,  A. Luenser,  P. Manohar,  
+ S. F. Manzer,  S.-P. Mao,  Y. Mao,  N. Mardirossian,  A. V. Marenich,  
+ L. A. Martinez-Martinez,  S. A. Maurer,  N. J. Mayhall,  J.-M. Mewes,  
+ A. F. Morrison,  K. Nanda,  C. M. Oana,  R. Olivares-Amaya,  D. P. O'Neill,  
+ J. A. Parkhill,  T. M. Perrine,  R. Peverati,  P. A. Pieniazek,  F. Plasser,  
+ A. Prociuk,  D. R. Rehn,  E. Rosta,  N. J. Russ,  N. Sergueev,  
+ S. M. Sharada,  S. Sharma,  D. W. Small,  A. Sodt,  T. Stauch,  T. Stein,  
+ D. Stuck,  Y.-C. Su,  A. J. W. Thom,  T. Tsuchimochi,  L. Vogt,  O. Vydrov,  
+ T. Wang,  M. A. Watson,  J. Wenzel,  A. White,  C. F. Williams,  
+ V. Vanovschi,  S. Yeganeh,  S. R. Yost,  Z.-Q. You,  I. Y. Zhang,  X. Zhang,  
+ Y. Zhao,  B. R. Brooks,  G. K. L. Chan,  D. M. Chipman,  C. J. Cramer,  
+ W. A. Goddard III,  M. S. Gordon,  W. J. Hehre,  A. Klamt,  
+ H. F. Schaefer III,  M. W. Schmidt,  C. D. Sherrill,  D. G. Truhlar,  
+ A. Warshel,  X. Xu,  A. Aspuru-Guzik,  R. Baer,  A. T. Bell,  N. A. Besley,  
+ J.-D. Chai,  A. Dreuw,  B. D. Dunietz,  T. R. Furlani,  S. R. Gwaltney,  
+ C.-P. Hsu,  Y. Jung,  J. Kong,  D. S. Lambrecht,  W. Liang,  C. Ochsenfeld,  
+ V. A. Rassolov,  L. V. Slipchenko,  J. E. Subotnik,  T. Van Voorhis,  
+ J. M. Herbert,  A. I. Krylov,  P. M. W. Gill,  M. Head-Gordon
+
+ Contributors to earlier versions of Q-Chem not listed above: 
+ R. D. Adamson,  J. Baker,  E. F. C. Byrd,  A. K. Chakraborty,  C.-L. Cheng,  
+ H. Dachsel,  R. J. Doerksen,  G. Hawkins,  A. Heyden,  S. Hirata,  
+ G. Kedziora,  F. J. Keil,  C. Kelley,  P. P. Korambath,  W. Kurlancheek,  
+ A. M. Lee,  M. S. Lee,  D. Liotard,  I. Lotan,  P. E. Maslen,  N. Nair,  
+ D. Neuhauser,  R. Olson,  B. Peters,  J. Ritchie,  N. E. Schultz,  
+ N. Shenvi,  A. C. Simmonett,  K. S. Thanthiriwatte,  Q. Wu,  W. Zhang
+
+ Please cite Q-Chem as follows:
+ Y. Shao et al., Mol. Phys. 113, 184-215 (2015)
+ DOI: 10.1080/00268976.2014.952696
+
+ Q-Chem 4.4.1 for Intel X86 EM64T Linux
+
+ Parts of Q-Chem use Armadillo 5.200.1 (Boston Tea Smuggler).
+ http://arma.sourceforge.net/
+
+ Q-Chem begins on Mon Mar  6 14:00:21 2017  
+
+Host: nid01196
+0
+
+     Scratch files written to /dev/shm/eg_qchem/qchem29548//
+ Parallel job on  1  processors
+
+Checking the input file for inconsistencies... 	...done.
+
+--------------------------------------------------------------
+User input:
+--------------------------------------------------------------
+$molecule
+ 0  1
+ S           1.80900300       -1.15938900        0.25896800
+ C           3.16466000       -0.14246800        0.05606700
+ C           2.78757500        1.14089100       -0.25226100
+ C           1.39402000        1.28822000       -0.33563400
+ C           0.70898100        0.11689900       -0.08798100
+ H           0.89277600        2.20524100       -0.58940400
+ C          -0.70898100       -0.11689900       -0.08798100
+ S          -1.80943135        1.16198690       -0.42382760
+ C          -1.39402000       -1.28822000        0.15967200
+ C          -3.16382812        0.13742274       -0.25359041
+ C          -2.78721944       -1.14304746        0.06708317
+ H          -3.49110082       -1.94037934        0.21865947
+ H           4.15569300       -0.53353100        0.17259300
+ H           3.49202900        1.93475000       -0.41867900
+ H          -4.15389559        0.52262988       -0.39514200
+ H          -0.89132565       -2.21403726        0.37585033
+$end
+
+
+$rem
+         jobtype = opt
+        exchange = hf
+           basis = cc-pvtz
+  max_scf_cycles = 100
+      mem_static = 6200
+       mem_total = 62000
+          method = mp2
+$end
+
+
+$opt
+CONSTRAINT
+tors 4 5 7 9 180.0
+ENDCONSTRAINT
+$end
+
+--------------------------------------------------------------
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8192700595    -1.1946849857     0.0070825905
+    2      C       3.1676448308    -0.1484026236    -0.0097023016
+    3      C       2.7808996418     1.1686613415    -0.0033583014
+    4      C       1.3853899334     1.3209198587     0.0013774205
+    5      C       0.7086305977     0.1190046676     0.0013774208
+    6      H       0.8761343036     2.2679456374    -0.0179397441
+    7      C      -0.7086305976    -0.1190046651     0.0013774210
+    8      S      -1.8192700588     1.1946849843     0.0070825910
+    9      C      -1.3853899333    -1.3209198562     0.0013774213
+   10      C      -3.1676448286     0.1484026241    -0.0097023033
+   11      C      -2.7808996450    -1.1686613426    -0.0033583015
+   12      H      -3.4796210025    -1.9846838895    -0.0109849790
+   13      H       4.1618431832    -0.5484766741    -0.0225621588
+   14      H       3.4796209999     1.9846838891    -0.0109849792
+   15      H      -4.1618431831     0.5484766729    -0.0225621564
+   16      H      -0.8761343076    -2.2679456392    -0.0179397428
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   636.8596359281 hartrees
+ There are       43 alpha and       43 beta electrons
+ Requested basis set is cc-pVTZ
+ There are 140 shells and 392 basis functions
+
+ Total QAlloc Memory Limit  62000 MB
+ Mega-Array Size      6061 MB
+ MEM_STATIC part      6200 MB
+ A cutoff of  1.0D-11 yielded   8027 shell pairs
+ There are     62411 function pairs (     81379 Cartesian)
+ 
+ -------------------------------------------------------
+ OpenMP Integral Computing Module                       
+ Release: version 1.0, May 2013, Q-Chem Inc. Pittsburgh 
+ -------------------------------------------------------
+ Integral Job Info:
+ Integral job number is                      11
+ Integral operator is                         1
+ short-range coefficients                     0
+ long-range coefficients              100000000
+ Omega coefficients                           0
+ if combine SR and LR in K                    0
+ Integral screening is                        0
+ Integral computing path is                   2
+ max size of driver memory is            800000
+ size of driver memory is                776718
+ size of scratch memory is             26248924
+ max col of scratch BK array              10000
+ max len of scratch array in speh3          662
+ max len of scratch index in speh4           32
+ max int batch size is                      520
+ min int batch size is                       52
+ fixed nKL is                                52
+ max L of basis functions is                  3
+ order of int derivative is                   0
+ number of shells is                        140
+ number of basis is                         448
+ number of cartesian basis is               448
+ number of contracted shell pairs          8027
+ number of primitive shell pairs          28593
+ maxK2 (contraction) of shell pair          121
+ max number of K2 of shell pair               1
+ max number of CS2 of shell pair           1046
+ max number of PS2 of shell pair           3080
+ mem total for path MDJ                  223748
+ -------------------------------------------------------
+ Smallest overlap matrix eigenvalue = 6.25E-05
+
+ Scale SEOQF with 1.000000e-01/1.000000e-01/1.000000e+00
+
+ Standard Electronic Orientation quadrupole field applied
+ Nucleus-field energy     =     0.0000000219 hartrees
+ Guess from superposition of atomic densities
+ Warning:  Energy on first SCF cycle will be non-variational
+ A restricted Hartree-Fock SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ SCF converges when DIIS error is below 1.0E-08
+ using 16 threads for integral computing 
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1106.0548521147      2.98E-02
+    2   -1099.0906149622      8.66E-03
+    3   -1101.4665029314      2.27E-03
+    4   -1101.5733953695      1.08E-03
+    5   -1101.5975469912      1.61E-04
+    6   -1101.5983190694      7.28E-05
+    7   -1101.5984807938      3.37E-05
+    8   -1101.5985153618      1.03E-05
+    9   -1101.5985209830      3.96E-06
+   10   -1101.5985220971      1.61E-06
+   11   -1101.5985223057      6.97E-07
+   12   -1101.5985223399      2.85E-07
+   13   -1101.5985223475      7.42E-08
+   14   -1101.5985223470      2.65E-08
+   15   -1101.5985223472      9.08E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 585.37 s  wall 36.63 s
+ SCF   energy in the final basis set = -1101.5985223472
+ Total energy in the final basis set = -1101.5985223472
+ 
+ Components of the MP2 correlation energy:
+        aaaa  correlation energy =        -0.2323266240 au
+        abab  correlation energy =        -1.3505218073 au
+        bbbb  correlation energy =        -0.2323266240 au
+        non-Brillouin singles    =        -0.0000000000 au
+
+ Total  MP2   correlation energy =        -1.8151750553 au
+        MP2         total energy =     -1103.4136974025 au
+
+  Entering Z-vector solver.
+   1         0           1      0.000264    0.000264
+   2         0           1      0.000116    0.000116
+   3         0           1      0.000049    0.000049
+   4         0           1      0.000024    0.000024
+   5         0           1      0.000006    0.000006
+   6         0           1      0.000002    0.000002
+   7         1           0      0.000000    0.000000    Roots Converged
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.667  -6.667
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.036  -1.001  -0.985  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.810  -0.782  -0.744  -0.718  -0.709  -0.645  -0.573  -0.573
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.465  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.153   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.457   0.467   0.473   0.474   0.475   0.511   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.604   0.606   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.644   0.646   0.652   0.659   0.676   0.709   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.854   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.867   0.877   0.886   0.894   0.909   0.934   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.994   1.008   1.021   1.024   1.042   1.073   1.088
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.104   1.110   1.113   1.143   1.154   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.177   1.178   1.185   1.231   1.240   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.293   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.442   1.449   1.476   1.477   1.500   1.519   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.544   1.560   1.567   1.573   1.594   1.616   1.629   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.695   1.735   1.760   1.788   1.818   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.866   1.869   1.876   1.882   1.884   1.893   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.952   1.969   2.036   2.073   2.084   2.089   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.189   2.196   2.205   2.258   2.266   2.269   2.294
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.303   2.308   2.328   2.359   2.407   2.422   2.436   2.458
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.511   2.527   2.539   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.741   2.743   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.770   2.809   2.810   2.825   2.835   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.930   2.947   2.962   2.987   3.009   3.013   3.014
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.060   3.075   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.203   3.217   3.234   3.246   3.259   3.272   3.278   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.302   3.307   3.312   3.320   3.338   3.340   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.432   3.438   3.449   3.474   3.475   3.477
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.528   3.529   3.539
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.554   3.562   3.574   3.606   3.623   3.630   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.693   3.695   3.730   3.733   3.738   3.768   3.771   3.783
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.830   3.841   3.866   3.875   3.900   3.908   3.930   3.935
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.953   3.986   4.000   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   152 B   153 A   153 B   154 A                  
+  4.076   4.102   4.114   4.123   4.158   4.177   4.177   4.193
+155 A   154 B   155 B   156 B   156 A   157 B   157 A   158 A                  
+  4.198   4.209   4.239   4.245   4.274   4.284   4.313   4.325
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.362   4.383   4.412   4.422   4.470   4.510   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.568   4.602   4.621   4.632   4.650   4.681   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.730   4.737   4.777   4.788   4.801   4.836   4.872
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.957   5.011   5.042   5.057   5.077   5.080   5.093
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.118   5.163   5.179   5.250   5.268   5.290   5.322   5.397
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.405   5.417   5.421   5.511   5.551   5.623   5.628   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.764   5.937   5.940   6.084   6.100   6.161   6.174   6.294
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.564   6.567   6.741   6.766   9.502  10.852  11.806
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.416  13.640  13.806  14.633  14.789
+194 B   195 B   195 A   196 B   196 A                                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.667  -6.667
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.036  -1.001  -0.985  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.810  -0.782  -0.744  -0.718  -0.709  -0.645  -0.573  -0.573
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.465  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.153   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.457   0.467   0.473   0.474   0.475   0.511   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.604   0.606   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.644   0.646   0.652   0.659   0.676   0.709   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.854   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.867   0.877   0.886   0.894   0.909   0.934   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.994   1.008   1.021   1.024   1.042   1.073   1.088
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.104   1.110   1.113   1.143   1.154   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.177   1.178   1.185   1.231   1.240   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.293   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.442   1.449   1.476   1.477   1.500   1.519   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.544   1.560   1.567   1.573   1.594   1.616   1.629   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.695   1.735   1.760   1.788   1.818   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.866   1.869   1.876   1.882   1.884   1.893   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.952   1.969   2.036   2.073   2.084   2.089   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.189   2.196   2.205   2.258   2.266   2.269   2.294
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.303   2.308   2.328   2.359   2.407   2.422   2.436   2.458
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.511   2.527   2.539   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.741   2.743   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.770   2.809   2.810   2.825   2.835   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.930   2.947   2.962   2.987   3.009   3.013   3.014
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.060   3.075   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.203   3.217   3.234   3.246   3.259   3.272   3.278   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.302   3.307   3.312   3.320   3.338   3.340   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.432   3.438   3.449   3.474   3.475   3.477
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.528   3.529   3.539
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.554   3.562   3.574   3.606   3.623   3.630   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.693   3.695   3.730   3.733   3.738   3.768   3.771   3.783
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.830   3.841   3.866   3.875   3.900   3.908   3.930   3.935
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.953   3.986   4.000   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   152 B   153 A   153 B   154 A                  
+  4.076   4.102   4.114   4.123   4.158   4.177   4.177   4.193
+155 A   154 B   155 B   156 B   156 A   157 B   157 A   158 A                  
+  4.198   4.209   4.239   4.245   4.274   4.284   4.313   4.325
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.362   4.383   4.412   4.422   4.470   4.510   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.568   4.602   4.621   4.632   4.650   4.681   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.730   4.737   4.777   4.788   4.801   4.836   4.872
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.957   5.011   5.042   5.057   5.077   5.080   5.093
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.118   5.163   5.179   5.250   5.268   5.290   5.322   5.397
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.405   5.417   5.421   5.511   5.551   5.623   5.628   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.764   5.937   5.940   6.084   6.100   6.161   6.174   6.294
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.564   6.567   6.741   6.766   9.502  10.852  11.806
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.416  13.640  13.806  14.633  14.789
+194 B   195 B   195 A   196 B   196 A                                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                     0.100161
+      2 C                    -0.237565
+      3 C                    -0.198492
+      4 C                    -0.209054
+      5 C                     0.025738
+      6 H                     0.159234
+      7 C                     0.025736
+      8 S                     0.100160
+      9 C                    -0.209050
+     10 C                    -0.237563
+     11 C                    -0.198493
+     12 H                     0.174329
+     13 H                     0.185648
+     14 H                     0.174328
+     15 H                     0.185648
+     16 H                     0.159234
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                -0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z      -0.0493
+       Tot       0.0493
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1736     XY       0.9832     YY     -67.7792
+        XZ       0.0000     YZ      -0.0000     ZZ     -78.1362
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY       0.0000    XYY      -0.0000
+       YYY      -0.0000    XXZ      -0.7381    XYZ      -0.0746
+       YYZ      -0.2173    XZZ      -0.0000    YZZ      -0.0000
+       ZZZ       0.0267
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1833.1740   XXXY     -21.7348   XXYY    -409.7661
+      XYYY      15.2201   YYYY    -552.4182   XXXZ       0.0000
+      XXYZ      -0.0000   XYYZ       0.0000   YYYZ      -0.0000
+      XXZZ    -407.7109   XYZZ      -8.2449   YYZZ    -121.1945
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ     -95.2931
+ -----------------------------------------------------------------
+ DrvMan is completing analytic gradient of the MP2 energy
+ MP2 relaxed dipole moment
+            1
+    1   0.0000000
+    2  -0.0000000
+    3  -0.0193807
+	Magnitude:	 0.019 au	 0.049 Debye
+ MP2 energy read as -1103.413697
+ Full Analytical Gradient of MP2 Energy (in au.)
+             1             2             3             4             5
+    1   -0.00025962   -0.00019086   -0.00015606   -0.00023167    0.00126613
+    2    0.00024692   -0.00085549    0.00009025    0.00066651    0.00029920
+    3    0.00075105   -0.00081273    0.00079830    0.00138220   -0.00093046
+             6             7             8             9            10
+    1   -0.00031375   -0.00126613    0.00025961    0.00023167    0.00019086
+    2   -0.00032117   -0.00029920   -0.00024692   -0.00066651    0.00085549
+    3   -0.00080021   -0.00093047    0.00075105    0.00138220   -0.00081273
+            11            12            13            14            15
+    1    0.00015606   -0.00000981    0.00010265    0.00000981   -0.00010265
+    2   -0.00009026   -0.00000811    0.00009408    0.00000812   -0.00009408
+    3    0.00079830   -0.00001665   -0.00037149   -0.00001665   -0.00037149
+            16
+    1    0.00031375
+    2    0.00032117
+    3   -0.00080021
+ Gradient time:  CPU 1.52 s  wall 0.10 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   1
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8192700592   -1.1946849850    0.0070825908
+      2  C         3.1676448297   -0.1484026239   -0.0097023024
+      3  C         2.7808996434    1.1686613421   -0.0033583015
+      4  C         1.3853899333    1.3209198574    0.0013774209
+      5  C         0.7086305977    0.1190046664    0.0013774209
+      6  H         0.8761343056    2.2679456383   -0.0179397435
+      7  C        -0.7086305977   -0.1190046664    0.0013774209
+      8  S        -1.8192700592    1.1946849850    0.0070825908
+      9  C        -1.3853899333   -1.3209198574    0.0013774209
+     10  C        -3.1676448297    0.1484026239   -0.0097023024
+     11  C        -2.7808996434   -1.1686613421   -0.0033583015
+     12  H        -3.4796210012   -1.9846838893   -0.0109849791
+     13  H         4.1618431831   -0.5484766735   -0.0225621576
+     14  H         3.4796210012    1.9846838893   -0.0109849791
+     15  H        -4.1618431831    0.5484766735   -0.0225621576
+     16  H        -0.8761343056   -2.2679456383   -0.0179397435
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1103.413697402
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9     -180.000      180.000
+
+ Attempting to Generate Delocalized Internal Coordinates
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.045000    0.045000    0.045000    0.045002    0.045003    0.045012
+     0.159945    0.159993    0.160000    0.221308    0.238060    0.249999
+     0.326324    0.340049    0.365509    0.366895    0.370094    0.399848
+     0.435412    0.463135    0.495504
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =  -0.00010302
+ Step Taken.  Stepsize is  0.044622
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.001589      0.000300      NO
+         Displacement       0.035502      0.001200      NO
+         Energy change     *********      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.071146
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8210495061    -1.1942876300    -0.0017473511
+    2      C       3.1695134082    -0.1472000424    -0.0024132396
+    3      C       2.7824077932     1.1690975847    -0.0055539498
+    4      C       1.3868595479     1.3201019538    -0.0067928131
+    5      C       0.7085199918     0.1186175525    -0.0067928131
+    6      H       0.8801970159     2.2688048189    -0.0210214013
+    7      C      -0.7085199918    -0.1186175525    -0.0067928131
+    8      S      -1.8210495061     1.1942876300    -0.0017473511
+    9      C      -1.3868595479    -1.3201019538    -0.0067928131
+   10      C      -3.1695134082     0.1472000424    -0.0024132396
+   11      C      -2.7824077932    -1.1690975847    -0.0055539498
+   12      H      -3.4806193696    -1.9855664871    -0.0073224538
+   13      H       4.1635387994    -0.5476619381    -0.0030660295
+   14      H       3.4806193696     1.9855664871    -0.0073224538
+   15      H      -4.1635387994     0.5476619381    -0.0030660295
+   16      H      -0.8801970159    -2.2688048189    -0.0210214013
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   636.6849572906 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-10
+ Nucleus-field energy     =     0.0000000219 hartrees
+ Requested basis set is cc-pVTZ
+ There are 140 shells and 392 basis functions
+ A cutoff of  1.0D-11 yielded   8027 shell pairs
+ There are     62411 function pairs (     81379 Cartesian)
+ Smallest overlap matrix eigenvalue = 6.22E-05
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted Hartree-Fock SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ using 16 threads for integral computing 
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1101.5984580749      1.61E-04
+    2   -1101.5988328116      1.91E-05
+    3   -1101.5988508016      7.27E-06
+    4   -1101.5988541064      2.90E-06
+    5   -1101.5988544710      1.03E-06
+    6   -1101.5988545270      4.72E-07
+    7   -1101.5988545377      1.92E-07
+    8   -1101.5988545405      5.26E-08
+    9   -1101.5988545401      1.93E-08
+   10   -1101.5988545402      6.45E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 670.20 s  wall 41.92 s
+ SCF   energy in the final basis set = -1101.5988545402
+ Total energy in the final basis set = -1101.5988545402
+ 
+ Components of the MP2 correlation energy:
+        aaaa  correlation energy =        -0.2323068125 au
+        abab  correlation energy =        -1.3504863785 au
+        bbbb  correlation energy =        -0.2323068125 au
+        non-Brillouin singles    =        -0.0000000000 au
+
+ Total  MP2   correlation energy =        -1.8151000036 au
+        MP2         total energy =     -1103.4139545438 au
+
+  Entering Z-vector solver.
+   1         0           1      0.000264    0.000264
+   2         0           1      0.000116    0.000116
+   3         0           1      0.000049    0.000049
+   4         0           1      0.000024    0.000024
+   5         0           1      0.000006    0.000006
+   6         0           1      0.000002    0.000002
+   7         1           0      0.000000    0.000000    Roots Converged
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.667  -6.667
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.744  -0.718  -0.709  -0.646  -0.573  -0.573
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.153   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.475   0.511   0.521
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.604   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.645   0.645   0.652   0.659   0.676   0.709   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.887   0.894   0.908   0.934   0.952   0.955
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.372   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.476   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.544   1.560   1.567   1.573   1.594   1.615   1.628   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.760   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.893   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.952   1.969   2.036   2.073   2.084   2.089   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.205   2.258   2.266   2.269   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.303   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.740   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.948   2.962   2.987   3.008   3.012   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.060   3.074   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.302   3.307   3.313   3.319   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.432   3.438   3.449   3.475   3.476   3.477
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.524   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.605   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.693   3.696   3.729   3.734   3.737   3.768   3.771   3.783
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.907   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.000   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   152 B   153 A   153 B   154 A                  
+  4.075   4.102   4.114   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 B   157 A   158 A                  
+  4.198   4.209   4.238   4.245   4.277   4.283   4.312   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.470   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.568   4.602   4.621   4.633   4.648   4.682   4.690   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.727   4.730   4.738   4.779   4.786   4.800   4.835   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.957   5.012   5.043   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.119   5.163   5.178   5.250   5.267   5.291   5.322   5.398
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.087   6.102   6.160   6.174   6.292
+186 B   187 A   187 B   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.564   6.565   6.741   6.767   9.501  10.851  11.806
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.422  13.645  13.812  14.632  14.788
+194 B   195 B   195 A   196 B   196 A                                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.667  -6.667
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.744  -0.718  -0.709  -0.646  -0.573  -0.573
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.153   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.475   0.511   0.521
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.604   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.645   0.645   0.652   0.659   0.676   0.709   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.887   0.894   0.908   0.934   0.952   0.955
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.372   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.476   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.544   1.560   1.567   1.573   1.594   1.615   1.628   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.760   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.893   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.952   1.969   2.036   2.073   2.084   2.089   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.205   2.258   2.266   2.269   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.303   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.740   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.948   2.962   2.987   3.008   3.012   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.060   3.074   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.302   3.307   3.313   3.319   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.432   3.438   3.449   3.475   3.476   3.477
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.524   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.605   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.693   3.696   3.729   3.734   3.737   3.768   3.771   3.783
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.907   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.000   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   152 B   153 A   153 B   154 A                  
+  4.075   4.102   4.114   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 B   157 A   158 A                  
+  4.198   4.209   4.238   4.245   4.277   4.283   4.312   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.470   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.568   4.602   4.621   4.633   4.648   4.682   4.690   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.727   4.730   4.738   4.779   4.786   4.800   4.835   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.957   5.012   5.043   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.119   5.163   5.178   5.250   5.267   5.291   5.322   5.398
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.087   6.102   6.160   6.174   6.292
+186 B   187 A   187 B   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.564   6.565   6.741   6.767   9.501  10.851  11.806
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.422  13.645  13.812  14.632  14.788
+194 B   195 B   195 A   196 B   196 A                                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                     0.100783
+      2 C                    -0.237920
+      3 C                    -0.198872
+      4 C                    -0.212676
+      5 C                     0.027514
+      6 H                     0.159796
+      7 C                     0.027514
+      8 S                     0.100783
+      9 C                    -0.212676
+     10 C                    -0.237920
+     11 C                    -0.198872
+     12 H                     0.175232
+     13 H                     0.186143
+     14 H                     0.175232
+     15 H                     0.186143
+     16 H                     0.159796
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y       0.0000      Z      -0.0221
+       Tot       0.0221
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1311     XY       1.0159     YY     -67.7867
+        XZ      -0.0000     YZ       0.0000     ZZ     -78.1408
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY       0.0000    XYY       0.0000
+       YYY       0.0000    XXZ       0.2279    XYZ      -0.0821
+       YYZ       0.1256    XZZ      -0.0000    YZZ      -0.0000
+       ZZZ       1.0258
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1834.8164   XXXY     -21.6832   XXYY    -410.0841
+      XYYY      15.2753   YYYY    -552.2174   XXXZ      -0.0000
+      XXYZ      -0.0000   XYYZ      -0.0000   YYYZ       0.0000
+      XXZZ    -408.1984   XYZZ      -8.2935   YYZZ    -121.1761
+      XZZZ      -0.0000   YZZZ       0.0000   ZZZZ     -95.2924
+ -----------------------------------------------------------------
+ DrvMan is completing analytic gradient of the MP2 energy
+ MP2 relaxed dipole moment
+            1
+    1  -0.0000000
+    2   0.0000000
+    3  -0.0087141
+	Magnitude:	 0.009 au	 0.022 Debye
+ MP2 energy read as -1103.413955
+ Full Analytical Gradient of MP2 Energy (in au.)
+             1             2             3             4             5
+    1   -0.00015011   -0.00000786    0.00008591    0.00009812    0.00030865
+    2    0.00023110   -0.00014612   -0.00003286    0.00013862   -0.00006623
+    3   -0.00007640    0.00006493   -0.00007122    0.00093883   -0.00025724
+             6             7             8             9            10
+    1   -0.00009516   -0.00030865    0.00015011   -0.00009812    0.00000786
+    2   -0.00010249    0.00006623   -0.00023110   -0.00013862    0.00014612
+    3   -0.00051534   -0.00025724   -0.00007640    0.00093883    0.00006493
+            11            12            13            14            15
+    1   -0.00008591   -0.00004864    0.00003273    0.00004864   -0.00003273
+    2    0.00003286    0.00001985    0.00011267   -0.00001985   -0.00011267
+    3   -0.00007122    0.00001224   -0.00009580    0.00001224   -0.00009580
+            16
+    1    0.00009516
+    2    0.00010249
+    3   -0.00051534
+ Gradient time:  CPU 1.52 s  wall 0.10 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   2
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8210495061   -1.1942876300   -0.0017473511
+      2  C         3.1695134082   -0.1472000424   -0.0024132396
+      3  C         2.7824077932    1.1690975847   -0.0055539498
+      4  C         1.3868595479    1.3201019538   -0.0067928131
+      5  C         0.7085199918    0.1186175525   -0.0067928131
+      6  H         0.8801970159    2.2688048189   -0.0210214013
+      7  C        -0.7085199918   -0.1186175525   -0.0067928131
+      8  S        -1.8210495061    1.1942876300   -0.0017473511
+      9  C        -1.3868595479   -1.3201019538   -0.0067928131
+     10  C        -3.1695134082    0.1472000424   -0.0024132396
+     11  C        -2.7824077932   -1.1690975847   -0.0055539498
+     12  H        -3.4806193696   -1.9855664871   -0.0073224538
+     13  H         4.1635387994   -0.5476619381   -0.0030660295
+     14  H         3.4806193696    1.9855664871   -0.0073224538
+     15  H        -4.1635387994    0.5476619381   -0.0030660295
+     16  H        -0.8801970159   -2.2688048189   -0.0210214013
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1103.413954544
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9     -180.000      180.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.030258    0.045000    0.045000    0.045001    0.045003    0.054023
+     0.156026    0.159995    0.160655    0.221693    0.244800    0.249768
+     0.323849    0.339921    0.365393    0.366894    0.370149    0.399393
+     0.435467    0.468641    0.496112
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =  -0.00001641
+ Step Taken.  Stepsize is  0.021995
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000402      0.000300      NO
+         Displacement       0.015097      0.001200      NO
+         Energy change     -0.000257      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.020267
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8212021849    -1.1947073030    -0.0046028233
+    2      C       3.1692936337    -0.1470494681    -0.0025581415
+    3      C       2.7819501195     1.1691412227    -0.0064356475
+    4      C       1.3865548659     1.3198968549    -0.0095247186
+    5      C       0.7082537525     0.1184337900    -0.0095247186
+    6      H       0.8810146023     2.2693738942    -0.0174079345
+    7      C      -0.7082537525    -0.1184337900    -0.0095247186
+    8      S      -1.8212021849     1.1947073030    -0.0046028233
+    9      C      -1.3865548659    -1.3198968549    -0.0095247186
+   10      C      -3.1692936337     0.1470494681    -0.0025581415
+   11      C      -2.7819501195    -1.1691412227    -0.0064356475
+   12      H      -3.4796695331    -1.9859909172    -0.0050903413
+   13      H       4.1630435539    -0.5482087280     0.0004342739
+   14      H       3.4796695331     1.9859909172    -0.0050903413
+   15      H      -4.1630435539     0.5482087280     0.0004342739
+   16      H      -0.8810146023    -2.2693738942    -0.0174079345
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   636.6789283515 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-10
+ Nucleus-field energy     =     0.0000000219 hartrees
+ Requested basis set is cc-pVTZ
+ There are 140 shells and 392 basis functions
+ A cutoff of  1.0D-11 yielded   8027 shell pairs
+ There are     62411 function pairs (     81379 Cartesian)
+ Smallest overlap matrix eigenvalue = 6.21E-05
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted Hartree-Fock SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ using 16 threads for integral computing 
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1101.5985892548      3.58E-05
+    2   -1101.5988523697      5.40E-06
+    3   -1101.5988537873      1.99E-06
+    4   -1101.5988540374      7.87E-07
+    5   -1101.5988540655      3.04E-07
+    6   -1101.5988540691      1.37E-07
+    7   -1101.5988540701      3.60E-08
+    8   -1101.5988540699      1.30E-08
+    9   -1101.5988540697      5.42E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 583.26 s  wall 36.48 s
+ SCF   energy in the final basis set = -1101.5988540697
+ Total energy in the final basis set = -1101.5988540697
+ 
+ Components of the MP2 correlation energy:
+        aaaa  correlation energy =        -0.2323074442 au
+        abab  correlation energy =        -1.3504960961 au
+        bbbb  correlation energy =        -0.2323074442 au
+        non-Brillouin singles    =        -0.0000000000 au
+
+ Total  MP2   correlation energy =        -1.8151109844 au
+        MP2         total energy =     -1103.4139650541 au
+
+  Entering Z-vector solver.
+   1         0           1      0.000264    0.000264
+   2         0           1      0.000116    0.000116
+   3         0           1      0.000049    0.000049
+   4         0           1      0.000024    0.000024
+   5         0           1      0.000006    0.000006
+   6         0           1      0.000002    0.000002
+   7         1           0      0.000000    0.000000    Roots Converged
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.667  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.521
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.645   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.628   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.303   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.948   2.962   2.987   3.009   3.011   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.074   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.314   3.318   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.606   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.075   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.239   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.470   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.569   4.601   4.622   4.634   4.648   4.682   4.690   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.780   4.785   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.957   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.648  13.813  14.634  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.667  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.521
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.645   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.628   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.303   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.948   2.962   2.987   3.009   3.011   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.074   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.314   3.318   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.606   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.075   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.239   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.470   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.569   4.601   4.622   4.634   4.648   4.682   4.690   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.780   4.785   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.957   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.648  13.813  14.634  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                     0.100666
+      2 C                    -0.237831
+      3 C                    -0.198894
+      4 C                    -0.212776
+      5 C                     0.027779
+      6 H                     0.159758
+      7 C                     0.027779
+      8 S                     0.100666
+      9 C                    -0.212776
+     10 C                    -0.237831
+     11 C                    -0.198894
+     12 H                     0.175226
+     13 H                     0.186073
+     14 H                     0.175226
+     15 H                     0.186073
+     16 H                     0.159758
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X      -0.0000      Y      -0.0000      Z      -0.0031
+       Tot       0.0031
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1431     XY       1.0166     YY     -67.7744
+        XZ      -0.0000     YZ      -0.0000     ZZ     -78.1416
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY       0.0000    XYY       0.0000
+       YYY       0.0000    XXZ       0.5634    XYZ      -0.0479
+       YYZ       0.3394    XZZ       0.0000    YZZ      -0.0000
+       ZZZ       1.4485
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1834.9581   XXXY     -21.7066   XXYY    -410.0052
+      XYYY      15.4293   YYYY    -552.2615   XXXZ       0.0000
+      XXYZ       0.0000   XYYZ      -0.0000   YYYZ      -0.0000
+      XXZZ    -408.1423   XYZZ      -8.2546   YYZZ    -121.2068
+      XZZZ      -0.0000   YZZZ      -0.0000   ZZZZ     -95.3025
+ -----------------------------------------------------------------
+ DrvMan is completing analytic gradient of the MP2 energy
+ MP2 relaxed dipole moment
+            1
+    1  -0.0000000
+    2  -0.0000000
+    3  -0.0012332
+	Magnitude:	 0.001 au	 0.003 Debye
+ MP2 energy read as -1103.413965
+ Full Analytical Gradient of MP2 Energy (in au.)
+             1             2             3             4             5
+    1    0.00000498   -0.00004220   -0.00004338    0.00007811   -0.00005031
+    2   -0.00001710   -0.00000664    0.00001933    0.00001230   -0.00008272
+    3   -0.00009500    0.00009625   -0.00018744    0.00044856   -0.00009118
+             6             7             8             9            10
+    1    0.00000242    0.00005031   -0.00000498   -0.00007811    0.00004220
+    2    0.00002821    0.00008272    0.00001710   -0.00001230    0.00000664
+    3   -0.00023645   -0.00009118   -0.00009500    0.00044856    0.00009625
+            11            12            13            14            15
+    1    0.00004338    0.00000021   -0.00000183   -0.00000021    0.00000183
+    2   -0.00001933    0.00000855    0.00002622   -0.00000855   -0.00002622
+    3   -0.00018744    0.00006839   -0.00000315    0.00006839   -0.00000315
+            16
+    1   -0.00000242
+    2   -0.00002821
+    3   -0.00023645
+ Gradient time:  CPU 1.56 s  wall 0.10 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   3
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8212021849   -1.1947073030   -0.0046028233
+      2  C         3.1692936337   -0.1470494681   -0.0025581415
+      3  C         2.7819501195    1.1691412227   -0.0064356475
+      4  C         1.3865548659    1.3198968549   -0.0095247186
+      5  C         0.7082537525    0.1184337900   -0.0095247186
+      6  H         0.8810146023    2.2693738942   -0.0174079345
+      7  C        -0.7082537525   -0.1184337900   -0.0095247186
+      8  S        -1.8212021849    1.1947073030   -0.0046028233
+      9  C        -1.3865548659   -1.3198968549   -0.0095247186
+     10  C        -3.1692936337    0.1470494681   -0.0025581415
+     11  C        -2.7819501195   -1.1691412227   -0.0064356475
+     12  H        -3.4796695331   -1.9859909172   -0.0050903413
+     13  H         4.1630435539   -0.5482087280    0.0004342739
+     14  H         3.4796695331    1.9859909172   -0.0050903413
+     15  H        -4.1630435539    0.5482087280    0.0004342739
+     16  H        -0.8810146023   -2.2693738942   -0.0174079345
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1103.413965054
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9     -180.000      180.000
+ Hessian Updated using BFGS Update
+
+ 20 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.020020    0.045000    0.045003    0.046147    0.053655    0.158697
+     0.160122    0.160891    0.221958    0.246012    0.250666    0.326472
+     0.339979    0.365850    0.366956    0.370138    0.404924    0.440523
+     0.467739    0.496547
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =  -0.00000429
+ Step Taken.  Stepsize is  0.013588
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000200      0.000300     YES
+         Displacement       0.007704      0.001200      NO
+         Energy change     -0.000011      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.014330
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8214591720    -1.1945845198    -0.0054661319
+    2      C       3.1696162043    -0.1469353110    -0.0042199242
+    3      C       2.7821154399     1.1691903624    -0.0068394726
+    4      C       1.3866127871     1.3198270154    -0.0095736865
+    5      C       0.7082444307     0.1184711416    -0.0095736865
+    6      H       0.8812862136     2.2694152556    -0.0127574177
+    7      C      -0.7082444307    -0.1184711416    -0.0095736865
+    8      S      -1.8214591720     1.1945845198    -0.0054661319
+    9      C      -1.3866127871    -1.3198270154    -0.0095736865
+   10      C      -3.1696162043     0.1469353110    -0.0042199242
+   11      C      -2.7821154399    -1.1691903624    -0.0068394726
+   12      H      -3.4796576475    -1.9862007542    -0.0049873196
+   13      H       4.1632409173    -0.5484536396    -0.0012924125
+   14      H       3.4796576475     1.9862007542    -0.0049873196
+   15      H      -4.1632409173     0.5484536396    -0.0012924125
+   16      H      -0.8812862136    -2.2694152556    -0.0127574177
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   636.6570770262 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-10
+ Nucleus-field energy     =     0.0000000219 hartrees
+ Requested basis set is cc-pVTZ
+ There are 140 shells and 392 basis functions
+ A cutoff of  1.0D-11 yielded   8025 shell pairs
+ There are     62405 function pairs (     81373 Cartesian)
+ Smallest overlap matrix eigenvalue = 6.20E-05
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted Hartree-Fock SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ using 16 threads for integral computing 
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1101.5988334983      1.97E-05
+    2   -1101.5988728421      3.09E-06
+    3   -1101.5988732835      1.12E-06
+    4   -1101.5988733556      5.06E-07
+    5   -1101.5988733661      1.67E-07
+    6   -1101.5988733670      7.56E-08
+    7   -1101.5988733668      2.38E-08
+    8   -1101.5988733664      6.85E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 521.35 s  wall 32.61 s
+ SCF   energy in the final basis set = -1101.5988733664
+ Total energy in the final basis set = -1101.5988733664
+ 
+ Components of the MP2 correlation energy:
+        aaaa  correlation energy =        -0.2323027155 au
+        abab  correlation energy =        -1.3504888273 au
+        bbbb  correlation energy =        -0.2323027155 au
+        non-Brillouin singles    =        -0.0000000000 au
+
+ Total  MP2   correlation energy =        -1.8150942584 au
+        MP2         total energy =     -1103.4139676248 au
+
+  Entering Z-vector solver.
+   1         0           1      0.000264    0.000264
+   2         0           1      0.000116    0.000116
+   3         0           1      0.000049    0.000049
+   4         0           1      0.000024    0.000024
+   5         0           1      0.000006    0.000006
+   6         0           1      0.000002    0.000002
+   7         1           0      0.000000    0.000000    Roots Converged
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.666  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.645   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.074   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.628   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.736   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.302   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.949   2.962   2.987   3.010   3.011   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.073   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.315   3.317   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.560   3.574   3.605   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.074   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.238   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.469   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.568   4.601   4.622   4.634   4.648   4.682   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.781   4.785   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.958   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.649  13.814  14.634  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.666  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.645   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.074   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.628   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.736   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.302   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.949   2.962   2.987   3.010   3.011   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.073   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.315   3.317   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.560   3.574   3.605   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.074   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.238   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.469   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.568   4.601   4.622   4.634   4.648   4.682   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.781   4.785   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.958   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.649  13.814  14.634  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                     0.100601
+      2 C                    -0.237785
+      3 C                    -0.198903
+      4 C                    -0.212822
+      5 C                     0.027831
+      6 H                     0.159783
+      7 C                     0.027831
+      8 S                     0.100601
+      9 C                    -0.212822
+     10 C                    -0.237785
+     11 C                    -0.198903
+     12 H                     0.175222
+     13 H                     0.186073
+     14 H                     0.175222
+     15 H                     0.186073
+     16 H                     0.159783
+  ----------------------------------------
+  Sum of atomic charges =    -0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y       0.0000      Z       0.0047
+       Tot       0.0047
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1389     XY       1.0172     YY     -67.7757
+        XZ      -0.0000     YZ      -0.0000     ZZ     -78.1427
+    Octopole Moments (Debye-Ang^2)
+       XXX       0.0000    XXY       0.0000    XYY      -0.0000
+       YYY       0.0000    XXZ       0.5983    XYZ      -0.0244
+       YYZ       0.4397    XZZ      -0.0000    YZZ       0.0000
+       ZZZ       1.5873
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1835.2176   XXXY     -21.7776   XXYY    -410.0455
+      XYYY      15.4397   YYYY    -552.2256   XXXZ      -0.0000
+      XXYZ      -0.0000   XYYZ      -0.0000   YYYZ      -0.0000
+      XXZZ    -408.2091   XYZZ      -8.2595   YYZZ    -121.2048
+      XZZZ       0.0000   YZZZ      -0.0000   ZZZZ     -95.3062
+ -----------------------------------------------------------------
+ DrvMan is completing analytic gradient of the MP2 energy
+ MP2 relaxed dipole moment
+            1
+    1   0.0000000
+    2   0.0000000
+    3   0.0018635
+	Magnitude:	 0.002 au	 0.005 Debye
+ MP2 energy read as -1103.413968
+ Full Analytical Gradient of MP2 Energy (in au.)
+             1             2             3             4             5
+    1    0.00004315    0.00002820    0.00000447   -0.00001177   -0.00011997
+    2   -0.00000140    0.00003764   -0.00000232   -0.00004577   -0.00002544
+    3    0.00001098    0.00000850   -0.00011993    0.00013967   -0.00007258
+             6             7             8             9            10
+    1    0.00002734    0.00011997   -0.00004315    0.00001177   -0.00002820
+    2    0.00001924    0.00002544    0.00000140    0.00004577   -0.00003764
+    3   -0.00005502   -0.00007258    0.00001098    0.00013967    0.00000850
+            11            12            13            14            15
+    1   -0.00000447   -0.00000021   -0.00000070    0.00000021    0.00000070
+    2    0.00000232    0.00000182   -0.00001085   -0.00000182    0.00001085
+    3   -0.00011993    0.00007285    0.00001553    0.00007285    0.00001553
+            16
+    1   -0.00002734
+    2   -0.00001924
+    3   -0.00005502
+ Gradient time:  CPU 1.56 s  wall 0.10 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   4
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8214591720   -1.1945845198   -0.0054661319
+      2  C         3.1696162043   -0.1469353110   -0.0042199242
+      3  C         2.7821154399    1.1691903624   -0.0068394726
+      4  C         1.3866127871    1.3198270154   -0.0095736865
+      5  C         0.7082444307    0.1184711416   -0.0095736865
+      6  H         0.8812862136    2.2694152556   -0.0127574177
+      7  C        -0.7082444307   -0.1184711416   -0.0095736865
+      8  S        -1.8214591720    1.1945845198   -0.0054661319
+      9  C        -1.3866127871   -1.3198270154   -0.0095736865
+     10  C        -3.1696162043    0.1469353110   -0.0042199242
+     11  C        -2.7821154399   -1.1691903624   -0.0068394726
+     12  H        -3.4796576475   -1.9862007542   -0.0049873196
+     13  H         4.1632409173   -0.5484536396   -0.0012924125
+     14  H         3.4796576475    1.9862007542   -0.0049873196
+     15  H        -4.1632409173    0.5484536396   -0.0012924125
+     16  H        -0.8812862136   -2.2694152556   -0.0127574177
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1103.413967625
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9     -180.000      180.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.016053    0.045000    0.045002    0.045044    0.046133    0.052103
+     0.160007    0.160098    0.160438    0.222036    0.250132    0.253528
+     0.327135    0.339981    0.365823    0.366951    0.370209    0.404405
+     0.442494    0.466860    0.497345
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =   0.00000000
+ Step Taken.  Stepsize is  0.005605
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000110      0.000300     YES
+         Displacement       0.003284      0.001200      NO
+         Energy change     -0.000003      0.000001      NO
+
+
+ New Cartesian Coordinates Obtained by Inverse Iteration
+
+ Displacement from previous Coordinates is:  0.010454
+ ----------------------------------------------------------------
+             Standard Nuclear Orientation (Angstroms)
+    I     Atom           X                Y                Z
+ ----------------------------------------------------------------
+    1      S       1.8212683763    -1.1946448139    -0.0057842415
+    2      C       3.1694146211    -0.1469881969    -0.0052469469
+    3      C       2.7820097113     1.1691921303    -0.0068900281
+    4      C       1.3865237248     1.3198979900    -0.0087144408
+    5      C       0.7082541376     0.1185151859    -0.0087144408
+    6      H       0.8810347516     2.2693967861    -0.0100942069
+    7      C      -0.7082541376    -0.1185151859    -0.0087144408
+    8      S      -1.8212683763     1.1946448139    -0.0057842415
+    9      C      -1.3865237248    -1.3198979900    -0.0087144408
+   10      C      -3.1694146211     0.1469881969    -0.0052469469
+   11      C      -2.7820097113    -1.1691921303    -0.0068900281
+   12      H      -3.4795724344    -1.9861897062    -0.0058179128
+   13      H       4.1630192759    -0.5485504847    -0.0034478337
+   14      H       3.4795724344     1.9861897062    -0.0058179128
+   15      H      -4.1630192759     0.5485504847    -0.0034478337
+   16      H      -0.8810347516    -2.2693967861    -0.0100942069
+ ----------------------------------------------------------------
+ Molecular Point Group                 C2    NOp =  2
+ Largest Abelian Subgroup              C2    NOp =  2
+ Nuclear Repulsion Energy =   636.6715016442 hartrees
+ There are       43 alpha and       43 beta electrons
+ Applying Cartesian multipole field
+    Component          Value
+    ---------          -----
+     (2,0,0)        1.00000E-11
+     (0,2,0)        2.00000E-11
+     (0,0,2)       -3.00000E-10
+ Nucleus-field energy     =     0.0000000219 hartrees
+ Requested basis set is cc-pVTZ
+ There are 140 shells and 392 basis functions
+ A cutoff of  1.0D-11 yielded   8027 shell pairs
+ There are     62411 function pairs (     81379 Cartesian)
+ Smallest overlap matrix eigenvalue = 6.21E-05
+ Guess MOs from SCF MO coefficient file
+ Reading MOs from coefficient file
+ Reading MOs from coefficient file
+ A restricted Hartree-Fock SCF calculation will be
+ performed using Pulay DIIS extrapolation
+ SCF converges when DIIS error is below 1.0E-08
+ Geometry optimization detected.  Setting ReadMinima to 0
+ Setting SaveMinima to 0
+ using 16 threads for integral computing 
+ ---------------------------------------
+  Cycle       Energy         DIIS Error
+ ---------------------------------------
+    1   -1101.5988745143      1.77E-05
+    2   -1101.5988683889      2.24E-06
+    3   -1101.5988686344      8.48E-07
+    4   -1101.5988686793      3.34E-07
+    5   -1101.5988686833      1.24E-07
+    6   -1101.5988686835      4.76E-08
+    7   -1101.5988686844      1.88E-08
+    8   -1101.5988686839      5.17E-09 Convergence criterion met
+ ---------------------------------------
+ SCF time:  CPU 512.61 s  wall 32.07 s
+ SCF   energy in the final basis set = -1101.5988686839
+ Total energy in the final basis set = -1101.5988686839
+ 
+ Components of the MP2 correlation energy:
+        aaaa  correlation energy =        -0.2323039591 au
+        abab  correlation energy =        -1.3504915052 au
+        bbbb  correlation energy =        -0.2323039591 au
+        non-Brillouin singles    =        -0.0000000000 au
+
+ Total  MP2   correlation energy =        -1.8150994234 au
+        MP2         total energy =     -1103.4139681073 au
+
+  Entering Z-vector solver.
+   1         0           1      0.000264    0.000264
+   2         0           1      0.000116    0.000116
+   3         0           1      0.000049    0.000049
+   4         0           1      0.000024    0.000024
+   5         0           1      0.000006    0.000006
+   6         0           1      0.000002    0.000002
+   7         1           0      0.000000    0.000000    Roots Converged
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.666  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.644   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.629   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.302   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.949   2.962   2.987   3.010   3.010   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.073   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.315   3.317   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.606   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.074   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.239   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.469   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.569   4.601   4.622   4.634   4.648   4.682   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.781   4.784   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.958   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.649  13.814  14.635  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.666  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.644   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.629   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.302   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.949   2.962   2.987   3.010   3.010   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.073   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.315   3.317   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.606   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.074   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.239   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.469   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.569   4.601   4.622   4.634   4.648   4.682   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.781   4.784   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.958   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.649  13.814  14.635  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                     0.100613
+      2 C                    -0.237790
+      3 C                    -0.198913
+      4 C                    -0.212796
+      5 C                     0.027813
+      6 H                     0.159784
+      7 C                     0.027813
+      8 S                     0.100613
+      9 C                    -0.212796
+     10 C                    -0.237790
+     11 C                    -0.198913
+     12 H                     0.175222
+     13 H                     0.186067
+     14 H                     0.175222
+     15 H                     0.186067
+     16 H                     0.159784
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z       0.0041
+       Tot       0.0041
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1435     XY       1.0156     YY     -67.7734
+        XZ      -0.0000     YZ      -0.0000     ZZ     -78.1424
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY      -0.0000    XYY       0.0000
+       YYY       0.0000    XXZ       0.5288    XYZ      -0.0187
+       YYZ       0.4559    XZZ      -0.0000    YZZ      -0.0000
+       ZZZ       1.5928
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1835.0953   XXXY     -21.7763   XXYY    -410.0016
+      XYYY      15.4311   YYYY    -552.2477   XXXZ      -0.0000
+      XXYZ      -0.0000   XYYZ      -0.0000   YYYZ      -0.0000
+      XXZZ    -408.1627   XYZZ      -8.2590   YYZZ    -121.2097
+      XZZZ      -0.0000   YZZZ      -0.0000   ZZZZ     -95.3043
+ -----------------------------------------------------------------
+ DrvMan is completing analytic gradient of the MP2 energy
+ MP2 relaxed dipole moment
+            1
+    1   0.0000000
+    2  -0.0000000
+    3   0.0016078
+	Magnitude:	 0.002 au	 0.004 Debye
+ MP2 energy read as -1103.413968
+ Full Analytical Gradient of MP2 Energy (in au.)
+             1             2             3             4             5
+    1    0.00001580   -0.00000126   -0.00000715   -0.00000983   -0.00003620
+    2   -0.00003179    0.00002343    0.00000870   -0.00001784    0.00000913
+    3    0.00003877   -0.00001038   -0.00005504    0.00004607   -0.00006648
+             6             7             8             9            10
+    1    0.00001403    0.00003620   -0.00001580    0.00000983    0.00000126
+    2    0.00000983   -0.00000913    0.00003179    0.00001784   -0.00002343
+    3   -0.00000202   -0.00006648    0.00003877    0.00004607   -0.00001038
+            11            12            13            14            15
+    1    0.00000715    0.00000499   -0.00000686   -0.00000499    0.00000686
+    2   -0.00000870   -0.00000549   -0.00001370    0.00000549    0.00001370
+    3   -0.00005504    0.00004193    0.00000716    0.00004193    0.00000716
+            16
+    1   -0.00001403
+    2   -0.00000983
+    3   -0.00000202
+ Gradient time:  CPU 1.56 s  wall 0.10 s
+ Geometry Optimization Parameters
+   NAtoms,    NIC,     NZ,  NCons,   NDum,   NFix, NCnnct, MaxDiis
+       16     111       0       1       0       0       0       0
+
+ Cartesian Hessian Update
+ Hessian Updated using BFGS Update
+
+
+** CONSTRAINED OPTIMIZATION IN DELOCALIZED INTERNAL COORDINATES **
+   Searching for a Minimum
+
+   Optimization Cycle:   5
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8212683763   -1.1946448139   -0.0057842415
+      2  C         3.1694146211   -0.1469881969   -0.0052469469
+      3  C         2.7820097113    1.1691921303   -0.0068900281
+      4  C         1.3865237248    1.3198979900   -0.0087144408
+      5  C         0.7082541376    0.1185151859   -0.0087144408
+      6  H         0.8810347516    2.2693967861   -0.0100942069
+      7  C        -0.7082541376   -0.1185151859   -0.0087144408
+      8  S        -1.8212683763    1.1946448139   -0.0057842415
+      9  C        -1.3865237248   -1.3198979900   -0.0087144408
+     10  C        -3.1694146211    0.1469881969   -0.0052469469
+     11  C        -2.7820097113   -1.1691921303   -0.0068900281
+     12  H        -3.4795724344   -1.9861897062   -0.0058179128
+     13  H         4.1630192759   -0.5485504847   -0.0034478337
+     14  H         3.4795724344    1.9861897062   -0.0058179128
+     15  H        -4.1630192759    0.5485504847   -0.0034478337
+     16  H        -0.8810347516   -2.2693967861   -0.0100942069
+   Point Group: c2    Number of degrees of freedom:    22
+
+
+   Energy is  -1103.413968107
+
+              Constraints and their Current Values
+                                        Value     Constraint
+   Dihedral:        4   5   7   9     -180.000      180.000
+ Hessian Updated using BFGS Update
+
+ 21 Hessian modes will be used to form the next step
+  Hessian Eigenvalues:
+     0.012989    0.033651    0.045000    0.045009    0.045467    0.055091
+     0.155272    0.160099    0.161154    0.222064    0.250208    0.268943
+     0.324084    0.340133    0.365816    0.366966    0.370263    0.403137
+     0.445443    0.470904    0.499042
+
+ Minimum Search - Taking Simple RFO Step
+ Searching for Lamda that Minimizes Along All modes
+ Value Taken    Lamda =   0.00000000
+ Step Taken.  Stepsize is  0.004272
+
+                             Maximum     Tolerance    Cnvgd?
+         Gradient           0.000057      0.000300     YES
+         Displacement       0.002954      0.001200      NO
+         Energy change     -0.000000      0.000001     YES
+
+ Final energy is   -1103.41396810730     
+
+
+ ******************************
+ **  OPTIMIZATION CONVERGED  **
+ ******************************
+
+                       Coordinates (Angstroms)
+     ATOM                X               Y               Z
+      1  S         1.8212683763   -1.1946448139   -0.0057842415
+      2  C         3.1694146211   -0.1469881969   -0.0052469469
+      3  C         2.7820097113    1.1691921303   -0.0068900281
+      4  C         1.3865237248    1.3198979900   -0.0087144408
+      5  C         0.7082541376    0.1185151859   -0.0087144408
+      6  H         0.8810347516    2.2693967861   -0.0100942069
+      7  C        -0.7082541376   -0.1185151859   -0.0087144408
+      8  S        -1.8212683763    1.1946448139   -0.0057842415
+      9  C        -1.3865237248   -1.3198979900   -0.0087144408
+     10  C        -3.1694146211    0.1469881969   -0.0052469469
+     11  C        -2.7820097113   -1.1691921303   -0.0068900281
+     12  H        -3.4795724344   -1.9861897062   -0.0058179128
+     13  H         4.1630192759   -0.5485504847   -0.0034478337
+     14  H         3.4795724344    1.9861897062   -0.0058179128
+     15  H        -4.1630192759    0.5485504847   -0.0034478337
+     16  H        -0.8810347516   -2.2693967861   -0.0100942069
+
+Z-matrix Print:
+$molecule
+0 1
+S 
+C  1 1.707361
+H  2 1.071684 1 120.142939
+C  2 1.372012 1 111.449780 3 179.980049 0
+H  4 1.074281 2 123.107479 1 -179.933325 0
+C  4 1.403601 2 112.565124 1 0.005803 0
+H  6 1.075671 4 124.193534 2 -179.994895 0
+C  6 1.379627 4 113.284142 2 0.011308 0
+C  8 1.436203 6 128.947481 4 -179.918923 0
+C  9 1.379627 8 128.947481 6 -180.000000 0
+H  10 1.075671 9 122.522323 8 0.087162 0
+C  10 1.403601 9 113.284142 8 -179.918923 0
+H  12 1.074281 10 124.327367 9 179.949566 0
+C  12 1.372012 10 112.565124 9 0.011308 0
+H  14 1.071684 12 128.407277 10 179.983786 0
+S  14 1.707361 12 111.449780 10 0.005803 0
+$end
+
+ 
+ --------------------------------------------------------------
+             Orbital Energies (a.u.) and Symmetries
+ --------------------------------------------------------------
+ 
+ Alpha MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.666  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.644   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.629   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.302   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.949   2.962   2.987   3.010   3.010   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.073   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.315   3.317   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.606   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.074   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.239   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.469   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.569   4.601   4.622   4.634   4.648   4.682   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.781   4.784   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.958   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.649  13.814  14.635  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ 
+ Beta MOs, Restricted
+ -- Occupied --                  
+-91.984 -91.984 -11.276 -11.275 -11.262 -11.262 -11.239 -11.239
+  1 A     1 B     2 A     2 B     3 B     3 A     4 B     4 A                  
+-11.237 -11.237  -8.986  -8.986  -6.667  -6.667  -6.666  -6.666
+  5 A     5 B     6 A     6 B     7 B     7 A     8 A     8 B                  
+ -6.666  -6.666  -1.197  -1.167  -1.037  -1.001  -0.984  -0.949
+  9 B     9 A    10 A    10 B    11 A    11 B    12 A    12 B                  
+ -0.811  -0.782  -0.743  -0.718  -0.709  -0.646  -0.573  -0.572
+ 13 A    13 B    14 A    14 B    15 A    15 B    16 A    16 B                  
+ -0.556  -0.555  -0.552  -0.513  -0.513  -0.484  -0.464  -0.379
+ 17 A    17 B    18 A    19 A    18 B    19 B    20 A    21 A                  
+ -0.356  -0.347  -0.277
+ 20 B    22 A    21 B                                                          
+ -- Virtual --                   
+  0.070   0.147   0.148   0.152   0.163   0.172   0.183   0.191
+ 23 A    22 B    23 B    24 A    25 A    24 B    25 B    26 A                  
+  0.203   0.206   0.208   0.228   0.264   0.276   0.319   0.345
+ 27 A    28 A    26 B    27 B    28 B    29 A    29 B    30 A                  
+  0.358   0.365   0.376   0.379   0.388   0.405   0.419   0.442
+ 31 A    30 B    31 B    32 A    33 A    32 B    33 B    34 B                  
+  0.449   0.456   0.467   0.473   0.474   0.474   0.510   0.520
+ 34 A    35 B    35 A    36 A    37 A    36 B    38 A    37 B                  
+  0.533   0.535   0.539   0.547   0.559   0.562   0.575   0.578
+ 39 A    38 B    39 B    40 A    41 A    40 B    41 B    42 A                  
+  0.584   0.590   0.598   0.605   0.605   0.620   0.622   0.627
+ 43 A    42 B    43 B    44 B    45 B    44 A    45 A    46 B                  
+  0.634   0.644   0.645   0.652   0.659   0.676   0.710   0.717
+ 46 A    47 B    47 A    48 A    49 A    48 B    50 A    49 B                  
+  0.770   0.777   0.795   0.803   0.818   0.837   0.855   0.860
+ 51 A    50 B    51 B    52 A    52 B    53 B    54 B    53 A                  
+  0.868   0.876   0.888   0.894   0.908   0.933   0.952   0.956
+ 55 B    56 B    54 A    55 A    56 A    57 B    57 A    58 A                  
+  0.987   0.995   1.008   1.021   1.023   1.041   1.073   1.089
+ 58 B    59 A    60 A    59 B    60 B    61 A    62 A    61 B                  
+  1.096   1.105   1.110   1.113   1.143   1.155   1.167   1.171
+ 63 A    62 B    64 A    63 B    64 B    65 B    65 A    66 B                  
+  1.176   1.178   1.185   1.231   1.241   1.253   1.274   1.284
+ 67 B    66 A    67 A    68 A    69 A    68 B    69 B    70 B                  
+  1.292   1.301   1.323   1.348   1.373   1.398   1.415   1.441
+ 70 A    71 A    71 B    72 A    73 A    72 B    74 A    73 B                  
+  1.443   1.449   1.477   1.478   1.501   1.520   1.535   1.542
+ 74 B    75 A    76 A    75 B    76 B    77 A    77 B    78 A                  
+  1.543   1.560   1.566   1.573   1.594   1.615   1.629   1.665
+ 78 B    79 B    79 A    80 B    80 A    81 A    81 B    82 B                  
+  1.665   1.686   1.696   1.735   1.761   1.788   1.819   1.857
+ 82 A    83 B    83 A    84 B    84 A    85 A    85 B    86 A                  
+  1.867   1.869   1.876   1.882   1.884   1.892   1.932   1.940
+ 86 B    87 A    88 A    87 B    88 B    89 A    89 B    90 A                  
+  1.953   1.969   2.036   2.073   2.084   2.090   2.110   2.179
+ 90 B    91 B    91 A    92 A    93 A    92 B    93 B    94 A                  
+  2.180   2.190   2.196   2.206   2.258   2.266   2.268   2.293
+ 94 B    95 B    96 B    95 A    97 B    96 A    97 A    98 B                  
+  2.302   2.308   2.327   2.359   2.407   2.422   2.436   2.457
+ 99 B    98 A    99 A   100 B   100 A   101 B   101 A   102 B                  
+  2.468   2.510   2.528   2.538   2.547   2.564   2.590   2.598
+102 A   103 A   104 A   103 B   104 B   105 B   105 A   106 A                  
+  2.637   2.640   2.692   2.692   2.738   2.739   2.744   2.759
+106 B   107 B   107 A   108 B   109 B   110 B   108 A   109 A                  
+  2.762   2.769   2.808   2.810   2.825   2.834   2.876   2.902
+111 B   110 A   112 B   111 A   112 A   113 A   113 B   114 A                  
+  2.920   2.931   2.949   2.962   2.987   3.010   3.010   3.013
+114 B   115 B   115 A   116 B   116 A   117 B   118 B   117 A                  
+  3.025   3.059   3.073   3.120   3.144   3.157   3.166   3.201
+118 A   119 B   119 A   120 A   121 A   120 B   122 A   121 B                  
+  3.202   3.217   3.234   3.247   3.258   3.272   3.277   3.285
+123 A   122 B   123 B   124 B   124 A   125 A   126 A   125 B                  
+  3.303   3.307   3.315   3.317   3.339   3.339   3.358   3.389
+126 B   127 A   127 B   128 B   128 A   129 A   130 A   129 B                  
+  3.393   3.423   3.431   3.438   3.449   3.475   3.476   3.476
+131 A   130 B   131 B   132 A   133 A   132 B   134 A   135 A                  
+  3.490   3.495   3.505   3.511   3.525   3.527   3.528   3.538
+136 A   133 B   134 B   135 B   137 A   136 B   138 A   137 B                  
+  3.546   3.553   3.561   3.574   3.606   3.622   3.629   3.665
+139 A   140 A   138 B   141 A   139 B   142 A   140 B   141 B                  
+  3.694   3.696   3.729   3.733   3.737   3.768   3.771   3.784
+143 A   142 B   143 B   144 A   144 B   145 A   145 B   146 A                  
+  3.829   3.842   3.866   3.876   3.900   3.908   3.929   3.936
+146 B   147 A   147 B   148 A   148 B   149 A   150 A   149 B                  
+  3.954   3.986   4.001   4.006   4.030   4.030   4.043   4.058
+151 A   150 B   152 A   151 B   153 A   152 B   153 B   154 A                  
+  4.074   4.102   4.113   4.123   4.158   4.177   4.177   4.194
+155 A   154 B   155 B   156 B   156 A   157 A   157 B   158 A                  
+  4.198   4.209   4.239   4.245   4.278   4.282   4.311   4.324
+159 A   158 B   160 A   161 A   159 B   160 B   162 A   163 A                  
+  4.329   4.363   4.383   4.412   4.421   4.469   4.511   4.528
+161 B   162 B   164 A   163 B   164 B   165 A   166 A   165 B                  
+  4.569   4.601   4.622   4.634   4.648   4.682   4.689   4.695
+166 B   167 A   168 A   167 B   168 B   169 A   170 A   169 B                  
+  4.728   4.731   4.737   4.781   4.784   4.801   4.836   4.871
+171 A   172 A   170 B   171 B   172 B   173 B   173 A   174 B                  
+  4.892   4.958   5.012   5.044   5.057   5.077   5.078   5.092
+174 A   175 B   176 B   175 A   176 A   177 B   177 A   178 A                  
+  5.120   5.163   5.178   5.250   5.267   5.291   5.323   5.399
+178 B   179 A   179 B   180 A   180 B   181 B   181 A   182 A                  
+  5.407   5.418   5.421   5.510   5.552   5.624   5.627   5.675
+182 B   183 A   183 B   184 A   184 B   185 A   186 A   185 B                  
+  5.763   5.938   5.938   6.088   6.103   6.160   6.174   6.291
+186 B   187 B   187 A   188 A   188 B   189 B   189 A   190 B                  
+  6.327   6.563   6.564   6.742   6.769   9.500  10.853  11.808
+190 A   191 B   191 A   192 B   192 A   193 A   193 B   194 A                  
+ 12.428  13.649  13.814  14.635  14.790
+194 B   195 B   195 A   196 B   196 A                                          
+ --------------------------------------------------------------
+ 
+          Ground-State Mulliken Net Atomic Charges
+
+     Atom                 Charge (a.u.)
+  ----------------------------------------
+      1 S                     0.100613
+      2 C                    -0.237790
+      3 C                    -0.198913
+      4 C                    -0.212796
+      5 C                     0.027813
+      6 H                     0.159784
+      7 C                     0.027813
+      8 S                     0.100613
+      9 C                    -0.212796
+     10 C                    -0.237790
+     11 C                    -0.198913
+     12 H                     0.175222
+     13 H                     0.186067
+     14 H                     0.175222
+     15 H                     0.186067
+     16 H                     0.159784
+  ----------------------------------------
+  Sum of atomic charges =     0.000000
+
+ -----------------------------------------------------------------
+                    Cartesian Multipole Moments
+ -----------------------------------------------------------------
+    Charge (ESU x 10^10)
+                 0.0000
+    Dipole Moment (Debye)
+         X       0.0000      Y      -0.0000      Z       0.0041
+       Tot       0.0041
+    Quadrupole Moments (Debye-Ang)
+        XX     -61.1435     XY       1.0156     YY     -67.7734
+        XZ      -0.0000     YZ      -0.0000     ZZ     -78.1424
+    Octopole Moments (Debye-Ang^2)
+       XXX      -0.0000    XXY      -0.0000    XYY       0.0000
+       YYY       0.0000    XXZ       0.5288    XYZ      -0.0187
+       YYZ       0.4559    XZZ      -0.0000    YZZ      -0.0000
+       ZZZ       1.5928
+    Hexadecapole Moments (Debye-Ang^3)
+      XXXX   -1835.0953   XXXY     -21.7763   XXYY    -410.0016
+      XYYY      15.4311   YYYY    -552.2477   XXXZ      -0.0000
+      XXYZ      -0.0000   XYYZ      -0.0000   YYYZ      -0.0000
+      XXZZ    -408.1627   XYZZ      -8.2590   YYZZ    -121.2097
+      XZZZ      -0.0000   YZZZ      -0.0000   ZZZZ     -95.3043
+ -----------------------------------------------------------------
+Archival summary:
+1\1\nid01249\OPT\MP2\BasisUnspecified\286\MonMar616:04:362017MonMar616:04:362017\0\\#,OPT,MP2,BasisUnspecified,\\0,1\S\C,1,1.70736\H,2,1.07168,1,120.143\C,2,1.37201,1,111.45,3,179.98,0\H,4,1.07428,2,123.107,1,-179.933,0\C,4,1.4036,2,112.565,1,0.00580325,0\H,6,1.07567,4,124.194,2,-179.995,0\C,6,1.37963,4,113.284,2,0.0113081,0\C,8,1.4362,6,128.947,4,-179.919,0\C,9,1.37963,8,128.947,6,-180,0\H,10,1.07567,9,122.522,8,0.087162,0\C,10,1.4036,9,113.284,8,-179.919,0\H,12,1.07428,10,124.327,9,179.95,0\C,12,1.37201,10,112.565,9,0.0113081,0\H,14,1.07168,12,128.407,10,179.984,0\S,14,1.70736,12,111.45,10,0.00580325,0\\HF=-1101.59887\MP2=-1103.41397\\@
+
+ Total job time:  7455.25s(wall), 38128.49s(cpu) 
+ Mon Mar  6 16:04:36 2017
+
+        *************************************************************
+        *                                                           *
+        *  Thank you very much for using Q-Chem.  Have a nice day.  *
+        *                                                           *
+        *************************************************************
+
+
+0 sent ACK to 0 
+now end server 0 ... 
