@@ -43,10 +43,10 @@ def run_order_param():
 
     # write files
     for attr, value in poly.__dict__.iteritems():
-        if attr.endswith('_stats'):
+        if attr.startswith('ete_stats'):
             utils.write_json(value.mean.tolist(), "{dir}/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
                 dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
-            utils.write_json(value.stdev.tolist(), "{dir}/{name}_m{m}_t{t}_{s}_{d}_std.json".format(
+            utils.write_json(value.variance.tolist(), "{dir}/{name}_m{m}_t{t}_{s}_{d}_var.json".format(
                 dir=args.od, name=args.o, m=args.mn, t=args.t, s=args.sn, d=attr))
         if attr.startswith('s_order_param'):
             utils.write_json(value.mean, "{dir}/{name}_m{m}_t{t}_{s}_{d}_mean.json".format(
