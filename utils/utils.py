@@ -159,15 +159,15 @@ def exp_decay(x, a):
     return np.exp(-x / a)
 
 
-def pt_persist_len_expfit(x_vals, corr, std_error):
+def pt_persist_len_expfit(x_vals, corr, error):
     popt, pcov = curve_fit(exp_decay, x_vals, corr,
-                           sigma=std_error, absolute_sigma=True)
+                           sigma=error, absolute_sigma=True)
     pt_np = popt[0]
     h = np.sqrt(2.548 ** 2 + 1.480 ** 2 - (2 * 2.548 * 1.480 * np.cos(165.0 * np.pi / 180.0))) / 10.0
     lp = pt_np * h
     # error
-    new_std_error = np.sqrt(np.diag(pcov[0])).flatten() * h
-    return lp, new_std_error
+    new_error = np.sqrt(np.diag(pcov[0])).flatten() * h
+    return lp, new_error
 
 
 def write_json(write_list, filename):
