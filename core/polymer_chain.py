@@ -37,7 +37,7 @@ class Polymer(object):
         self.s_x_corr = [Stats() for i in range(self.monomer_num)]
         self.ete_stats = ArrayStats(self.monomer_num + 1)
         self.tangent_corr = [Stats() for i in range(self.monomer_num)]
-        self.dihedral_hist = Histogram(-179.9, 180.0, 360)
+        self.dihedral_hist = Histogram(-180.0, 180.0, 361)
         self.ete_hist = []
         # position monomer tangent and links
         self.m = [self.monomer_len, 0, 0]
@@ -51,7 +51,7 @@ class Polymer(object):
         self.dihedral_set = []
 
     def _build_chain(self):
-        link_iter = 'l1'
+        link_iter = 'l2'
         for pos in range(1, (2 * self.monomer_num), 1):
             if pos % 2 != 0:
                 self.chain[pos] = self.chain[pos - 1] + self.m

@@ -12,29 +12,38 @@ class TestPolymer(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         # setup for polymer class
-        cls.monomer_num = 4
+        cls.monomer_num = 25
         cls.monomer_len = 1.5
         cls.link_len = 0.5
         cls.link_angle = 15.0
-        cls.sample_num = 5000
+        cls.sample_num = 1000
         cls.prob_angle = np.array([[0.0, -180.0], [0.2, -90.0], [0.3, -45.0], [0.4, 0.0],
                                    [0.5, 45.0], [0.6, 90.0], [0.8, 180.0]])
         # create polymer
-        cls.polymer = Polymer(cls.monomer_num, cls.monomer_len, cls.link_len, cls.link_angle, cls.prob_angle, cls.sample_num)
+        cls.polymer = Polymer(cls.monomer_num, cls.monomer_len, cls.link_len, cls.link_angle,
+                              cls.prob_angle, cls.sample_num)
         # manually calculated bead or atom positions
-        cls.linear_pos_values = np.array([[0.0, 0.0, 0.0], [1.5, 0.0, 0.0],
+        # the first commented out positions are for when l1 is first instead of l2
+        """cls.linear_pos_values = np.array([[0.0, 0.0, 0.0], [1.5, 0.0, 0.0],
                                          [1.9829629131445341, -0.12940952255126037, 0.0],
                                          [3.4829629131445339, -0.12940952255126037, 0.0],
                                          [3.9659258262890682, 0.0, 0.0],
                                          [5.4659258262890678, 0.0, 0.0],
                                          [5.9488887394336016, -0.12940952255126037, 0.0],
-                                         [7.4488887394336016, -0.12940952255126037, 0.0]])
+                                         [7.4488887394336016, -0.12940952255126037, 0.0]])"""
+        cls.linear_chain_actual = np.array([[0.0, 0.0, 0.0], [1.5, 0.0, 0.0],
+                                            [1.9829629131445341, 0.12940952255126037, 0.0],
+                                            [3.4829629131445339, 0.12940952255126037, 0.0],
+                                            [3.9659258262890682, 0.0, 0.0],
+                                            [5.4659258262890678, 0.0, 0.0],
+                                            [5.9488887394336016, 0.12940952255126037, 0.0],
+                                            [7.4488887394336016, 0.12940952255126037, 0.0]])
 
     def test_build_chain(self):
-        np.testing.assert_almost_equal(self.linear_pos_values, self.polymer.chain)
+        np.testing.assert_almost_equal(self.linear_chain_actual, self.polymer.chain[:8])
 
     def test_random_angle(self):
-        angle_num = 3
+        angle_num = self.monomer_num - 1
         self.polymer.rotate_chain()
         np.testing.assert_equal(angle_num, len(self.polymer.dihedral_set))
         for angle in self.polymer.dihedral_set:
@@ -42,23 +51,31 @@ class TestPolymer(unittest.TestCase):
 
     def test_rotate_chain(self):
         self.polymer.rotate_chain()
-        # make a fake pymatgen molecule allowing the use of dihedral tools
-        fake_atoms = ["C", "C", "C", "C", "C", "C", "C", "C"]
-        fake_molecule = Molecule(fake_atoms, self.polymer.relax_chain)
-        # check rotated dihedrals
-        # angles of 180 and -180 are the same
-        circular_vals = [-180.0, 180.0]
-        dh_1 = dihedral_tools.get_dihedral(fake_molecule, [1, 2, 3, 4])
-        dh_2 = dihedral_tools.get_dihedral(fake_molecule, [3, 4, 5, 6])
-        dh_3 = dihedral_tools.get_dihedral(fake_molecule, [5, 6, 7, 8])
-        dhs = [dh_1, dh_2, dh_3]
-        # run multiple trials to get a mix of random dihedral angles
-        for multiple_trials in range(10):
-            for i, dh in enumerate(dhs):
-                if self.polymer.dihedral_set[i] in circular_vals:
-                    self.assertIn(round(dh), circular_vals)
-                else:
-                    np.testing.assert_almost_equal(self.polymer.dihedral_set[i], dh)
+        # this makes a fake molecule and checks all the dihedral angles
+        fake_atoms = []
+        fake_atom_coords = []
+        for coord in self.polymer.relax_chain:
+            fake_atoms.append('C')
+            fake_atom_coords.append(coord)
+        fake_mol = Molecule(species=fake_atoms, coords=fake_atom_coords)
+        # find all the dihedral angles
+        dihedral_list_actual = []
+        for site, val in enumerate(fake_mol, 1):
+            if site <= len(fake_mol) - 3 and site % 2 != 0:
+                da = round(dihedral_tools.get_dihedral(fake_mol, [site, site + 1, site + 2, site + 3]))
+                # this if statement ensures 180 == -180 and 0 == -0
+                if da == -180.0 or da == -0.0:
+                    da = abs(da)
+                dihedral_list_actual.append(da)
+        self.assertEqual(len(dihedral_list_actual), len(self.polymer.dihedral_set))
+        rotate_chain_dihedral_set = []
+        # again this loop ensures 180 == -180 and 0 == -0
+        for angle in self.polymer.dihedral_set:
+            if angle == -180.0 or angle == -0.0:
+                rotate_chain_dihedral_set.append(abs(angle))
+            else:
+                rotate_chain_dihedral_set.append(angle)
+        np.testing.assert_almost_equal(dihedral_list_actual, rotate_chain_dihedral_set)
 
     def test_tangent_auto_corr(self):
         # check case where all tangent vectors are aligned
@@ -121,46 +138,58 @@ class TestPolymer(unittest.TestCase):
         np.testing.assert_almost_equal(self.polymer.s_order_param.mean, 0.0, decimal=1)
 
     def test_p2_auto_corr(self):
-        self.polymer.p2_auto_corr(self.polymer.chain)
+        samples = 200
+        p2_polymer = Polymer(self.monomer_num, self.monomer_len, self.link_len, self.link_angle, self.prob_angle)
+        p2_polymer.p2_auto_corr(p2_polymer.chain)
         # check correlation is 1 when all aligned
-        for stat in self.polymer.s_x_corr:
-            np.testing.assert_allclose(stat.mean, 1.0)
-        # check the correlation
-        self.polymer.rotate_chain()
-        self.polymer._unit_normal_vectors(self.polymer.relax_chain)
-        # since s_x_corr is updated each time p2_auto_corr is called
-        # s_x_corr has one entry of 1s from all aligned case
-        test_vals = np.zeros((5, 10))
-        for i in range(10):
-            test_vals[0][i] = 1.
-        for loop in range(1, 5, 1):
-            self.polymer.rotate_chain()
-            self.polymer._unit_normal_vectors(self.polymer.relax_chain)
-            self.polymer.p2_auto_corr(self.polymer.relax_chain)
-            count = 0
-            for i in range(len(self.polymer.unit_normal)):
-                for j in range(i, len(self.polymer.unit_normal), 1):
-                    test_vals[loop][count] = ((3./2.) * (np.dot(self.polymer.unit_normal[j],
-                                                                self.polymer.unit_normal[j - i]) ** 2)) - (1./2.)
-                    count += 1
-        test_mean = np.array([np.mean(test_vals[:, [0, 1, 2, 3]]), np.mean(test_vals[:, [4, 5, 6]]),
-                              np.mean(test_vals[:, [7, 8]]), np.mean(test_vals[:, 9])])
+        for stat in p2_polymer.s_x_corr:
+            np.testing.assert_allclose(1.0, stat.mean)
+        # check the correlation over a bunch of samples
+        pair_interacts = int((self.monomer_num * (self.monomer_num + 1)) / 2)
+        # adds 1 to all lists for case where everything is aligned
+        ensemble_list = [[1.0] for i in range(self.monomer_num)]
+        # loops of the number of samples
+        for sample in range(1, samples):
+            p2_polymer.rotate_chain()
+            p2_polymer.p2_auto_corr(p2_polymer.relax_chain)
+            polymer_list = []
+            for i in range(self.monomer_num):
+                pair_list = []
+                for j in range(i, self.monomer_num, 1):
+                    pair_list.append(((3. / 2.) * (np.dot(p2_polymer.unit_normal[i],
+                                                          p2_polymer.unit_normal[j]) ** 2)) - (1. / 2.))
+                polymer_list.append(pair_list)
+            for l in polymer_list:
+                for i, val in enumerate(l):
+                    ensemble_list[i].append(val)
+        actual_means = [np.mean(i) for i in ensemble_list]
 
-        for i, stat in enumerate(self.polymer.s_x_corr):
-            np.testing.assert_allclose(stat.mean, test_mean[i])
+        # check the right number of pair interactions were sampled
+        # checks all the self interactions
+        np.testing.assert_equal(int((samples * self.monomer_num)), int(p2_polymer.s_x_corr[0].k))
+        # checks the longest interaction only 1 per polymer chain sample
+        np.testing.assert_equal(int(samples), int(p2_polymer.s_x_corr[-1].k))
+        for i, stat in enumerate(p2_polymer.s_x_corr):
+            # print(actual_means[i], stat.mean)
+            np.testing.assert_allclose(actual_means[i], stat.mean, atol=0.01, rtol=0.0)
 
     def test_sample_chain(self):
         # sample by looping over rotate_chains
+        # start a new chain
+        sample_polymer = Polymer(self.monomer_num, self.monomer_len, self.link_len, self.link_angle,
+                                 self.prob_angle, sample_num=self.sample_num)
         end_to_end = []
         for i in range(self.sample_num):
-            self.polymer.rotate_chain()
-            end_to_end.append(self.polymer.end_to_end[self.monomer_num])
+            sample_polymer.rotate_chain()
+            end_to_end.append(sample_polymer.end_to_end[-1])
         mean_ete = np.mean(end_to_end)
         std_ete = np.std(end_to_end)
         # sample using polymer class
-        self.polymer.sample_chains()
-        np.testing.assert_almost_equal(self.polymer.ete_stats.mean[self.monomer_num], mean_ete, decimal=1)
-        np.testing.assert_almost_equal(self.polymer.ete_stats.stdev[self.monomer_num], std_ete, decimal=1)
+        sample_polymer.sample_chains()
+        # print(mean_ete, sample_polymer.ete_stats.mean[-1])
+        # print(std_ete, sample_polymer.ete_stats.stdev[-1])
+        np.testing.assert_allclose(mean_ete, sample_polymer.ete_stats.mean[-1], atol=0.5, rtol=0.0)
+        np.testing.assert_allclose(std_ete, sample_polymer.ete_stats.stdev[-1], atol=0.5, rtol=0.0)
 
 
 class TestRandomChargedPolymer(unittest.TestCase):
@@ -173,52 +202,47 @@ class TestRandomChargedPolymer(unittest.TestCase):
         cls.sample_num = 500
         cls.prob_angle = np.array([[0.0, -180.0], [0.2, -90.0], [0.3, -45.0], [0.4, 0.0],
                                    [0.5, 45.0], [0.6, 90.0], [0.8, 180.0]])
-        cls.c_prob_angle = np.array([[0.0, -182.0], [0.5, 2.0]])
+        cls.c_prob_angle = np.array([[0.0, 175.0], [0.5, 5.0]])
         cls.c_polymer = RandomChargePolymer(cls.monomer_num, cls.monomer_len, cls.link_len, cls.link_angle,
-                              cls.prob_angle, cls.c_prob_angle, cls.sample_num)
+                                            cls.prob_angle, cls.c_prob_angle, cls.sample_num)
 
     def test_c_random_angle(self):
-        self.c_polymer.rotate_charged_chain(20, 5)
+        self.c_polymer.shuffle_charged_chain(10)
         c_angle_num = 10
         self.assertEqual(c_angle_num, len(self.c_polymer.c_dihedral_set))
-        self.c_polymer._pick_links(2, 5)
-        self.assertEqual(len(self.c_polymer.c_links), len(self.c_polymer.c_dihedral_set))
         for angle in self.c_polymer.c_dihedral_set:
             self.assertIn(angle, self.c_prob_angle[:, 1])
 
-    def test_pick_links(self):
-        # test different number of sites
-        self.c_polymer._pick_links(2, 5)
-        link_num_2 = len(self.c_polymer.c_links)
-        link_num_2_val = 10
-        self.assertEqual(link_num_2_val, link_num_2)
-        self.c_polymer._pick_links(5, 5)
-        link_num_5 = len(self.c_polymer.c_links)
-        link_num_5_val = 25
-        self.assertEqual(link_num_5_val, link_num_5)
-        self.c_polymer._pick_links(9, 5)
-        link_num_9 = len(self.c_polymer.c_links)
-        link_num_9_val = 45
-        self.assertEqual(link_num_9_val, link_num_9)
-        for i in range(100):
-            self.c_polymer._pick_links(9, 5)
-            test = len(np.unique(self.c_polymer.c_links))
-            val = 45
-            self.assertEqual(val, test)
-
-    def test_rotate_charged_chain(self):
-        self.c_polymer.rotate_charged_chain(20, 5)
-        # check percent excited
-        self.assertEqual(20, self.c_polymer.actual_percent_excited)
+    def test_shuffle_charged_chain(self):
+        self.c_polymer.shuffle_charged_chain(10)
         # check position lists are same length
         self.assertEqual(len(self.c_polymer.relax_chain), len(self.c_polymer.charged_chain))
-        diff_pos = []
-        for i in range(len(self.c_polymer.relax_chain)):
-            if any(self.c_polymer.relax_chain[i] != self.c_polymer.charged_chain[i]):
-                diff_pos.append(i)
-        pos_val = sorted(self.c_polymer.c_links)[0]
-        pos_val = (pos_val * 2) + 1
-        self.assertEqual(pos_val, diff_pos[0])
+        # loop through the chain and check dihedral angles
+        fake_atoms = []
+        fake_atom_coords = []
+        for coord in self.c_polymer.charged_chain:
+            fake_atoms.append('C')
+            fake_atom_coords.append(coord)
+        fake_mol = Molecule(species=fake_atoms, coords=fake_atom_coords)
+        # find all the dihedral angles
+        dihedral_list_actual = []
+        for site, val in enumerate(fake_mol, 1):
+            if site <= len(fake_mol) - 3 and site % 2 != 0:
+                da = round(dihedral_tools.get_dihedral(fake_mol, [site, site + 1, site + 2, site + 3]))
+                # this if statement ensures 180 == -180 and 0 == -0
+                if da == -180.0 or da == -0.0:
+                    da = abs(da)
+                dihedral_list_actual.append(da)
+        self.assertEqual(len(dihedral_list_actual), len(self.c_polymer.shuffle_dihedral_set))
+        shuffle_dihedral_set = []
+        # again this loop ensures 180 == -180 and 0 == -0
+        for angle in self.c_polymer.shuffle_dihedral_set:
+            if angle == -180.0 or angle == -0.0:
+                shuffle_dihedral_set.append(abs(angle))
+            else:
+                shuffle_dihedral_set.append(angle)
+        np.testing.assert_almost_equal(dihedral_list_actual, shuffle_dihedral_set)
+
 
 if __name__ == '__main__':
     unittest.main()
