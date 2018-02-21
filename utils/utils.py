@@ -65,7 +65,7 @@ def correlation(pt1, pt2, pt3, pt4):
 
 
 # planarity function based on dot product
-def planarity(pt1, pt2, pt3, pt4, pt5, pt6):
+'''def planarity(pt1, pt2, pt3, pt4, pt5, pt6):
     vec_1 = (pt2 - pt1)
     vec_2 = (pt2 - pt3)
     normal_1 = np.cross(vec_1, vec_2)
@@ -74,7 +74,7 @@ def planarity(pt1, pt2, pt3, pt4, pt5, pt6):
     vec_4 = pt5 - pt6
     normal_2 = np.cross(vec_3, vec_4)
     normal_2 /= np.sqrt(np.dot(normal_2, normal_2))
-    return np.dot(normal_1, normal_2)
+    return np.dot(normal_1, normal_2)'''
 
 
 # p2 order parameter often used in liquid crystals
