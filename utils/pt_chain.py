@@ -4,7 +4,8 @@ import dihedral_tools
 from numpy.linalg import norm
 import utils
 
-class pt_polymer(object):
+
+class PtPolymer(object):
     def __init__(self, start_monomer, s_head, s_tail,
                  monomer, head, tail,
                  end_monomer, e_head, e_tail,
