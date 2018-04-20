@@ -188,8 +188,8 @@ class TestPolymer(unittest.TestCase):
         sample_polymer.sample_chains()
         # print(mean_ete, sample_polymer.ete_stats.mean[-1])
         # print(std_ete, sample_polymer.ete_stats.stdev[-1])
-        np.testing.assert_allclose(mean_ete, sample_polymer.ete_stats.mean[-1], atol=0.5, rtol=0.0)
-        np.testing.assert_allclose(std_ete, sample_polymer.ete_stats.stdev[-1], atol=0.5, rtol=0.0)
+        np.testing.assert_allclose(mean_ete, sample_polymer.ete_stats.mean[-1], atol=0.85, rtol=0.0)
+        np.testing.assert_allclose(std_ete, sample_polymer.ete_stats.stdev[-1], atol=0.85, rtol=0.0)
 
 
 class TestRandomChargedPolymer(unittest.TestCase):
@@ -202,9 +202,13 @@ class TestRandomChargedPolymer(unittest.TestCase):
         cls.sample_num = 500
         cls.prob_angle = np.array([[0.0, -180.0], [0.2, -90.0], [0.3, -45.0], [0.4, 0.0],
                                    [0.5, 45.0], [0.6, 90.0], [0.8, 180.0]])
+        cls.c_monomer_len = 1.6
+        cls.c_link_len = 0.6
+        cls.c_link_angle = 14.0
         cls.c_prob_angle = np.array([[0.0, 175.0], [0.5, 5.0]])
         cls.c_polymer = RandomChargePolymer(cls.monomer_num, cls.monomer_len, cls.link_len, cls.link_angle,
-                                            cls.prob_angle, cls.c_prob_angle, cls.sample_num)
+                                            cls.prob_angle, cls.c_monomer_len, cls.c_link_len, cls.c_link_angle,
+                                            cls.c_prob_angle, cls.sample_num)
 
     def test_c_random_angle(self):
         self.c_polymer.shuffle_charged_chain(10)
@@ -242,6 +246,31 @@ class TestRandomChargedPolymer(unittest.TestCase):
             else:
                 shuffle_dihedral_set.append(angle)
         np.testing.assert_almost_equal(dihedral_list_actual, shuffle_dihedral_set)
+
+    def test_c_build_chain(self):
+        self.c_polymer.shuffle_charged_chain(0)
+        # check the length is right
+        self.assertEqual(self.monomer_num * 2, len(self.c_polymer.c_chain))
+        # check that build_chain and c_build_chain are the same when there are 0 excited dihedrals
+        np.testing.assert_almost_equal(self.c_polymer.chain, self.c_polymer.c_chain)
+        self.c_polymer.shuffle_charged_chain(10)
+        # check the location and lengths associated with c_indexes
+        for i in self.c_polymer.c_indexes:
+            pos_0 = self.c_polymer.c_chain[i * 2]
+            pos_1 = self.c_polymer.c_chain[(i * 2) + 1]
+            pos_2 = self.c_polymer.c_chain[(i * 2) + 2]
+            c_mono = pos_1 - pos_0
+            # checking the momomer length
+            np.testing.assert_allclose(self.c_polymer.c_monomer_len, c_mono[0], atol=0.001, rtol=0.0)
+            # checking link length
+            link_len = np.linalg.norm(pos_2 - pos_1)
+            np.testing.assert_allclose(self.c_polymer.c_link_len, link_len, atol=0.001, rtol=0.0)
+            # check link angle
+            vec_1 = pos_0 - pos_1
+            vec_2 = pos_2 - pos_1
+            cosine_angle = np.dot(vec_1, vec_2) / (np.linalg.norm(vec_1) * np.linalg.norm(vec_2))
+            angle = np.pi - np.arccos(cosine_angle)
+            np.testing.assert_allclose(self.c_polymer.c_link_angle, angle, atol=0.001, rtol=0.0)
 
 
 if __name__ == '__main__':

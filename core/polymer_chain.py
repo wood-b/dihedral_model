@@ -49,7 +49,10 @@ class Polymer(object):
         self._build_chain()
         # set of random dihedral angles
         self.dihedral_set = []
+        # contour length in Angstroms
+        self.contour_length = None
 
+    # builds an all trans chain
     def _build_chain(self):
         link_iter = 'l2'
         for pos in range(1, (2 * self.monomer_num), 1):
@@ -63,6 +66,7 @@ class Polymer(object):
                 elif link_iter == 'l2':
                     self.chain[pos] = self.chain[pos - 1] + self.l2
                     link_iter = 'l1'
+        self.contour_length = math.sqrt(np.dot(self.chain[-1] - self.chain[0], self.chain[-1] - self.chain[0]))
 
     def _random_angle(self):
         del self.dihedral_set[:]
@@ -154,7 +158,7 @@ class Polymer(object):
 
 class RandomChargePolymer(Polymer):
     def __init__(self, monomer_num, monomer_length, link_length,
-                 link_angle, prob_angle, c_prob_angle, sample_num=None):
+                 link_angle, prob_angle, c_monomer_length, c_link_length, c_link_angle, c_prob_angle, sample_num=None):
         super(RandomChargePolymer, self).__init__(monomer_num, monomer_length,
                                                   link_length, link_angle,
                                                   prob_angle, sample_num)
@@ -166,8 +170,45 @@ class RandomChargePolymer(Polymer):
         self.c_corr_stats = Stats()
         # set of dihedral angles for charged polymer
         self.c_dihedral_set = []
+        # combined and shuffled list of dihedral angles
         self.shuffle_dihedral_set = []
-        self.c_links = None
+        self.c_monomer_len = c_monomer_length
+        self.c_link_len = c_link_length
+        self.c_link_angle = (c_link_angle * np.pi / 180)
+        self.c_indexes = []
+        self.c_chain = np.zeros(((2 * monomer_num), 3))
+        self.c_m = [self.c_monomer_len, 0, 0]
+        self.c_l1 = [self.c_link_len * math.cos(self.c_link_angle), -self.c_link_len * math.sin(self.c_link_angle), 0]
+        self.c_l2 = [self.c_link_len * math.cos(self.c_link_angle), self.c_link_len * math.sin(self.c_link_angle), 0]
+
+    def _c_build_chain(self):
+        # Loop over all dihedrals
+        for i, d_angle in enumerate(self.shuffle_dihedral_set):
+            link = None
+            if i in self.c_indexes:
+                monomer = self.c_m
+                # cond statement to toggle between link 1 and link 2
+                if i % 2 == 0:
+                    link = self.c_l2
+                else:
+                    link = self.c_l1
+            else:
+                monomer = self.m
+                if i % 2 == 0:
+                    link = self.l2
+                else:
+                    link = self.l1
+            # two atoms/beads added per dihedral
+            pos_1 = (i * 2) + 1
+            pos_2 = (i * 2) + 2
+            # add monomer
+            self.c_chain[pos_1] = self.c_chain[pos_1 - 1] + monomer
+            # add link
+            self.c_chain[pos_2] = self.c_chain[pos_2 - 1] + link
+            # chain end
+            if i == len(self.shuffle_dihedral_set) - 1:
+                self.c_chain[pos_2 + 1] = self.c_chain[pos_2] + monomer
+        self.contour_length = math.sqrt(np.dot(self.c_chain[-1] - self.c_chain[0], self.c_chain[-1] - self.c_chain[0]))
 
     def _c_random_angle(self, total_sites):
         del self.c_dihedral_set[:]  # clear dihedral set each time _c_random_angle is called
@@ -185,12 +226,21 @@ class RandomChargePolymer(Polymer):
                         self.c_dihedral_set.append(self.c_prob_angle[0][1])
 
     def shuffle_charged_chain(self, tot_charged_sites):
+        self.shuffle_dihedral_set[:] = []
+        self.c_indexes[:] = []
         self._c_random_angle(tot_charged_sites)
         self._random_angle()
         neutral_sites = (self.monomer_num - 1) - tot_charged_sites
-        self.shuffle_dihedral_set = self.dihedral_set[:neutral_sites] + self.c_dihedral_set
-        np.random.shuffle(self.shuffle_dihedral_set)
-        self.charged_chain = np.array(self.chain, copy=True)
+        site_order = np.arange(0, self.monomer_num - 1, 1)
+        np.random.shuffle(site_order)
+        c_dihedral_list = self.dihedral_set[:neutral_sites] + self.c_dihedral_set
+        for i, val in enumerate(site_order):
+            self.shuffle_dihedral_set.append(c_dihedral_list[val])
+            if val >= neutral_sites:
+                self.c_indexes.append(i)
+        # Finds the index of the charged dihedral angles
+        self._c_build_chain()
+        self.charged_chain = np.array(self.c_chain, copy=True)
         pos_i = 1
         for angle in self.shuffle_dihedral_set:
             uv = utils.unit_vector(self.charged_chain[pos_i], self.charged_chain[pos_i + 1])
