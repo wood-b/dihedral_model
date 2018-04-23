@@ -49,8 +49,6 @@ class Polymer(object):
         self._build_chain()
         # set of random dihedral angles
         self.dihedral_set = []
-        # contour length in Angstroms
-        self.contour_length = None
 
     # builds an all trans chain
     def _build_chain(self):
@@ -66,7 +64,6 @@ class Polymer(object):
                 elif link_iter == 'l2':
                     self.chain[pos] = self.chain[pos - 1] + self.l2
                     link_iter = 'l1'
-        self.contour_length = math.sqrt(np.dot(self.chain[-1] - self.chain[0], self.chain[-1] - self.chain[0]))
 
     def _random_angle(self):
         del self.dihedral_set[:]
@@ -208,7 +205,6 @@ class RandomChargePolymer(Polymer):
             # chain end
             if i == len(self.shuffle_dihedral_set) - 1:
                 self.c_chain[pos_2 + 1] = self.c_chain[pos_2] + monomer
-        self.contour_length = math.sqrt(np.dot(self.c_chain[-1] - self.c_chain[0], self.c_chain[-1] - self.c_chain[0]))
 
     def _c_random_angle(self, total_sites):
         del self.c_dihedral_set[:]  # clear dihedral set each time _c_random_angle is called
