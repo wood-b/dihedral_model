@@ -15,7 +15,7 @@ def run_tangent_corr():
     parser.add_argument('-ml', action='store', type=float, default=2.47, help='monomer_length')
     parser.add_argument('-ll', action='store', type=float, default=1.46, help='link_length')
     parser.add_argument('-la', action='store', type=float, default=15.2, help='link_angle')
-    parser.add_argument('-et', action='store', type=float, default=None, help='excitation type')
+    parser.add_argument('-et', action='store', type=str, default=None, help='excitation type')
     parser.add_argument('-sn', action='store', type=int, required=True, help='sample_number')
     parser.add_argument('-nc', action='store', type=int, required=True, help='number of charged or excited dihedrals')
     parser.add_argument('-o', action='store', type=str, required=True, help='output filename')
