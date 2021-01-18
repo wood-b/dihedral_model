@@ -1,6 +1,6 @@
 from pymatgen.io.babel import BabelMolAdaptor
 import numpy as np
-import pybel as pb
+from openbabel import pybel as pb
 import math
 
 

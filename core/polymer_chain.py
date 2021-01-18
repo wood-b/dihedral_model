@@ -107,7 +107,8 @@ class Polymer(object):
         array_2 = np.copy(array_1)
         for i in range(len(array_1)):
             corr = np.einsum('ij,ij->i', array_1, array_2)
-            map(self.tangent_corr[i].update, corr)
+            for j in corr:
+                self.tangent_corr[i].update(j)
             array_1 = np.delete(array_1, -1, 0)
             array_2 = np.delete(array_2, 0, 0)
 
@@ -142,7 +143,8 @@ class Polymer(object):
         array_2 = np.copy(array_1)
         for i in range(len(array_1)):
             corr = ((np.einsum('ij,ij->i', array_1, array_2) ** 2) * (3. / 2.)) - (1. / 2.)
-            map(self.s_x_corr[i].update, corr)
+            for j in corr:
+                self.s_x_corr[i].update(j)
             array_1 = np.delete(array_1, -1, 0)
             array_2 = np.delete(array_2, 0, 0)
 

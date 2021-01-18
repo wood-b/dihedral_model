@@ -1,9 +1,9 @@
-from pymatgen.io.qchem import QcOutput
+from pymatgen.io.qchem.outputs import QCOutput
+from pymatgen.core.units import Energy
 import os
 import sys
 from scipy.optimize import curve_fit
-import utils
-import numpy as np
+from utils import utils
 
 
 class ImportDihedralPotential(object):
@@ -27,49 +27,27 @@ class ImportDihedralPotential(object):
     def _get_properties(self):
         energy, dihedral, molecule, mull_charge, errors = [], [], [], [], []
         for f in os.listdir(self.dir):
-            if ".qcout" in f:
-                if ".orig" not in f:
-                    try:
-                        output = QcOutput('{d}/{f}'.format(d=self.dir, f=f))
-                        finish = output.data[-1]['gracefully_terminated']
-                        if not finish:
-                            continue
-                    except:
-                        e = sys.exc_info()[0]
-                        errors.append('output/termination {e} in {f}'.format(e=e, f=f))
-                        continue
-                    try:
-                        energy.append(output.final_energy)
-                    except:
-                        e = sys.exc_info()[0]
-                        errors.append('energy {e} in {f}'.format(e=e, f=f))
-                        continue
-                    try:
-                        qchem_in = output.data[-1]['input']
-                    except:
-                        e = sys.exc_info()[0]
-                        errors.append('input {e} in {f}'.format(e=e, f=f))
-                    try:
-                        mull_charge.append(output.data[-1]['charges']['mulliken'])
-                    except:
-                        e = sys.exc_info()[0]
-                        errors.append('charges {e} in {f}'.format(e=e, f=f))
-                    try:
-                        molecule.append(output.final_structure)
-                    except:
-                        e = sys.exc_info()[0]
-                        errors.append('final structure {e} in {f}'.format(e=e, f=f))
-                    try:
-                        constraints = qchem_in.params['opt']['CONSTRAINT']
-                        for l in constraints:
-                            if 'tors' in l:
-                                dihedral.append(l[len(l) - 1])
-                    except:
-                        e = sys.exc_info()[0]
-                        errors.append('constraints {e} in {f}'.format(e=e, f=f))
+            if any(item in f for item in [".qcout", ".out"]):
+                output = QCOutput('{d}/{f}'.format(d=self.dir, f=f))
+                # if calc finished get properties
+                if output.data.get("completion", []):
+                    # energy in eV
+                    energy.append(Energy(output.data["final_energy"], "Ha").to("eV"))
+                    # dihedral
+                    if output.data.get("opt_constraint"):
+                        if "Dihedral" in output.data["opt_constraint"]:
+                            dihedral.append(float(output.data["opt_constraint"][-1]))
+                        else:
+                            dihedral.append("No dihedral constraint or multiple constraints check output")
+                    # molecule from final structure
+                    molecule.append(output.data["molecule_from_optimized_geometry"])
+                    # mulliken charges
+                    mull_charge.append(output.data["Mulliken"])
+                # errors
+                errors.append(output.data["errors"])
         return energy, dihedral, molecule, mull_charge, errors
 
     def _get_boltzmann(self):
         self.prob = utils.boltz_dist(self.temp, self.RB_energy)
         self.cum_prob = [sum(self.prob[0:prob_i]) for prob_i in range(len(self.prob))]
-        self.prob_angle = zip(self.cum_prob, self.angles)
+        self.prob_angle = [list(i) for i in zip(self.cum_prob, self.angles)]
