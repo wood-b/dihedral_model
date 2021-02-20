@@ -213,6 +213,7 @@ class RandomChargePolymer(Polymer):
     def _c_random_angle(self, total_sites):
         del self.c_dihedral_set[:]  # clear dihedral set each time _c_random_angle is called
         random = np.random.uniform(0.0, 1.0, size=total_sites)
+        #print(type(self.c_prob_angle))
         angle_map = self.c_prob_angle[:, 0].searchsorted(random)
         for prob_i in angle_map:
             rand = np.random.uniform(0.0, 1.0)
@@ -225,20 +226,34 @@ class RandomChargePolymer(Polymer):
                     if prob_i == len(self.c_prob_angle):
                         self.c_dihedral_set.append(self.c_prob_angle[0][1])
 
-    def shuffle_charged_chain(self, tot_charged_sites):
+    def shuffle_charged_chain(self, tot_charged_sites, charge_len=3):
         self.shuffle_dihedral_set[:] = []
         self.c_indexes[:] = []
         self._c_random_angle(tot_charged_sites)
         self._random_angle()
-        neutral_sites = (self.monomer_num - 1) - tot_charged_sites
-        site_order = np.arange(0, self.monomer_num - 1, 1)
-        np.random.shuffle(site_order)
-        c_dihedral_list = self.dihedral_set[:neutral_sites] + self.c_dihedral_set
-        for i, val in enumerate(site_order):
-            self.shuffle_dihedral_set.append(c_dihedral_list[val])
-            if val >= neutral_sites:
-                self.c_indexes.append(i)
+        total_sites = self.monomer_num - 1
+        num_charges = int(tot_charged_sites / charge_len)
+        # neutral_sites = total_sites - tot_charged_sites
+        # site_order = np.arange(0, self.monomer_num - 1, 1)
+        # np.random.shuffle(site_order)
+        # c_dihedral_list = self.dihedral_set[:neutral_sites] + self.c_dihedral_set
+        # for i, val in enumerate(site_order):
+        #    self.shuffle_dihedral_set.append(c_dihedral_list[val])
+        #    if val >= neutral_sites:
+        #        self.c_indexes.append(i)
         # Finds the index of the charged dihedral angles
+        self.c_indexes = place_correlated_charges(total_dihedrals=total_sites,
+                                                  charge_len=charge_len,
+                                                  total_charges=num_charges)
+        c_counter = 0
+        counter = 0
+        for site in range(total_sites):
+            if site in self.c_indexes:
+                self.shuffle_dihedral_set.append(self.c_dihedral_set[c_counter])
+                c_counter += 1
+            else:
+                self.shuffle_dihedral_set.append(self.dihedral_set[counter])
+                counter += 1
         self._c_build_chain()
         self.charged_chain = np.array(self.c_chain, copy=True)
         pos_i = 1
@@ -257,3 +272,33 @@ class RandomChargePolymer(Polymer):
             self.shuffle_charged_chain(tot_charged_sites)
             self.p2_order_param(self.charged_chain)
             self.c_ete_stats.update(self.c_end_to_end)
+
+
+def place_correlated_charges(total_dihedrals, charge_len, total_charges, n_loops=100):
+    # charge_len is the number of charged dihedrals correlated together
+    # generate indexes of potential charge locations
+    for loop in range(n_loops):
+        place_charge_idx = np.arange(total_dihedrals - (charge_len - 1))
+        charge_idx = []
+        # loop over total charges to place
+        for i in range(total_charges):
+            # choose a random placement
+            rand = np.random.choice(place_charge_idx)
+            charge_idx.extend([rand + c for c in range(charge_len)])
+            # remove the overlapping placements below and above
+            lower_b = rand - (charge_len - 1)
+            if lower_b < 0:
+                lower_b = 0
+            upper_b = rand + (charge_len - 1)
+            if upper_b > total_dihedrals - (charge_len - 1):
+                upper_b = total_dihedrals - (charge_len - 1)
+            remove = [j for j in range(lower_b, (upper_b + 1))]
+            # update list
+            place_charge_idx = [item for item in place_charge_idx if item not in remove]
+            if len(place_charge_idx) == 0:
+                break
+        if len(charge_idx) == (charge_len * total_charges):
+            return charge_idx
+        else:
+            continue
+    raise Exception("Cannot place all charge packets")
