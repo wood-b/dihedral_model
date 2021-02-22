@@ -18,6 +18,7 @@ def run_tangent_corr():
     parser.add_argument('-et', action='store', type=str, default=None, help='excitation type')
     parser.add_argument('-sn', action='store', type=int, required=True, help='sample_number')
     parser.add_argument('-nc', action='store', type=int, required=True, help='number of charged or excited dihedrals')
+    parser.add_argument('-cl', action='store', type=int, default=1, help='charge length in number of dihedrals')
     parser.add_argument('-o', action='store', type=str, required=True, help='output filename')
     parser.add_argument('-od', action='store', type=str, required=True, help='output directory')
 
@@ -38,10 +39,10 @@ def run_tangent_corr():
 
     # import ground state - Probability angle
     if args.gf:
-        prob_angle = np.array(utils.read_json(args.gf))
+        prob_angle = utils.read_json(args.gf)
     # import excited - Probability angle
     if args.cf:
-        c_prob_angle = np.array(utils.read_json(args.cf))
+        c_prob_angle = utils.read_json(args.cf)
 
     # run dihedral model
     if args.nc == 0:
@@ -66,10 +67,10 @@ def run_tangent_corr():
         poly = RandomChargePolymer(args.mn, args.ml, args.ll, args.la, prob_angle,
                                    c_ml, c_ll, c_la, c_prob_angle, args.sn)
         for chain_i in range(1, args.sn + 1, 1):
-            poly.shuffle_charged_chain(args.nc)
+            poly.rotate_charged_chain(args.nc, args.cl)
             poly.tangent_auto_corr(poly.charged_chain)
             poly.c_ete_stats.update(poly.c_end_to_end)
-            poly.dihedral_hist.update(poly.shuffle_dihedral_set)
+            poly.dihedral_hist.update(poly.mixed_dihedral_set)
             poly.ete_hist.append(poly.c_end_to_end)
 
     # write JSON file with dictionary from run
@@ -79,7 +80,7 @@ def run_tangent_corr():
     run_dict['charged_dihedral_number'] = args.nc
     run_dict['sample_number'] = args.sn
     run_dict['excitation_type'] = args.et
-    for attr, value in poly.__dict__.iteritems():
+    for attr, value in poly.__dict__.items():
         if attr.startswith('tangent_corr'):
             tc_dict = {'mean': [i.mean for i in value],
                        'variance': [i.variance for i in value],

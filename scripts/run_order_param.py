@@ -18,6 +18,7 @@ def run_order_param():
     parser.add_argument('-et', action='store', type=str, default=None, help='excitation type')
     parser.add_argument('-sn', action='store', type=int, required=True, help='sample_number')
     parser.add_argument('-nc', action='store', type=int, required=True, help='number of charged or excited dihedrals')
+    parser.add_argument('-cl', action='store', type=int, default=1, help='charge length in number of dihedrals')
     parser.add_argument('-o', action='store', type=str, required=True, help='output filename')
     parser.add_argument('-od', action='store', type=str, required=True, help='output directory')
 
@@ -60,7 +61,7 @@ def run_order_param():
         poly = RandomChargePolymer(args.mn, args.ml, args.ll, args.la, prob_angle,
                                    c_ml, c_ll, c_la, c_prob_angle, args.sn)
         for chain_i in range(1, args.sn + 1, 1):
-            poly.shuffle_charged_chain(args.nc)
+            poly.rotate_charged_chain(args.nc, args.cl)
             poly.p2_order_param(poly.charged_chain)
 
     # write files
@@ -69,7 +70,7 @@ def run_order_param():
     run_dict['charged_dihedral_number'] = args.nc
     run_dict['sample_number'] = args.sn
     run_dict['excitation_type'] = args.et
-    for attr, value in poly.__dict__.iteritems():
+    for attr, value in poly.__dict__.items():
         if attr.startswith('s_order_param'):
             s_order_param_dict = {'mean': value.mean, 'variance': value.variance, 'std_error': value.std_error}
             run_dict['s_order_param'] = s_order_param_dict
